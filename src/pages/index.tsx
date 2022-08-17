@@ -1,5 +1,12 @@
-import * as React from "react"
+import React from 'react';
+import { Layout } from '../components';
 
-const IndexPage = () => <h1>hello world</h1>
+const IndexPage: React.FC = () => {
+  return (
+    <Layout>
+      <h1>hello world</h1>
+    </Layout>
+  );
+};
 
-export default IndexPage
+export default IndexPage;

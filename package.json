@@ -1,6 +1,5 @@
 {
   "name": "portfolio",
-  "private": true,
   "description": "Personal portfolio",
   "version": "1.0.0",
   "author": "Florian Bühler <florian-buehler@outlook.com>",
@@ -12,30 +11,52 @@
     "start": "gatsby develop",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "eslint": "eslint . --ext .js,.ts,.tsx",
+    "fix-eslint": "eslint . --ext .js,.ts,.tsx --fix"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/florianbuehler/portfolio"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/florianbuehler/portfolio/issues"
   },
   "dependencies": {
-    "gatsby": "^4.20.0",
-    "gatsby-plugin-image": "^2.20.0",
-    "gatsby-plugin-manifest": "^4.20.0",
-    "gatsby-plugin-sharp": "^4.20.0",
-    "gatsby-source-filesystem": "^4.20.0",
-    "gatsby-transformer-sharp": "^4.20.0",
-    "prop-types": "^15.8.1",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "gatsby": "^4.21.0",
+    "gatsby-plugin-image": "^2.21.0",
+    "gatsby-plugin-manifest": "^4.21.0",
+    "gatsby-plugin-offline": "^5.21.0",
+    "gatsby-plugin-react-helmet": "^5.21.0",
+    "gatsby-plugin-robots-txt": "^1.7.1",
+    "gatsby-plugin-sharp": "^4.21.0",
+    "gatsby-plugin-sitemap": "^5.21.0",
+    "gatsby-plugin-styled-components": "^5.21.0",
+    "gatsby-remark-external-links": "0.0.4",
+    "gatsby-remark-code-titles": "^1.1.0",
+    "gatsby-remark-images": "^6.21.0",
+    "gatsby-remark-prismjs": "^6.21.0",
+    "gatsby-source-filesystem": "^4.21.0",
+    "gatsby-transformer-remark": "^5.21.0",
+    "gatsby-transformer-sharp": "^4.21.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "typescript": "^4.7.4"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.4.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^4.3.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.5.0"
   }
 }

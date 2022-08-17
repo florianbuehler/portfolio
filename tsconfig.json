@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,17 +16,9 @@
     "jsx": "react-jsx",
     "sourceMap": true,
     "baseUrl": "src",
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
+    "typeRoots": ["./types", "./node_modules/@types"],
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src/"
-  ],
-  "exclude": [
-    "node_modules",
-    "types",
-    "<outDir>"
-  ]
+  "include": ["src/"],
+  "exclude": ["node_modules", "types", "<outDir>"]
 }
