@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageProps } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
-import { Loader } from '../components';
+import { Email, Loader } from '../components';
 import { GlobalStyle, theme } from '../styles';
 
 type Props = {
@@ -28,6 +28,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, location }) => {
             <Loader onLoadingCompleted={() => setIsLoading(false)} />
           ) : (
             <StyledContent>
+              <Email delayInSec={isHome ? 2000 : 0} />
               <div id="content">{children}</div>
             </StyledContent>
           )}
