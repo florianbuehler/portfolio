@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { PageProps } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
+import { Loader } from '../components';
 import { GlobalStyle, theme } from '../styles';
+
+type Props = {
+  children?: React.ReactNode;
+} & Pick<PageProps, 'location'>;
 
 const StyledContent = styled.div`
   display: flex;
@@ -8,15 +14,26 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
-const Layout: React.FC = ({ children }) => {
-  return (
-    <div id="root">
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
+const Layout: React.FunctionComponent<Props> = ({ children, location }) => {
+  const isHome = location.pathname === '/';
+  const [isLoading, setIsLoading] = useState(isHome);
 
-        <StyledContent>{children}</StyledContent>
-      </ThemeProvider>
-    </div>
+  return (
+    <>
+      <div id="root">
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+
+          {isLoading && isHome ? (
+            <Loader onLoadingCompleted={() => setIsLoading(false)} />
+          ) : (
+            <StyledContent>
+              <div id="content">{children}</div>
+            </StyledContent>
+          )}
+        </ThemeProvider>
+      </div>
+    </>
   );
 };
 

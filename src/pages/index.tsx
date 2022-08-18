@@ -1,17 +1,18 @@
 import React from 'react';
+import { PageProps } from 'gatsby';
 import styled from 'styled-components';
 import { Layout } from '../components';
-import { Hero } from '../components/sections';
+import { HeroSection } from '../components/sections';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
 `;
 
-const IndexPage: React.FC = () => {
+const IndexPage: React.FunctionComponent<PageProps> = ({ location }) => {
   return (
-    <Layout>
+    <Layout location={location}>
       <StyledMainContainer className="fillHeight">
-        <Hero />
+        <HeroSection />
       </StyledMainContainer>
     </Layout>
   );

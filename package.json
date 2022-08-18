@@ -24,10 +24,13 @@
     "url": "https://github.com/florianbuehler/portfolio/issues"
   },
   "dependencies": {
+    "@types/animejs": "^3.1.5",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-helmet": "^6.1.5",
     "@types/react-transition-group": "^4.4.5",
     "@types/styled-components": "^5.1.26",
+    "animejs": "^3.2.1",
     "gatsby": "^4.21.0",
     "gatsby-plugin-image": "^2.21.0",
     "gatsby-plugin-manifest": "^4.21.0",
@@ -38,7 +41,6 @@
     "gatsby-plugin-sitemap": "^5.21.0",
     "gatsby-plugin-styled-components": "^5.21.0",
     "gatsby-remark-code-titles": "^1.1.0",
-    "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^6.21.0",
     "gatsby-remark-prismjs": "^6.21.0",
     "gatsby-source-filesystem": "^4.21.0",
@@ -46,6 +48,7 @@
     "gatsby-transformer-sharp": "^4.21.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0",
     "react-transition-group": "^4.4.5",
     "styled-components": "^5.3.5"
   },
