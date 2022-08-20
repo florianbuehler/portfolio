@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Side } from '../components';
-import { config } from '../config';
 
 type Props = {
-  delayInSec: number;
+  email: string;
+  delayInSec?: number;
 };
 
 const StyledLinkWrapper = styled.div`
@@ -38,10 +38,10 @@ const StyledLinkWrapper = styled.div`
   }
 `;
 
-const Email: React.FC<Props> = ({ delayInSec }) => (
+const Email: React.FC<Props> = ({ delayInSec, email }) => (
   <Side delayInSec={delayInSec} position="right">
     <StyledLinkWrapper>
-      <a href={`mailto:${config.email}`}>{config.email}</a>
+      <a href={`mailto:${email}`}>{email}</a>
     </StyledLinkWrapper>
   </Side>
 );

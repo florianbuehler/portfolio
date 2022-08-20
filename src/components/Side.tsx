@@ -5,7 +5,7 @@ import { usePrefersReducedMotion } from '../hooks';
 
 type Props = {
   children?: React.ReactNode;
-  delayInSec: number;
+  delayInSec?: number;
   position: 'left' | 'right';
 };
 
@@ -51,7 +51,7 @@ const Side: React.FC<Props> = ({ children, delayInSec, position }) => {
       ) : (
         <TransitionGroup component={null}>
           {isMounted && (
-            <CSSTransition classNames={delayInSec ? 'fade' : ''} timeout={delayInSec}>
+            <CSSTransition classNames={delayInSec ? 'fade' : ''} timeout={delayInSec || 0}>
               {children}
             </CSSTransition>
           )}
