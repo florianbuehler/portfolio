@@ -1,6 +1,6 @@
 import colors, { Colors } from './colors';
 import { typography, Typography } from './fonts';
-import mixins from './mixins';
+import mixins, { Mixins } from './mixins';
 
 export type Theme = {
   colors: Colors;
@@ -14,6 +14,8 @@ export type Theme = {
   };
 
   shadow: string;
+
+  mixins: Mixins;
 };
 
 const theme: Theme = {

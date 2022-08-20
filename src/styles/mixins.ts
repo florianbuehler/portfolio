@@ -1,4 +1,23 @@
-import { css } from 'styled-components';
+import {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation,
+  ThemeProps
+} from 'styled-components';
+
+export type Mixins = {
+  flexCenter: FlattenSimpleInterpolation;
+  flexBetween: FlattenSimpleInterpolation;
+  link: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  inlineLink: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  button: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  smallButton: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  bigButton: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  boxShadow: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  fancyList: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  resetList: FlattenSimpleInterpolation;
+};
 
 const button = css`
   color: ${({ theme }) => theme.colors.primary};
@@ -24,7 +43,7 @@ const button = css`
   }
 `;
 
-const mixins = {
+const mixins: Mixins = {
   flexCenter: css`
     display: flex;
     justify-content: center;

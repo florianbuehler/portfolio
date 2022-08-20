@@ -25,7 +25,15 @@ import SFMonoSemiboldItalicWoff from '../fonts/SFMono/SFMono-SemiboldItalic.woff
 import SFMonoSemiboldItalicWoff2 from '../fonts/SFMono/SFMono-SemiboldItalic.woff2';
 import colors from './colors';
 
-type FontSize = 'text2Xs' | 'textXs' | 'textSm' | 'textMd' | 'textLg' | 'textXl' | 'text2Xl' | 'heading';
+type FontSize =
+  | 'text2Xs'
+  | 'textXs'
+  | 'textSm'
+  | 'textMd'
+  | 'textLg'
+  | 'textXl'
+  | 'text2Xl'
+  | 'heading';
 
 export type Typography = {
   colors: {
@@ -115,7 +123,8 @@ export const typography: Typography = {
     selected: colors.lightestSlate
   },
 
-  fontSans: "'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif",
+  fontSans:
+    "'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif",
   fontMono: "'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace",
 
   fontSizes: {
