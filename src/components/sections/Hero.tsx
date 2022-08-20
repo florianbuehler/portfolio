@@ -16,8 +16,8 @@ const StyledHeroSection = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--green);
-    font-family: var(--font-mono);
+    color: ${({ theme }) => theme.colors.primary};
+    font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) =>
       `clamp(${theme.typography.fontSizes.textSm}, 5vw, ${theme.typography.fontSizes.textMd})`};
     font-weight: 400;
@@ -29,7 +29,7 @@ const StyledHeroSection = styled.section`
 
   h3 {
     margin-top: 10px;
-    color: var(--slate);
+    color: ${({ theme }) => theme.typography.colors.text};
     line-height: 0.9;
   }
 

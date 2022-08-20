@@ -18,7 +18,7 @@ const StyledSide = styled.div<StyledProps>`
   left: ${({ position }) => (position === 'left' ? '40px' : 'auto')};
   right: ${({ position }) => (position === 'left' ? 'auto' : '40px')};
   z-index: 10;
-  color: var(--light-slate);
+  color: ${({ theme }) => theme.colors.lightSlate};
 
   @media (max-width: 1080px) {
     left: ${({ position }) => (position === 'left' ? '20px' : 'auto')};

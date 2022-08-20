@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 
 const button = css`
-  color: var(--green);
+  color: ${({ theme }) => theme.colors.primary};
   background-color: transparent;
-  border: 1px solid var(--green);
+  border: ${({ theme }) => `1px solid ${theme.colors.primary}`};
   border-radius: var(--border-radius);
   font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
-  font-family: var(--font-mono);
+  font-family: ${({ theme }) => theme.typography.fontMono};
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -16,7 +16,7 @@ const button = css`
   &:hover,
   &:focus,
   &:active {
-    background-color: var(--green-tint);
+    background-color: ${({ theme }) => theme.colors.primaryTint};
     outline: none;
   }
   &:after {
@@ -47,7 +47,7 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: var(--green);
+      color: ${({ theme }) => theme.colors.primary};
       outline: 0;
     }
   `,
@@ -58,17 +58,17 @@ const mixins = {
     text-decoration-skip-ink: auto;
     position: relative;
     transition: var(--transition);
-    color: var(--green);
+    color: ${({ theme }) => theme.colors.primary};
     &:hover,
     &:focus,
     &:active {
-      color: var(--green);
+      color: ${({ theme }) => theme.colors.primary};
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--green) !important;
+        color: ${({ theme }) => theme.colors.primary} !important;
         transition: var(--transition);
       }
     }
@@ -79,7 +79,7 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 0.37em;
-      background-color: var(--green);
+      background-color: ${({ theme }) => theme.colors.primary};
       transition: var(--transition);
       opacity: 0.5;
     }
@@ -88,13 +88,13 @@ const mixins = {
   button,
 
   smallButton: css`
-    color: var(--green);
+    color: ${({ theme }) => theme.colors.primary};
     background-color: transparent;
-    border: 1px solid var(--green);
+    border: ${({ theme }) => `1px solid ${theme.colors.primary}`};
     border-radius: var(--border-radius);
     padding: 0.75rem 1rem;
     font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -102,7 +102,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
+      background-color: ${({ theme }) => theme.colors.primaryTint};
       outline: none;
     }
     &:after {
@@ -111,13 +111,13 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: var(--green);
+    color: ${({ theme }) => theme.colors.primary};
     background-color: transparent;
-    border: 1px solid var(--green);
+    border: ${({ theme }) => `1px solid ${theme.colors.primary}`};
     border-radius: var(--border-radius);
     padding: 1.25rem 1.75rem;
     font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -125,7 +125,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
+      background-color: ${({ theme }) => theme.colors.primaryTint};
       outline: none;
     }
     &:after {
@@ -134,12 +134,12 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    box-shadow: ${({ theme }) => `0 10px 30px -15px ${theme.shadow}`};
     transition: var(--transition);
 
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      box-shadow: ${({ theme }) => `0 20px 30px -15px ${theme.shadow}`};
     }
   `,
 
@@ -156,7 +156,7 @@ const mixins = {
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: ${({ theme }) => theme.colors.primary};
       }
     }
   `,

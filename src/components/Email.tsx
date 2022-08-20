@@ -19,13 +19,13 @@ const StyledLinkWrapper = styled.div`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: var(--light-slate);
+    background-color: ${({ theme }) => theme.colors.lightSlate};
   }
 
   a {
     margin: 20px auto;
     padding: 10px;
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) => theme.typography.fontSizes.text2Xs};
     line-height: ${({ theme }) => theme.typography.fontSizes.textLg};
     letter-spacing: 0.1em;

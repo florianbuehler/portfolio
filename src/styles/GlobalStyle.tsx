@@ -21,13 +21,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
+    background-color: ${({ theme }) => theme.bg.selected};
+    color: ${({ theme }) => theme.typography.colors.selected};
   }
 
   /* Provide basic, default focus styles.*/
   :focus {
-    outline: 2px dashed var(--green);
+    outline: ${({ theme }) => `2px dashed ${theme.colors.primary}`};
     outline-offset: 3px;
   }
 
@@ -40,30 +40,30 @@ const GlobalStyle = createGlobalStyle`
     outline-offset: 0;
   }
 
-  /*
+  /* 
     Optionally: If :focus-visible is supported on this
     platform, provide enhanced focus styles for keyboard
     focus.
   */
   :focus-visible {
-    outline: 2px dashed var(--green);
+    outline: ${({ theme }) => `2px dashed ${theme.colors.primary}`};
     outline-offset: 3px;
   }
 
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: ${({ theme }) => `${theme.colors.darkSlate} ${theme.colors.navy}`};
   }
   ::-webkit-scrollbar {
     width: 12px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--navy);
+    background: ${({ theme }) => theme.bg.color};
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: ${({ theme }) => theme.colors.darkSlate};
+    border: ${({ theme }) => `3px solid ${theme.bg.color}`};
     border-radius: 10px;
   }
 
@@ -74,9 +74,9 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
-    color: var(--slate);
-    font-family: var(--font-sans);
+    background-color: ${({ theme }) => theme.bg.color};
+    color: ${({ theme }) => theme.typography.colors.text};
+    font-family: ${({ theme }) => theme.typography.fontSans};
     font-size: ${({ theme }) => theme.typography.fontSizes.textXl};;
     line-height: 1.3;
 
@@ -165,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: ${({ theme }) => theme.typography.colors.header};
     line-height: 1.1;
   }
 
@@ -194,8 +194,8 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--green);
-      font-family: var(--font-mono);
+      color: ${({ theme }) => theme.colors.primary};
+      font-family: ${({ theme }) => theme.typography.fontMono};
       font-size: ${({ theme }) =>
         `clamp(${theme.typography.fontSizes.textMd}, 3vw, ${theme.typography.fontSizes.textXl})`};
       font-weight: 400;
@@ -214,7 +214,7 @@ const GlobalStyle = createGlobalStyle`
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background-color: ${({ theme }) => theme.bg.selected};
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -262,7 +262,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: ${({ theme }) => theme.colors.primary};
     }
 
     &.inline-link {
@@ -304,8 +304,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > code {
-      background-color: var(--light-navy);
-      color: var(--white);
+      background-color: ${({ theme }) => theme.bg.highlight};
+      color: ${({ theme }) => theme.colors.white};
       font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
       border-radius: var(--border-radius);
       padding: 0.3em 0.5em;
@@ -326,14 +326,14 @@ const GlobalStyle = createGlobalStyle`
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--green);
+          color: ${({ theme }) => theme.colors.primary};
         }
       }
     }
   }
 
   blockquote {
-    border-left-color: var(--green);
+    border-left-color: ${({ theme }) => theme.colors.primary};
     border-left-style: solid;
     border-left-width: 1px;
     margin-left: 0px;
@@ -347,7 +347,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: var(--lightest-navy);
+    background-color: ${({ theme }) => theme.bg.selected};
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -357,7 +357,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
   }
 
@@ -373,8 +373,8 @@ const GlobalStyle = createGlobalStyle`
 
     &:focus,
     &:active {
-      background-color: var(--green);
-      color: var(--navy);
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.bg.color};
       top: 0;
       left: 0;
       width: auto;
@@ -385,21 +385,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #logo {
-    color: var(--green);
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   .overline {
-    color: var(--green);
-    font-family: var(--font-mono);
+    color: ${({ theme }) => theme.colors.primary};
+    font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
     font-weight: 400;
   }
 
   .subtitle {
-    color: var(--green);
+    color: ${({ theme }) => theme.colors.primary};
     margin: 0 0 20px 0;
     font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     font-weight: 400;
     line-height: 1.5;
     @media (max-width: 1080px) {
@@ -419,7 +419,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    color: var(--green);
+    color: ${({ theme }) => theme.colors.primary};
 
     .arrow {
       display: block;
@@ -429,7 +429,7 @@ const GlobalStyle = createGlobalStyle`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
-      font-family: var(--font-mono);
+      font-family: ${({ theme }) => theme.typography.fontMono};
       font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
       font-weight: 600;
       line-height: 1.5;

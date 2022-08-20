@@ -21,7 +21,7 @@ const StyledLoader = styled.div<StyledProps>`
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--dark-navy);
+  background-color: ${({ theme }) => theme.bg.darker};
   z-index: 99;
 
   .logo-wrapper {

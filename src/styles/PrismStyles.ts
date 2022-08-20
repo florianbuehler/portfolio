@@ -28,7 +28,7 @@ const PrismStyles = css`
     padding: 1.25em;
     overflow: auto;
     position: relative;
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
   }
 
@@ -65,7 +65,7 @@ const PrismStyles = css`
   /* File names */
   .gatsby-code-title {
     padding: 1em 1.5em;
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
     background-color: ${prismColors.bg};
     color: ${prismColors.grey};
@@ -84,7 +84,7 @@ const PrismStyles = css`
   .gatsby-highlight-code-line {
     display: block;
     background-color: ${prismColors.lineHighlight};
-    border-left: 2px solid var(--green);
+    border-left: ${({ theme }) => `2px solid ${theme.colors.primary}`};
     padding-left: calc(1em + 2px);
     padding-right: 1em;
     margin-right: -1.35em;
@@ -93,10 +93,10 @@ const PrismStyles = css`
 
   /* Language badges */
   .gatsby-highlight pre[class*='language-']::before {
-    background: var(--lightest-navy);
-    color: var(--white);
+    background: ${({ theme }) => theme.bg.selected};
+    color: ${({ theme }) => theme.colors.white};
     font-size: ${({ theme }) => theme.typography.fontSizes.text2Xs};
-    font-family: var(--font-mono);
+    font-family: ${({ theme }) => theme.typography.fontMono};
     line-height: 1.5;
     letter-spacing: 0.1em;
     text-transform: uppercase;

@@ -1,12 +1,33 @@
+import colors, { Colors } from './colors';
 import { typography, Typography } from './fonts';
 import mixins from './mixins';
 
 export type Theme = {
+  colors: Colors;
   typography: Typography;
+
+  bg: {
+    color: string;
+    darker: string;
+    highlight: string;
+    selected: string;
+  };
+
+  shadow: string;
 };
 
 const theme: Theme = {
+  colors,
   typography,
+
+  bg: {
+    color: colors.navy,
+    darker: colors.darkNavy,
+    highlight: colors.lightNavy,
+    selected: colors.lightestNavy
+  },
+
+  shadow: colors.darkNavyTint,
 
   bp: {
     mobileS: `max-width: 330px`,

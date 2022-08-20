@@ -28,7 +28,7 @@ const StyledSocial = styled.ul`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: var(--light-slate);
+    background-color: ${({ theme }) => theme.colors.lightSlate};
   }
 
   li {
