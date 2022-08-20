@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'Florian Bühler',
     description:
-      'Florian Bühler is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.'
+      'Florian Bühler is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
+    siteUrl: 'https://florianbuehler.github.io/'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

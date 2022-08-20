@@ -15,7 +15,7 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
-const Layout: React.FunctionComponent<Props> = ({ children, location }) => {
+const Layout: React.FC<Props> = ({ children, location }) => {
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
 

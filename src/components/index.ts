@@ -1,4 +1,5 @@
 export { default as Email } from './Email';
+export { default as SEO } from './Seo';
 export { default as Layout } from './Layout';
 export { default as Loader } from './Loader';
 export { default as Side } from './Side';

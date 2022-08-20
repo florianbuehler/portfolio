@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
 import styled from 'styled-components';
-import { Layout } from '../components';
+import { Layout, SEO } from '../components';
 import { HeroSection } from '../components/sections';
 
 const StyledMainContainer = styled.main`
@@ -21,5 +21,7 @@ const IndexPage: React.FunctionComponent<PageProps> = ({ location }) => {
     </Layout>
   );
 };
+
+export const Head: React.FC = () => <SEO />;
 
 export default IndexPage;

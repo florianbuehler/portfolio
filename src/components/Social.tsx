@@ -14,7 +14,7 @@ type Props = {
   delayInSec: number;
 };
 
-const StyledSocialList = styled.ul`
+const StyledSocial = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +54,7 @@ const StyledSocialList = styled.ul`
 
 const Social: React.FC<Props> = ({ socialMedia, delayInSec }) => (
   <Side delayInSec={delayInSec} position="left">
-    <StyledSocialList>
+    <StyledSocial>
       {socialMedia &&
         socialMedia.map(({ name, url, icon }, i) => (
           <li key={i}>
@@ -63,7 +63,7 @@ const Social: React.FC<Props> = ({ socialMedia, delayInSec }) => (
             </a>
           </li>
         ))}
-    </StyledSocialList>
+    </StyledSocial>
   </Side>
 );
 
