@@ -5,7 +5,7 @@ const button = css`
   background-color: transparent;
   border: 1px solid var(--green);
   border-radius: var(--border-radius);
-  font-size: var(--fz-xs);
+  font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
   font-family: var(--font-mono);
   line-height: 1;
   text-decoration: none;
@@ -93,7 +93,7 @@ const mixins = {
     border: 1px solid var(--green);
     border-radius: var(--border-radius);
     padding: 0.75rem 1rem;
-    font-size: var(--fz-xs);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
     font-family: var(--font-mono);
     line-height: 1;
     text-decoration: none;
@@ -116,7 +116,7 @@ const mixins = {
     border: 1px solid var(--green);
     border-radius: var(--border-radius);
     padding: 1.25rem 1.75rem;
-    font-size: var(--fz-sm);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
     font-family: var(--font-mono);
     line-height: 1;
     text-decoration: none;
@@ -147,7 +147,7 @@ const mixins = {
     padding: 0;
     margin: 0;
     list-style: none;
-    font-size: var(--fz-lg);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
     li {
       position: relative;
       padding-left: 30px;

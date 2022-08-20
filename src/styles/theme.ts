@@ -1,6 +1,13 @@
+import { typography, Typography } from './fonts';
 import mixins from './mixins';
 
-const theme = {
+export type Theme = {
+  typography: Typography;
+};
+
+const theme: Theme = {
+  typography,
+
   bp: {
     mobileS: `max-width: 330px`,
     mobileM: `max-width: 400px`,

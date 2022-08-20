@@ -26,8 +26,8 @@ const StyledLinkWrapper = styled.div`
     margin: 20px auto;
     padding: 10px;
     font-family: var(--font-mono);
-    font-size: var(--fz-xxs);
-    line-height: var(--fz-lg);
+    font-size: ${({ theme }) => theme.typography.fontSizes.text2Xs};
+    line-height: ${({ theme }) => theme.typography.fontSizes.textLg};
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
 

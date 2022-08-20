@@ -18,7 +18,8 @@ const StyledHeroSection = styled.section`
     margin: 0 0 30px 4px;
     color: var(--green);
     font-family: var(--font-mono);
-    font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+    font-size: ${({ theme }) =>
+      `clamp(${theme.typography.fontSizes.textSm}, 5vw, ${theme.typography.fontSizes.textMd})`};
     font-weight: 400;
 
     @media (max-width: 480px) {

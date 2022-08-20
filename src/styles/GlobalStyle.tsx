@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
   */
   :focus:not(:focus-visible) {
     outline: none;
-    outline-offset: 0px;
+    outline-offset: 0;
   }
 
   /*
@@ -77,11 +77,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--navy);
     color: var(--slate);
     font-family: var(--font-sans);
-    font-size: var(--fz-xl);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textXl};;
     line-height: 1.3;
 
     @media (max-width: 480px) {
-      font-size: var(--fz-lg);
+      font-size: ${({ theme }) => theme.typography.fontSizes.textLg};;
     }
 
     &.hidden {
@@ -185,7 +185,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     margin: 10px 0 40px;
     width: 100%;
-    font-size: clamp(26px, 5vw, var(--fz-heading));
+    font-size: ${({ theme }) => `clamp(26px, 5vw, ${theme.typography.fontSizes.heading})`};
     white-space: nowrap;
 
     &:before {
@@ -196,7 +196,8 @@ const GlobalStyle = createGlobalStyle`
       margin-right: 10px;
       color: var(--green);
       font-family: var(--font-mono);
-      font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
+      font-size: ${({ theme }) =>
+        `clamp(${theme.typography.fontSizes.textMd}, 3vw, ${theme.typography.fontSizes.textXl})`};
       font-weight: 400;
 
       @media (max-width: 480px) {
@@ -305,7 +306,7 @@ const GlobalStyle = createGlobalStyle`
     & > code {
       background-color: var(--light-navy);
       color: var(--white);
-      font-size: var(--fz-sm);
+      font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
       border-radius: var(--border-radius);
       padding: 0.3em 0.5em;
     }
@@ -316,7 +317,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       margin: 0;
       list-style: none;
-      font-size: var(--fz-lg);
+      font-size: ${({ theme }) => theme.typography.fontSizes.textLg};;
       li {
         position: relative;
         padding-left: 30px;
@@ -357,7 +358,7 @@ const GlobalStyle = createGlobalStyle`
 
   code {
     font-family: var(--font-mono);
-    font-size: var(--fz-md);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
   }
 
   .skip-to-content {
@@ -390,22 +391,22 @@ const GlobalStyle = createGlobalStyle`
   .overline {
     color: var(--green);
     font-family: var(--font-mono);
-    font-size: var(--fz-md);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
     font-weight: 400;
   }
 
   .subtitle {
     color: var(--green);
     margin: 0 0 20px 0;
-    font-size: var(--fz-md);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
     font-family: var(--font-mono);
     font-weight: 400;
     line-height: 1.5;
     @media (max-width: 1080px) {
-      font-size: var(--fz-sm);
+      font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
     }
     @media (max-width: 768px) {
-      font-size: var(--fz-xs);
+      font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
     }
 
     a {
@@ -429,7 +430,7 @@ const GlobalStyle = createGlobalStyle`
     a {
       ${({ theme }) => theme.mixins.inlineLink};
       font-family: var(--font-mono);
-      font-size: var(--fz-sm);
+      font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
       font-weight: 600;
       line-height: 1.5;
       text-transform: uppercase;

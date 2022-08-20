@@ -29,13 +29,13 @@ const PrismStyles = css`
     overflow: auto;
     position: relative;
     font-family: var(--font-mono);
-    font-size: var(--fz-md);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
   }
 
   .gatsby-highlight code[class*='language-'],
   .gatsby-highlight pre[class*='language-'] {
     height: auto !important;
-    font-size: var(--fz-sm);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
     line-height: 1.5;
     white-space: pre;
     word-spacing: normal;
@@ -66,7 +66,7 @@ const PrismStyles = css`
   .gatsby-code-title {
     padding: 1em 1.5em;
     font-family: var(--font-mono);
-    font-size: var(--fz-xs);
+    font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
     background-color: ${prismColors.bg};
     color: ${prismColors.grey};
     border-top-left-radius: var(--border-radius);
@@ -95,7 +95,7 @@ const PrismStyles = css`
   .gatsby-highlight pre[class*='language-']::before {
     background: var(--lightest-navy);
     color: var(--white);
-    font-size: var(--fz-xxs);
+    font-size: ${({ theme }) => theme.typography.fontSizes.text2Xs};
     font-family: var(--font-mono);
     line-height: 1.5;
     letter-spacing: 0.1em;
