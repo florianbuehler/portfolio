@@ -1,12 +1,30 @@
-import { SocialMedia } from './components';
+import { NavLink, SocialMedia } from './components';
 
 type Config = {
-  email: string;
+  navLinks: NavLink[];
   socialMedia: SocialMedia[];
+  email: string;
 };
 
 export const config: Config = {
-  email: 'florian-buehler@outlook.com',
+  navLinks: [
+    {
+      name: 'About',
+      url: '/#about'
+    },
+    {
+      name: 'Experience',
+      url: '/#jobs'
+    },
+    {
+      name: 'Work',
+      url: '/#projects'
+    },
+    {
+      name: 'Contact',
+      url: '/#contact'
+    }
+  ],
 
   socialMedia: [
     {
@@ -19,5 +37,7 @@ export const config: Config = {
       url: 'https://www.linkedin.com/in/florian-b%C3%BChler/',
       icon: 'LinkedIn'
     }
-  ]
+  ],
+
+  email: 'florian-buehler@outlook.com'
 };

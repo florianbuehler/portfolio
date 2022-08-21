@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageProps } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
-import { Email, Loader, Social } from '../components';
+import { Email, Header, Loader, Social } from '../components';
 import { config } from '../config';
 import { GlobalStyle, theme } from '../styles';
 
@@ -29,6 +29,7 @@ const Layout: React.FC<Props> = ({ children, location }) => {
             <Loader onLoadingCompleted={() => setIsLoading(false)} />
           ) : (
             <StyledContent>
+              <Header navLinks={config.navLinks} delayInSec={isHome ? 2000 : 0} />
               <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 0} />
               <Email email={config.email} delayInSec={isHome ? 2000 : 0} />
               <div id="content">{children}</div>

@@ -3,8 +3,6 @@ import { css } from 'styled-components';
 const variables = css`
   :root {
     --border-radius: 4px;
-    --nav-height: 100px;
-    --nav-scroll-height: 70px;
 
     --tab-height: 42px;
     --tab-width: 120px;

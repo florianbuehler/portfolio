@@ -36,7 +36,7 @@ const StyledSide = styled.div<StyledProps>`
 const Side: React.FC<Props> = ({ children, delayInSec, position }) => {
   const delay = !!delayInSec;
 
-  const [isMounted, setIsMounted] = useState<boolean>(!delayInSec);
+  const [isMounted, setIsMounted] = useState<boolean>(!delay);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
