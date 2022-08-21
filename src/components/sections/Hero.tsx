@@ -2,28 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { usePrefersReducedMotion } from '../../hooks';
+import { devices, sizes } from '../../styles';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 0;
+  padding: 0 0 10vh 0;
 
-  @media (max-width: 480px) and (min-height: 700px) {
-    padding-bottom: 10vh;
+  @media (min-width: ${sizes.tablet}) and (min-height: 700px) {
+    padding-bottom: 0;
   }
 
   h1 {
-    margin: 0 0 30px 4px;
+    margin: 0 0 20px 2px;
     color: ${({ theme }) => theme.colors.primary};
     font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) =>
       `clamp(${theme.typography.fontSizes.textSm}, 5vw, ${theme.typography.fontSizes.textMd})`};
     font-weight: 400;
 
-    @media (max-width: 480px) {
-      margin: 0 0 20px 2px;
+    ${devices.tablet} {
+      margin: 0 0 30px 4px;
     }
   }
 

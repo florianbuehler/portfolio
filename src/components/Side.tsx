@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { usePrefersReducedMotion } from '../hooks';
+import { devices } from '../styles';
 
 type Props = {
   children?: React.ReactNode;
@@ -15,18 +16,20 @@ const StyledSide = styled.div<StyledProps>`
   width: 40px;
   position: fixed;
   bottom: 0;
-  left: ${({ position }) => (position === 'left' ? '40px' : 'auto')};
-  right: ${({ position }) => (position === 'left' ? 'auto' : '40px')};
   z-index: 10;
   color: ${({ theme }) => theme.colors.lightSlate};
+  display: none;
 
-  @media (max-width: 1080px) {
+  ${devices.tablet} {
+    display: block;
+
     left: ${({ position }) => (position === 'left' ? '20px' : 'auto')};
     right: ${({ position }) => (position === 'left' ? 'auto' : '20px')};
   }
 
-  @media (max-width: 768px) {
-    display: none;
+  ${devices.laptop} {
+    left: ${({ position }) => (position === 'left' ? '40px' : 'auto')};
+    right: ${({ position }) => (position === 'left' ? 'auto' : '40px')};
   }
 `;
 

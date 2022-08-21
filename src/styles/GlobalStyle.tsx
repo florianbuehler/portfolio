@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import devices from './devices';
 import fonts from './fonts';
 import PrismStyles from './PrismStyles';
 import TransitionStyles from './TransitionStyles';
@@ -77,11 +78,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.bg.color};
     color: ${({ theme }) => theme.typography.colors.text};
     font-family: ${({ theme }) => theme.typography.fontSans};
-    font-size: ${({ theme }) => theme.typography.fontSizes.textXl};;
+    font-size: ${({ theme }) => theme.typography.fontSizes.textLg};;
     line-height: 1.3;
 
-    @media (max-width: 480px) {
-      font-size: ${({ theme }) => theme.typography.fontSizes.textLg};;
+    ${devices.mobileL} {
+      font-size: ${({ theme }) => theme.typography.fontSizes.textXl};;
     }
 
     &.hidden {
@@ -116,44 +117,43 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
-    padding: 200px 150px;
+    padding: 125px 25px;
 
-    @media (max-width: 1080px) {
-      padding: 200px 100px;
-    }
-    @media (max-width: 768px) {
+    ${devices.mobileL} {
       padding: 150px 50px;
     }
-    @media (max-width: 480px) {
-      padding: 125px 25px;
+    ${devices.tablet} {
+      padding: 200px 100px;
     }
-
+    ${devices.laptop} {
+      padding: 200px 150px;
+    }
+    
     &.fillHeight {
-      padding: 0 150px;
+      padding: 0 25px;
 
-      @media (max-width: 1080px) {
-        padding: 0 100px;
-      }
-      @media (max-width: 768px) {
+      ${devices.mobileL} {
         padding: 0 50px;
       }
-      @media (max-width: 480px) {
-        padding: 0 25px;
+      ${devices.tablet} {
+        padding: 0 100px;
+      }
+      ${devices.laptop} {
+        padding: 0 150px;
       }
     }
   }
 
   section {
     margin: 0 auto;
-    padding: 100px 0;
     max-width: 1000px;
+    padding: 60px 0;
 
-    @media (max-width: 768px) {
+    ${devices.mobileL} {
       padding: 80px 0;
     }
-
-    @media (max-width: 480px) {
-      padding: 60px 0;
+    ${devices.tablet} {
+      padding: 100px 0;
     }
   }
 
@@ -191,18 +191,19 @@ const GlobalStyle = createGlobalStyle`
     &:before {
       position: relative;
       bottom: 4px;
+      margin-right: 5px;
+      margin-bottom: 0;
       counter-increment: section;
       content: '0' counter(section) '.';
-      margin-right: 10px;
       color: ${({ theme }) => theme.colors.primary};
       font-family: ${({ theme }) => theme.typography.fontMono};
       font-size: ${({ theme }) =>
         `clamp(${theme.typography.fontSizes.textMd}, 3vw, ${theme.typography.fontSizes.textXl})`};
       font-weight: 400;
 
-      @media (max-width: 480px) {
+      ${devices.mobileL} {
+        margin-right: 10px;
         margin-bottom: -3px;
-        margin-right: 5px;
       }
     }
 
@@ -211,19 +212,19 @@ const GlobalStyle = createGlobalStyle`
       display: block;
       position: relative;
       top: -5px;
-      width: 300px;
       height: 1px;
-      margin-left: 20px;
+      width: 100%;
       background-color: ${({ theme }) => theme.bg.selected};
+      margin-left: 10px;
 
-      @media (max-width: 1080px) {
+      ${devices.mobileL} {
+        margin-left: 20px;
+      }
+      ${devices.tablet} {
         width: 200px;
       }
-      @media (max-width: 768px) {
-        width: 100%;
-      }
-      @media (max-width: 600px) {
-        margin-left: 10px;
+      ${devices.laptop} {
+        width: 300px;
       }
     }
   }
@@ -336,8 +337,8 @@ const GlobalStyle = createGlobalStyle`
     border-left-color: ${({ theme }) => theme.colors.primary};
     border-left-style: solid;
     border-left-width: 1px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 1.5rem;
 
     p {
@@ -349,7 +350,7 @@ const GlobalStyle = createGlobalStyle`
   hr {
     background-color: ${({ theme }) => theme.bg.selected};
     height: 1px;
-    border-width: 0px;
+    border-width: 0;
     border-style: initial;
     border-color: initial;
     border-image: initial;
@@ -398,15 +399,16 @@ const GlobalStyle = createGlobalStyle`
   .subtitle {
     color: ${({ theme }) => theme.colors.primary};
     margin: 0 0 20px 0;
-    font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
+    font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
     font-family: ${({ theme }) => theme.typography.fontMono};
     font-weight: 400;
     line-height: 1.5;
-    @media (max-width: 1080px) {
+
+    ${devices.tablet} {
       font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
     }
-    @media (max-width: 768px) {
-      font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
+    ${devices.laptop} {
+      font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
     }
 
     a {
