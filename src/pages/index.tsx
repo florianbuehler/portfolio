@@ -2,7 +2,7 @@ import React from 'react';
 import { PageProps } from 'gatsby';
 import styled from 'styled-components';
 import { Layout, SEO } from '../components';
-import { HeroSection } from '../components/sections';
+import { ContactSection, HeroSection } from '../components/sections';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
@@ -136,6 +136,7 @@ const IndexPage: React.FunctionComponent<PageProps> = ({ location }) => {
           explicabo inventore nemo officia provident quaerat quas saepe veniam? Maiores, rerum
           temporibus.
         </div>
+        <ContactSection />
       </StyledMainContainer>
     </Layout>
   );

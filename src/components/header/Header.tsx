@@ -14,7 +14,12 @@ type Props = {
   delayInSec?: number;
 };
 
-const StyledHeader = styled.header`
+type StyledHeaderProps = {
+  scrollDirection: 'up' | 'down';
+  scrolledToTop: boolean;
+};
+
+const StyledHeader = styled.header<StyledHeaderProps>`
   ${({ theme }) => theme.mixins.flexBetween};
   position: fixed;
   top: 0;
@@ -37,9 +42,9 @@ const StyledHeader = styled.header`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${(props) =>
-      props.scrollDirection === 'up' &&
-      !props.scrolledToTop &&
+    ${({ scrollDirection, scrolledToTop }) =>
+      scrollDirection === 'up' &&
+      !scrolledToTop &&
       css`
         height: 70px;
         transform: translateY(0px);
@@ -47,9 +52,9 @@ const StyledHeader = styled.header`
         box-shadow: ${({ theme }) => `0 10px 30px -10px ${theme.shadow}`};
       `};
 
-    ${(props) =>
-      props.scrollDirection === 'down' &&
-      !props.scrolledToTop &&
+    ${({ scrollDirection, scrolledToTop }) =>
+      scrollDirection === 'down' &&
+      !scrolledToTop &&
       css`
         height: 70px;
         transform: translateY(calc(70px * -1));
