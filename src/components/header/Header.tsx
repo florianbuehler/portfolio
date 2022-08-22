@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
-// import { Menu } from '../components';
 import { useScrollDirection, usePrefersReducedMotion } from '../../hooks';
 import { devices } from '../../styles';
+import { LogoIcon } from '../icons';
+import HamburgerMenu from './HamburgerMenu';
 import { Menu, ReducedMotionMenu } from './Menu';
 import { NavLink } from './types';
 
@@ -57,6 +58,30 @@ const StyledHeader = styled.header`
   }
 `;
 
+const StyledLogo = styled.div`
+  ${({ theme }) => theme.mixins.flexCenter};
+
+  a {
+    color: ${({ theme }) => theme.colors.primary};
+    width: 44px;
+    height: 44px;
+    margin-left: -1px;
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: ${({ theme }) => theme.colors.primaryTint};
+      }
+    }
+
+    svg {
+      fill: none;
+      transition: var(--transition);
+      user-select: none;
+    }
+  }
+`;
+
 const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
 
@@ -66,30 +91,15 @@ const StyledNav = styled.nav`
   font-family: ${({ theme }) => theme.typography.fontMono};
   counter-reset: item 0;
   z-index: 12;
-
-  .logo {
-    ${({ theme }) => theme.mixins.flexCenter};
-
-    a {
-      color: ${({ theme }) => theme.colors.primary};
-      width: 42px;
-      height: 42px;
-
-      &:hover,
-      &:focus {
-        svg {
-          fill: ${({ theme }) => theme.colors.primaryTint};
-        }
-      }
-
-      svg {
-        fill: none;
-        transition: var(--transition);
-        user-select: none;
-      }
-    }
-  }
 `;
+
+const Logo = (
+  <StyledLogo tabIndex={-1}>
+    <Link to="/" aria-label="home">
+      <LogoIcon />
+    </Link>
+  </StyledLogo>
+);
 
 const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
   const delay = !!delayInSec;
@@ -122,14 +132,6 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
 
   const fadeClass = delay ? 'fade' : '';
 
-  const Logo = (
-    <div className="logo" tabIndex={-1}>
-      <Link to="/" aria-label="home">
-        <h2>F</h2>
-      </Link>
-    </div>
-  );
-
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
@@ -138,7 +140,7 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
             {Logo}
 
             <ReducedMotionMenu navLinks={navLinks} />
-            {/*<Menu />*/}
+            <HamburgerMenu navLinks={navLinks} />
           </>
         ) : (
           <>
@@ -151,13 +153,13 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
             </TransitionGroup>
 
             <Menu navLinks={navLinks} isMounted={isMounted} delayInSec={delayInSec} />
-            {/*<TransitionGroup component={null}>*/}
-            {/*  {isMounted && (*/}
-            {/*    <CSSTransition classNames={fadeClass} timeout={delayInSec}>*/}
-            {/*      <Menu />*/}
-            {/*    </CSSTransition>*/}
-            {/*  )}*/}
-            {/*</TransitionGroup>*/}
+            <TransitionGroup component={null}>
+              {isMounted && (
+                <CSSTransition classNames={fadeClass} timeout={delayInSec || 0}>
+                  <HamburgerMenu navLinks={navLinks} />
+                </CSSTransition>
+              )}
+            </TransitionGroup>
           </>
         )}
       </StyledNav>

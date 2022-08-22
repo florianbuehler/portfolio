@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import anime from 'animejs';
 import styled from 'styled-components';
-import { LoaderIcon } from './icons';
+import { LogoIcon } from './icons';
 
 type Props = {
   onLoadingCompleted: () => void;
@@ -95,7 +95,7 @@ const Loader: React.FC<Props> = ({ onLoadingCompleted }) => {
       <Helmet bodyAttributes={{ class: `hidden` }} />
 
       <div className="logo-wrapper">
-        <LoaderIcon />
+        <LogoIcon />
       </div>
     </StyledLoader>
   );
