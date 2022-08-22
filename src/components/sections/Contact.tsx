@@ -43,7 +43,7 @@ const StyledContactSection = styled.section`
 `;
 
 const ContactSection: React.FC = () => {
-  const revealContainer = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -51,11 +51,11 @@ const ContactSection: React.FC = () => {
       return;
     }
 
-    scrollReveal?.reveal(revealContainer.current, getScrollRevealConfig());
-  }, []);
+    sectionRef.current && scrollReveal?.reveal(sectionRef.current, getScrollRevealConfig());
+  }, [prefersReducedMotion]);
 
   return (
-    <StyledContactSection id="contact" ref={revealContainer}>
+    <StyledContactSection id="contact" ref={sectionRef}>
       <h2 className="numbered-heading overline">What’s Next?</h2>
       <h2 className="title">Get In Touch</h2>
 
