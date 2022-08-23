@@ -57,7 +57,12 @@ const StyledLinks = styled.div`
 `;
 
 const ResumeLink = (
-  <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+  <a
+    className="resume-button"
+    href="/resume.pdf"
+    target="_blank"
+    rel="nofollow noopener noreferrer"
+  >
     Resume
   </a>
 );

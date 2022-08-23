@@ -282,7 +282,12 @@ const HamburgerMenu: React.FC<Props> = ({ navLinks }) => {
               </ol>
             )}
 
-            <a href="/resume.pdf" className="resume-link">
+            <a
+              href="/resume.pdf"
+              className="resume-link"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >
               Resume
             </a>
           </nav>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { config } from '@config';
+import config from '@config';
 import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
 import { getScrollRevealConfig, scrollReveal } from '@utils';

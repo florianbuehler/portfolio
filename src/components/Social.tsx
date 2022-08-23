@@ -58,7 +58,7 @@ const Social: React.FC<Props> = ({ socialMedia, delayInSec }) => (
       {socialMedia &&
         socialMedia.map(({ name, url, icon }, i) => (
           <li key={i}>
-            <a href={url} aria-label={name} target="_blank" rel="nofollow noopener noreferrer">
+            <a href={url} aria-label={name} target="_blank" rel="noopener noreferrer">
               <Icon name={icon} />
             </a>
           </li>

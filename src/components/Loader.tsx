@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import anime from 'animejs';
 import styled from 'styled-components';
-import { LogoIcon } from './icons';
+import { LogoIcon } from '@components/icons';
 
 type Props = {
   onLoadingCompleted: () => void;

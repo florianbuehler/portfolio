@@ -15,6 +15,7 @@ export type Typography = {
     text: string;
     header: string;
     selected: string;
+    highlight: string;
   };
 
   fontSans: string;
@@ -29,7 +30,8 @@ const typography: Typography = {
   colors: {
     text: colors.slate,
     header: colors.lightestSlate,
-    selected: colors.lightestSlate
+    selected: colors.lightestSlate,
+    highlight: colors.lightSlate
   },
 
   fontSans:

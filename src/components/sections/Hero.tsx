@@ -15,7 +15,7 @@ const StyledHeroSection = styled.section`
     padding-bottom: 0;
   }
 
-  h1 {
+  h1 {ê
     margin: 0 0 20px 2px;
     color: ${({ theme }) => theme.colors.primary};
     font-family: ${({ theme }) => theme.typography.fontMono};
@@ -67,7 +67,7 @@ const HeroSection: React.FC = () => {
     <p>
       I’m a software engineer specializing in building (and occasionally designing) exceptional
       digital experiences. Currently, I’m focused on building accessible, human-centered products at{' '}
-      <a href="https://google.com/" target="_blank" rel="nofollow noopener noreferrer">
+      <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
         Company
       </a>
       .
@@ -76,7 +76,7 @@ const HeroSection: React.FC = () => {
   items.push(
     <a
       className="action-link"
-      href="https://google.com"
+      href="/resume.pdf"
       target="_blank"
       rel="nofollow noopener noreferrer"
     >

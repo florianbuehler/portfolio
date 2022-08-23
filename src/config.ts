@@ -1,12 +1,13 @@
-import { NavLink, SocialMedia } from './components';
+import { NavLink, SocialMedia } from '@components';
 
 type Config = {
   navLinks: NavLink[];
   socialMedia: SocialMedia[];
   email: string;
+  projectUrl: string;
 };
 
-export const config: Config = {
+const config: Config = {
   navLinks: [
     {
       name: 'About',
@@ -39,5 +40,8 @@ export const config: Config = {
     }
   ],
 
-  email: 'florian-buehler@outlook.com'
+  email: 'florian-buehler@outlook.com',
+  projectUrl: 'https://github.com/florianbuehler/portfolio'
 };
+
+export default config;
