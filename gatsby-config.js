@@ -5,6 +5,10 @@ module.exports = {
       'Florian Bühler is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
     siteUrl: 'https://florianbuehler.github.io/'
   },
+  flags: {
+    // https://www.gatsbyjs.com/docs/debugging-html-builds/#ssr-during-gatsby-develop
+    // DEV_SSR: true
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
