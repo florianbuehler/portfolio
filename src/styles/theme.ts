@@ -14,6 +14,9 @@ export type Theme = {
   };
 
   shadow: string;
+  borderRadius: string;
+  transition: string;
+  transitionEasing: string;
 
   mixins: Mixins;
 };
@@ -30,6 +33,9 @@ const theme: Theme = {
   },
 
   shadow: colors.darkNavyTint,
+  borderRadius: '4px',
+  transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
+  transitionEasing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
 
   mixins
 };

@@ -23,7 +23,7 @@ const PrismStyles = css`
   .gatsby-highlight {
     background-color: ${prismColors.bg};
     color: ${prismColors.grey};
-    border-radius: var(--border-radius);
+    border-radius: ${({ theme }) => theme.borderRadius};
     margin: 2em 0;
     padding: 1.25em;
     overflow: auto;
@@ -69,8 +69,8 @@ const PrismStyles = css`
     font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
     background-color: ${prismColors.bg};
     color: ${prismColors.grey};
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: ${({ theme }) => theme.borderRadius};
+    border-top-right-radius: ${({ theme }) => theme.borderRadius};
     border-bottom: 1px solid ${prismColors.lineHighlight};
 
     & + .gatsby-highlight {

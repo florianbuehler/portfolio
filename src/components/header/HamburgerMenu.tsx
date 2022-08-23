@@ -54,7 +54,7 @@ const StyledHamburgerButton = styled.button<StyledProps>`
     right: 0;
     width: 30px;
     height: 2px;
-    border-radius: var(--border-radius);
+    border-radius: ${({ theme }) => theme.borderRadius};
     background-color: ${({ theme }) => theme.colors.primary};
     transition-duration: 0.22s;
     transition-property: transform;
@@ -114,7 +114,7 @@ const StyledSidebar = styled.aside<StyledProps>`
   z-index: 9;
   transform: translateX(${({ menuOpen }) => (menuOpen ? 0 : 100)}vw);
   visibility: ${({ menuOpen }) => (menuOpen ? 'visible' : 'hidden')};
-  transition: var(--transition);
+  transition: ${({ theme }) => theme.transition};
 
   ${devices.tablet} {
     display: none;

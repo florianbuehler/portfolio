@@ -32,7 +32,7 @@ const StyledHeader = styled.header<StyledHeaderProps>`
   pointer-events: auto !important;
   user-select: auto !important;
   backdrop-filter: blur(10px);
-  transition: var(--transition);
+  transition: ${({ theme }) => theme.transition};
 
   ${devices.tablet} {
     padding: 0 40px;
@@ -80,7 +80,7 @@ const StyledLogo = styled.div`
 
     svg {
       fill: none;
-      transition: var(--transition);
+      transition: ${({ theme }) => theme.transition};
       user-select: none;
     }
   }

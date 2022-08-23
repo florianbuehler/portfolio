@@ -27,7 +27,7 @@ const StyledLoader = styled.div<StyledProps>`
   .logo-wrapper {
     width: max-content;
     max-width: 100px;
-    transition: var(--transition);
+    transition: ${({ theme }) => theme.transition};
     opacity: ${(props) => (props.isMounted ? 1 : 0)};
 
     svg {

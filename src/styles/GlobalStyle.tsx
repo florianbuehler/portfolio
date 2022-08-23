@@ -3,11 +3,9 @@ import devices from './devices';
 import fonts from './fonts';
 import PrismStyles from './PrismStyles';
 import TransitionStyles from './TransitionStyles';
-import variables from './variables';
 
 const GlobalStyle = createGlobalStyle`
   ${fonts};
-  ${variables};
 
   html {
     box-sizing: border-box;
@@ -98,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
 
       #content > * {
         filter: blur(5px) brightness(0.7);
-        transition: var(--transition);
+        transition: ${({ theme }) => theme.transition};
         pointer-events: none;
         user-select: none;
       }
@@ -259,7 +257,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration-skip-ink: auto;
     color: inherit;
     position: relative;
-    transition: var(--transition);
+    transition: ${({ theme }) => theme.transition};
 
     &:hover,
     &:focus {
@@ -308,7 +306,7 @@ const GlobalStyle = createGlobalStyle`
       background-color: ${({ theme }) => theme.bg.highlight};
       color: ${({ theme }) => theme.colors.white};
       font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
-      border-radius: var(--border-radius);
+      border-radius: ${({ theme }) => theme.borderRadius};
       padding: 0.3em 0.5em;
     }
   }

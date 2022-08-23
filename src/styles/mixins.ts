@@ -23,13 +23,13 @@ const button = css`
   color: ${({ theme }) => theme.colors.primary};
   background-color: transparent;
   border: ${({ theme }) => `1px solid ${theme.colors.primary}`};
-  border-radius: var(--border-radius);
+  border-radius: ${({ theme }) => theme.borderRadius};
   font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
   font-family: ${({ theme }) => theme.typography.fontMono};
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
-  transition: var(--transition);
+  transition: ${({ theme }) => theme.transition};
   padding: 1.25rem 1.75rem;
 
   &:hover,
@@ -62,7 +62,7 @@ const mixins: Mixins = {
     text-decoration-skip-ink: auto;
     color: inherit;
     position: relative;
-    transition: var(--transition);
+    transition: ${({ theme }) => theme.transition};
     &:hover,
     &:active,
     &:focus {
@@ -76,7 +76,7 @@ const mixins: Mixins = {
     text-decoration: none;
     text-decoration-skip-ink: auto;
     position: relative;
-    transition: var(--transition);
+    transition: ${({ theme }) => theme.transition};
     color: ${({ theme }) => theme.colors.primary};
     &:hover,
     &:focus,
@@ -88,7 +88,7 @@ const mixins: Mixins = {
       }
       & > * {
         color: ${({ theme }) => theme.colors.primary} !important;
-        transition: var(--transition);
+        transition: ${({ theme }) => theme.transition};
       }
     }
     &:after {
@@ -99,7 +99,7 @@ const mixins: Mixins = {
       position: relative;
       bottom: 0.37em;
       background-color: ${({ theme }) => theme.colors.primary};
-      transition: var(--transition);
+      transition: ${({ theme }) => theme.transition};
       opacity: 0.5;
     }
   `,
@@ -110,14 +110,14 @@ const mixins: Mixins = {
     color: ${({ theme }) => theme.colors.primary};
     background-color: transparent;
     border: ${({ theme }) => `1px solid ${theme.colors.primary}`};
-    border-radius: var(--border-radius);
+    border-radius: ${({ theme }) => theme.borderRadius};
     padding: 0.75rem 1rem;
     font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
     font-family: ${({ theme }) => theme.typography.fontMono};
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
-    transition: var(--transition);
+    transition: ${({ theme }) => theme.transition};
     &:hover,
     &:focus,
     &:active {
@@ -133,14 +133,14 @@ const mixins: Mixins = {
     color: ${({ theme }) => theme.colors.primary};
     background-color: transparent;
     border: ${({ theme }) => `1px solid ${theme.colors.primary}`};
-    border-radius: var(--border-radius);
+    border-radius: ${({ theme }) => theme.borderRadius};
     padding: 1.25rem 1.75rem;
     font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
     font-family: ${({ theme }) => theme.typography.fontMono};
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
-    transition: var(--transition);
+    transition: ${({ theme }) => theme.transition};
     &:hover,
     &:focus,
     &:active {
@@ -154,7 +154,7 @@ const mixins: Mixins = {
 
   boxShadow: css`
     box-shadow: ${({ theme }) => `0 10px 30px -15px ${theme.shadow}`};
-    transition: var(--transition);
+    transition: ${({ theme }) => theme.transition};
 
     &:hover,
     &:focus {
