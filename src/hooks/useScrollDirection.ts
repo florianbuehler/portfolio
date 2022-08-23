@@ -1,18 +1,27 @@
-const SCROLL_UP = 'up';
-const SCROLL_DOWN = 'down';
-
 import { useState, useEffect } from 'react';
 
-const useScrollDirection = ({ initialDirection, thresholdPixels, off } = {}) => {
+type ScrollDirection = 'up' | 'down';
+
+type ScrollDirectionConfig = {
+  initialDirection: ScrollDirection;
+  thresholdPixels?: number;
+  off?: boolean;
+};
+
+const useScrollDirection = ({
+  initialDirection,
+  thresholdPixels,
+  off
+}: ScrollDirectionConfig): ScrollDirection => {
   const [scrollDir, setScrollDir] = useState(initialDirection);
 
   useEffect(() => {
     const threshold = thresholdPixels || 0;
-    let lastScrollY = window.pageYOffset;
+    let lastScrollY = window.scrollY;
     let ticking = false;
 
     const updateScrollDir = () => {
-      const scrollY = window.pageYOffset;
+      const scrollY = window.scrollY;
 
       if (Math.abs(scrollY - lastScrollY) < threshold) {
         // We haven't exceeded the threshold
@@ -20,7 +29,7 @@ const useScrollDirection = ({ initialDirection, thresholdPixels, off } = {}) => 
         return;
       }
 
-      setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
+      setScrollDir(scrollY > lastScrollY ? 'down' : 'up');
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
     };

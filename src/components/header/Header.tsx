@@ -110,7 +110,7 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
   const delay = !!delayInSec;
 
   const [isMounted, setIsMounted] = useState(!delay);
-  const scrollDirection = useScrollDirection('down');
+  const scrollDirection = useScrollDirection({ initialDirection: 'down' });
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
 
