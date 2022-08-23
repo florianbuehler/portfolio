@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { useOnClickOutside } from '../../hooks';
-import { devices } from '../../styles';
-import { KEY_CODES } from '../../utils';
+import { useOnClickOutside } from '@hooks';
+import { devices } from '@styles';
+import { KEY_CODES } from '@utils';
 import { NavLink } from './types';
 
 type Props = {

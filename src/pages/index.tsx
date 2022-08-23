@@ -1,8 +1,8 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
 import styled from 'styled-components';
-import { Layout, SEO } from '../components';
-import { ContactSection, HeroSection } from '../components/sections';
+import { Layout, SEO } from '@components';
+import { ContactSection, HeroSection } from '@components/sections';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;

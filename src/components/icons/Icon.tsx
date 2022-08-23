@@ -1,5 +1,6 @@
 import React from 'react';
-import { GitHubIcon, LinkedInIcon } from '../icons';
+import { default as GitHubIcon } from './GitHub';
+import { default as LinkedInIcon } from './LinkedIn';
 
 export type IconName = 'GitHub' | 'LinkedIn';
 

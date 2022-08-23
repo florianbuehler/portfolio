@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { PageProps } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
-import { Email, Header, Loader, Social } from '../components';
-import { config } from '../config';
-import { GlobalStyle, theme } from '../styles';
+import { Email, Header, Loader, Social } from '@components';
+import { config } from '@config';
+import { GlobalStyle, theme } from '@styles';
 
 type Props = {
   children?: React.ReactNode;

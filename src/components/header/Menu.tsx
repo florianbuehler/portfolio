@@ -2,7 +2,7 @@ import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { devices } from '../../styles';
+import { devices } from '@styles';
 import { NavLink } from './types';
 
 type MenuProps = {

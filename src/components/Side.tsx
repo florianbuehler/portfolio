@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
-import { usePrefersReducedMotion } from '../hooks';
-import { devices } from '../styles';
+import { usePrefersReducedMotion } from '@hooks';
+import { devices } from '@styles';
 
 type Props = {
   children?: React.ReactNode;
