@@ -68,9 +68,8 @@ const StyledLogo = styled.div`
 
   a {
     color: ${({ theme }) => theme.colors.primary};
-    width: 44px;
-    height: 44px;
-    margin-left: -1px;
+    width: 42px;
+    height: 42px;
 
     &:hover,
     &:focus {
