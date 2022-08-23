@@ -20,9 +20,9 @@
       "@components": ["components"],
       "@components/*": ["components/*"],
       "@config": ["config"],
-      "@fonts/*": ["fonts/*"],
+      "@fonts/*": ["assets/fonts/*"],
       "@hooks": ["hooks"],
-      "@images": ["images"],
+      "@images": ["assets/images"],
       "@pages": ["pages"],
       "@styles": ["styles"],
       "@utils": ["utils"]
