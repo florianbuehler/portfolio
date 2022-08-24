@@ -2,7 +2,7 @@ import React from 'react';
 import { PageProps } from 'gatsby';
 import styled from 'styled-components';
 import { Layout, SEO } from '@components';
-import { ContactSection, HeroSection } from '@components/sections';
+import { AboutSection, ContactSection, HeroSection } from '@components/sections';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
@@ -13,39 +13,7 @@ const IndexPage: React.FunctionComponent<PageProps> = ({ location }) => {
     <Layout location={location}>
       <StyledMainContainer className="fillHeight">
         <HeroSection />
-        <div id="about">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi debitis deleniti
-          doloremque iste quidem, rem sunt. Adipisci architecto culpa cupiditate debitis dignissimos
-          dolore dolorum ea, eos error expedita incidunt neque nesciunt, pariatur quia ratione
-          repellendus ullam vitae, voluptates. Dolor doloribus hic in quos sequi! Aperiam
-          dignissimos eaque eius eligendi incidunt modi officiis similique suscipit tempore
-          veritatis! Delectus error est, fugiat illo laudantium minima, minus molestiae numquam,
-          odio officia placeat ullam ut voluptatem! Amet esse ipsam ipsum recusandae sapiente
-          voluptatem. Atque corporis dolorum ex explicabo facere fuga, iste itaque nostrum quaerat
-          quas quisquam, repellendus saepe voluptatum. Nobis praesentium, totam? Accusantium aut
-          eaque perspiciatis tempora voluptatibus. Animi enim esse eveniet fugiat laboriosam nemo
-          ratione! Ad architecto modi molestiae nam necessitatibus sit tenetur, voluptates? Adipisci
-          autem dicta, dolorem ea expedita libero maiores, modi molestiae mollitia necessitatibus
-          nesciunt non officiis possimus quibusdam rem repellendus sint, sunt temporibus totam
-          voluptates! Accusantium autem beatae culpa cupiditate dicta dolorem dolores dolorum
-          ducimus eius error excepturi facilis fuga incidunt ipsa laudantium minus nostrum obcaecati
-          perferendis placeat quis recusandae rem repellat rerum sapiente, temporibus ullam
-          voluptate. Ad aspernatur, cupiditate natus odio optio quas quod rerum tempora. Alias atque
-          dicta fuga praesentium sit! Ab alias cupiditate dolorem ducimus esse harum id illum ipsam
-          minus molestiae officia perferendis tenetur, velit! Ab accusamus amet architecto beatae
-          cum dignissimos dolor dolorem doloribus ducimus eius error est, et ex excepturi facere
-          facilis fuga fugiat fugit hic ipsa iste magnam maiores, minima necessitatibus nisi numquam
-          odit perspiciatis quidem quis quisquam rem suscipit temporibus tenetur velit vero
-          voluptates voluptatibus. Ab, adipisci aliquam architecto eum hic molestiae, numquam
-          possimus quibusdam repellat rerum sunt suscipit temporibus tenetur totam velit. Ad
-          adipisci aperiam consequatur cumque dolores eveniet ex id illo iure nesciunt, nulla
-          quaerat quisquam repellendus saepe sapiente unde ut velit. Amet architecto atque debitis
-          delectus deleniti dolore dolores, dolorum eos explicabo facere fugiat illo inventore
-          itaque magni mollitia nemo odit praesentium quam ratione recusandae rerum sapiente sint
-          sunt suscipit tempora ut voluptate voluptatum. Ad, adipisci asperiores assumenda dolorem
-          doloremque ducimus earum esse explicabo inventore iure labore, minus natus nulla obcaecati
-          pariatur, praesentium quam quisquam repudiandae tempora voluptas voluptates.
-        </div>
+        <AboutSection />
         <div id="jobs">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquid amet
           aperiam aut cum delectus dolorum ducimus eaque eius eos ex, facere fugiat in incidunt

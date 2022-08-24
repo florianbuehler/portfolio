@@ -190,7 +190,7 @@ const GlobalStyle = createGlobalStyle`
       position: relative;
       bottom: 4px;
       margin-right: 5px;
-      margin-bottom: 0;
+      margin-bottom: -3px;
       counter-increment: section;
       content: '0' counter(section) '.';
       color: ${({ theme }) => theme.colors.primary};
@@ -201,7 +201,7 @@ const GlobalStyle = createGlobalStyle`
 
       ${devices.mobileL} {
         margin-right: 10px;
-        margin-bottom: -3px;
+        margin-bottom: 0;
       }
     }
 
