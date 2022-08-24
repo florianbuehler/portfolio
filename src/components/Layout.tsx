@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PageProps } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
 import { Email, Footer, Header, Loader, Social } from '@components';
@@ -19,28 +19,43 @@ const Layout: React.FC<Props> = ({ children, location }) => {
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
 
-  return (
-    <>
-      <div id="root">
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
 
-          {isLoading && isHome ? (
-            <Loader onLoadingCompleted={() => setIsLoading(false)} />
-          ) : (
-            <StyledContent>
-              <Header navLinks={config.navLinks} delayInSec={isHome ? 2000 : 0} />
-              <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 0} />
-              <Email email={config.email} delayInSec={isHome ? 2000 : 0} />
-              <div id="content">
-                {children}
-                <Footer socialMedia={config.socialMedia} projectUrl={config.projectUrl} />
-              </div>
-            </StyledContent>
-          )}
-        </ThemeProvider>
-      </div>
-    </>
+    if (location.hash) {
+      const id = location.hash.substring(1); // location.hash without the '#'
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView();
+          el.focus();
+        }
+      }, 0);
+    }
+  }, [isLoading, location]);
+
+  return (
+    <div id="root">
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+
+        {isLoading && isHome ? (
+          <Loader onLoadingCompleted={() => setIsLoading(false)} />
+        ) : (
+          <StyledContent>
+            <Header navLinks={config.navLinks} delayInSec={isHome ? 2000 : 0} />
+            <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 0} />
+            <Email email={config.email} delayInSec={isHome ? 2000 : 0} />
+            <div id="content">
+              {children}
+              <Footer socialMedia={config.socialMedia} projectUrl={config.projectUrl} />
+            </div>
+          </StyledContent>
+        )}
+      </ThemeProvider>
+    </div>
   );
 };
 
