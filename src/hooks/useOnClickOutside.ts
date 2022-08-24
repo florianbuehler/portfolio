@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
 // https://usehooks.com/useOnClickOutside/
 
-const useOnClickOutside = (ref, handler) => {
+const useOnClickOutside = (ref: RefObject<unknown>, handler: (event: Event) => void): void => {
   useEffect(
     () => {
-      const listener = (event) => {
+      const listener = (event: Event) => {
         // Do nothing if clicking ref's element or descendent elements
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         if (!ref.current || ref.current.contains(event.target)) {
           return;
         }

@@ -114,7 +114,7 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const handleScroll = () => {
-    setScrolledToTop(window.pageYOffset < 50);
+    setScrolledToTop(window.scrollY < 50);
   };
 
   useEffect(() => {
@@ -132,7 +132,7 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
       clearTimeout(timeout);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   const fadeClass = delay ? 'fade' : '';
 

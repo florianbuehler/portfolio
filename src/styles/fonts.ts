@@ -23,6 +23,18 @@ import SFMonoSemiboldWoff2 from '@fonts/SFMono/SFMono-Semibold.woff2';
 import SFMonoSemiboldItalicWoff from '@fonts/SFMono/SFMono-SemiboldItalic.woff';
 import SFMonoSemiboldItalicWoff2 from '@fonts/SFMono/SFMono-SemiboldItalic.woff2';
 
+type FontWeights = {
+  400?: unknown[];
+  500?: unknown[];
+  600?: unknown[];
+};
+
+type FontFamily = {
+  name: string;
+  normal: FontWeights;
+  italic: FontWeights;
+};
+
 const calibreNormalWeights = {
   400: [CalibreRegularWoff, CalibreRegularWoff2],
   500: [CalibreMediumWoff, CalibreMediumWoff2],
@@ -45,19 +57,19 @@ const sfMonoItalicWeights = {
   600: [SFMonoSemiboldItalicWoff, SFMonoSemiboldItalicWoff2]
 };
 
-const calibre = {
+const calibre: FontFamily = {
   name: 'Calibre',
   normal: calibreNormalWeights,
   italic: calibreItalicWeights
 };
 
-const sfMono = {
+const sfMono: FontFamily = {
   name: 'SF Mono',
   normal: sfMonoNormalWeights,
   italic: sfMonoItalicWeights
 };
 
-const createFontFaces = (family, style = 'normal') => {
+const createFontFaces = (family: FontFamily, style: 'normal' | 'italic' = 'normal'): string => {
   let styles = '';
 
   for (const [weight, formats] of Object.entries(family[style])) {

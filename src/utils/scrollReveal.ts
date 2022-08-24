@@ -1,6 +1,45 @@
 import ScrollReveal from 'scrollreveal';
 
-export const getScrollRevealConfig = (delay = 200, viewFactor = 0.25) => ({
+type ScrollRevealRotateObject = {
+  x?: number | undefined;
+  y?: number | undefined;
+  z?: number | undefined;
+};
+
+type ScrollRevealPositionObject = {
+  top?: number | undefined;
+  right?: number | undefined;
+  bottom?: number | undefined;
+  left?: number | undefined;
+};
+
+type ScrollRevealObjectOptions = {
+  origin?: string | undefined;
+  distance?: string | undefined;
+  duration?: number | undefined;
+  delay?: number | undefined;
+  interval?: number | undefined;
+  rotate?: ScrollRevealRotateObject | undefined;
+  opacity?: number | undefined;
+  scale?: number | undefined;
+  easing?: string | undefined;
+  cleanup?: boolean | undefined;
+  container?: unknown;
+  mobile?: boolean | undefined;
+  reset?: boolean | undefined;
+  useDelay?: string | undefined;
+  viewFactor?: number | undefined;
+  viewOffset?: ScrollRevealPositionObject | undefined;
+  beforeReveal?(domEl: HTMLElement | NodeListOf<Element>): void;
+  afterReveal?(domEl: HTMLElement | NodeListOf<Element>): void;
+  beforeReset?(domEl: HTMLElement | NodeListOf<Element>): void;
+  afterReset?(domEl: HTMLElement | NodeListOf<Element>): void;
+};
+
+export const getScrollRevealConfig = (
+  delay = 200,
+  viewFactor = 0.25
+): ScrollRevealObjectOptions => ({
   origin: 'bottom',
   distance: '20px',
   duration: 500,
