@@ -14,7 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "eslint": "eslint . --ext .js,.ts,.tsx",
-    "fix-eslint": "eslint . --ext .js,.ts,.tsx --fix"
+    "fix-eslint": "eslint . --ext .js,.ts,.tsx --fix",
+    "deploy": "gatsby build --prefix-paths && gh-pages -r https://github.com/florianbuehler/florianbuehler.github.io.git -b main -d public"
   },
   "repository": {
     "type": "git",
@@ -63,6 +64,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^4.3.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.7.1",
     "typescript": "^4.5.0"
   }
