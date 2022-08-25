@@ -11,7 +11,7 @@ const getInitialState = () =>
   // prefers reduced motion, but it doesn't matter. This value
   // will be overwritten on the client, before any animations
   // occur.
-  isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
+  isRenderingOnServer ? false : !window.matchMedia(QUERY).matches;
 
 const usePrefersReducedMotion = (): boolean => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialState);

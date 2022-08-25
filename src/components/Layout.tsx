@@ -45,12 +45,16 @@ const Layout: React.FC<Props> = ({ children, location }) => {
           <Loader onLoadingCompleted={() => setIsLoading(false)} />
         ) : (
           <StyledContent>
-            <Header navLinks={config.navLinks} delayInSec={isHome ? 2000 : 0} />
-            <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 0} />
-            <Email email={config.email} delayInSec={isHome ? 2000 : 0} />
+            <Header navLinks={config.navLinks} delayInSec={isHome ? 2000 : 1000} />
+            <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 1000} />
+            <Email email={config.email} delayInSec={isHome ? 2000 : 1000} />
             <div id="content">
               {children}
-              <Footer socialMedia={config.socialMedia} projectUrl={config.projectUrl} />
+              <Footer
+                socialMedia={config.socialMedia}
+                projectUrl={config.projectUrl}
+                delayInSec={isHome ? 0 : 1500}
+              />
             </div>
           </StyledContent>
         )}

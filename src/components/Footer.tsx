@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { SocialMedia } from '@components';
 import { Icon } from '@components/icons';
+import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
 
 type Props = {
   socialMedia: SocialMedia[];
   projectUrl: string;
+  delayInSec?: number;
 };
 
 type StyledCreditProps = {
@@ -61,9 +64,22 @@ const StyledCredit = styled.div<StyledCreditProps>`
   }
 `;
 
-const Footer: React.FC<Props> = ({ socialMedia, projectUrl }) => {
-  return (
-    <StyledFooter>
+const Footer: React.FC<Props> = ({ socialMedia, projectUrl, delayInSec }) => {
+  const delay = !!delayInSec;
+
+  const [isMounted, setIsMounted] = useState<boolean>(!delay);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    if (!delay || prefersReducedMotion) {
+      return;
+    }
+    const timeout = setTimeout(() => setIsMounted(true), delayInSec);
+    return () => clearTimeout(timeout);
+  }, [delay, delayInSec, prefersReducedMotion]);
+
+  const content = (
+    <>
       <StyledSocialLinks>
         <ul>
           {socialMedia &&
@@ -82,6 +98,22 @@ const Footer: React.FC<Props> = ({ socialMedia, projectUrl }) => {
           <div>Built by Florian Bühler</div>
         </a>
       </StyledCredit>
+    </>
+  );
+
+  return (
+    <StyledFooter>
+      {prefersReducedMotion ? (
+        <>{content}</>
+      ) : (
+        <TransitionGroup component={null}>
+          {isMounted && (
+            <CSSTransition classNames={delayInSec ? 'fade' : ''} timeout={delayInSec || 0}>
+              {content}
+            </CSSTransition>
+          )}
+        </TransitionGroup>
+      )}
     </StyledFooter>
   );
 };
