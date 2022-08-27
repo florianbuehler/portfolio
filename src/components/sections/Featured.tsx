@@ -315,7 +315,7 @@ const FeaturedSection: React.FC = () => {
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/" } }
+        filter: { fileAbsolutePath: { regex: "/content/projects/featured/" } }
         sort: { fields: [frontmatter___date], order: ASC }
       ) {
         edges {
