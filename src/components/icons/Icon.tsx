@@ -1,8 +1,7 @@
 import React from 'react';
-import { default as GitHubIcon } from './GitHub';
-import { default as LinkedInIcon } from './LinkedIn';
+import { ExternalIcon, FolderIcon, GitHubIcon, LinkedInIcon } from '@components/icons';
 
-export type IconName = 'GitHub' | 'LinkedIn';
+export type IconName = 'External' | 'Folder' | 'GitHub' | 'LinkedIn';
 
 type Props = {
   name: IconName;
@@ -10,6 +9,10 @@ type Props = {
 
 const Icon: React.FC<Props> = ({ name }) => {
   switch (name) {
+    case 'External':
+      return <ExternalIcon />;
+    case 'Folder':
+      return <FolderIcon />;
     case 'GitHub':
       return <GitHubIcon />;
     case 'LinkedIn':

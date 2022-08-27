@@ -7,7 +7,8 @@ import {
   ContactSection,
   FeaturedSection,
   HeroSection,
-  JobsSection
+  JobsSection,
+  ProjectsSection
 } from '@components/sections';
 
 const StyledMainContainer = styled.main`
@@ -22,6 +23,7 @@ const IndexPage: React.FunctionComponent<PageProps> = ({ location }) => {
         <AboutSection />
         <JobsSection />
         <FeaturedSection />
+        <ProjectsSection />
         <ContactSection />
       </StyledMainContainer>
     </Layout>
