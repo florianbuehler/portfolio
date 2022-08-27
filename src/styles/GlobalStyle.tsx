@@ -76,11 +76,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.bg.color};
     color: ${({ theme }) => theme.typography.colors.text};
     font-family: ${({ theme }) => theme.typography.fontSans};
-    font-size: ${({ theme }) => theme.typography.fontSizes.textLg};;
+    font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
     line-height: 1.3;
 
     ${devices.mobileL} {
-      font-size: ${({ theme }) => theme.typography.fontSizes.textXl};;
+      font-size: ${({ theme }) => theme.typography.fontSizes.textXl};
     }
 
     &.hidden {
