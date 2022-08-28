@@ -5,6 +5,7 @@ github: 'https://github.com/florianbuehler/hacker-news'
 external: 'https://florianbuehler.github.io/hacker-news'
 tech:
   - React
+  - TS
   - Tailwind CSS
   - Redux
 showInProjects: true
