@@ -4,13 +4,14 @@ import styled from 'styled-components';
 import { Layout, SEO } from '@components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
+import { devices } from '@styles';
 import { getScrollRevealConfig, scrollReveal } from '@utils';
 
 const StyledTableContainer = styled.div`
-  margin: 100px -20px;
+  margin: 50px -10px;
 
-  @media (max-width: 768px) {
-    margin: 50px -10px;
+  ${devices.tablet} {
+    margin: 100px -20px;
   }
 
   table {
@@ -18,8 +19,10 @@ const StyledTableContainer = styled.div`
     border-collapse: collapse;
 
     .hide-on-mobile {
-      @media (max-width: 768px) {
-        display: none;
+      display: none;
+
+      ${devices.tablet} {
+        display: table-cell;
       }
     }
 
@@ -36,17 +39,17 @@ const StyledTableContainer = styled.div`
       text-align: left;
 
       &:first-child {
-        padding-left: 20px;
+        padding-left: 10px;
 
-        @media (max-width: 768px) {
-          padding-left: 10px;
+        ${devices.tablet} {
+          padding-left: 20px;
         }
       }
       &:last-child {
-        padding-right: 20px;
+        padding-right: 10px;
 
-        @media (max-width: 768px) {
-          padding-right: 10px;
+        ${devices.tablet} {
+          padding-right: 20px;
         }
       }
 
@@ -71,18 +74,19 @@ const StyledTableContainer = styled.div`
 
     td {
       &.year {
-        padding-right: 20px;
+        padding-right: 10px;
+        font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
 
-        @media (max-width: 768px) {
-          padding-right: 10px;
-          font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
+        ${devices.tablet} {
+          padding-right: 20px;
+          font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
         }
       }
 
       &.title {
         padding-top: 15px;
         padding-right: 20px;
-        color: ${({ theme }) => theme.typography.colors.header};
+        color: ${({ theme }) => theme.typography.colors.title};
         font-size: ${({ theme }) => theme.typography.fontSizes.textXl};
         font-weight: 600;
         line-height: 1.25;

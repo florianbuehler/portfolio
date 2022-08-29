@@ -114,7 +114,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     width: 100%;
     max-width: 1600px;
-    min-height: 100vh;
+    min-height: 100%;
     padding: 125px 25px;
 
     ${devices.mobileL} {
@@ -163,7 +163,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: ${({ theme }) => theme.typography.colors.header};
+    color: ${({ theme }) => theme.typography.colors.title};
     line-height: 1.1;
   }
 

@@ -12,7 +12,11 @@ type Props = {
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
+
+  #content {
+    flex-grow: 1;
+  }
 `;
 
 const Layout: React.FC<Props> = ({ children, location }) => {
@@ -48,14 +52,12 @@ const Layout: React.FC<Props> = ({ children, location }) => {
             <Header navLinks={config.navLinks} delayInSec={isHome ? 2000 : 1000} />
             <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 1000} />
             <Email email={config.email} delayInSec={isHome ? 2000 : 1000} />
-            <div id="content">
-              {children}
-              <Footer
-                socialMedia={config.socialMedia}
-                projectUrl={config.projectUrl}
-                delayInSec={isHome ? 0 : 1500}
-              />
-            </div>
+            <div id="content">{children}</div>
+            <Footer
+              socialMedia={config.socialMedia}
+              projectUrl={config.projectUrl}
+              delayInSec={isHome ? 0 : 1500}
+            />
           </StyledContent>
         )}
       </ThemeProvider>

@@ -95,7 +95,7 @@ const StyledProject = styled.li`
     }
 
     ${devices.tablet} {
-      color: ${({ theme }) => theme.typography.colors.header};
+      color: ${({ theme }) => theme.typography.colors.title};
       margin: 0 0 20px;
     }
   }

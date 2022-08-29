@@ -117,7 +117,7 @@ const StyledProject = styled.li`
 
   .project-title {
     margin: 0 0 10px;
-    color: ${({ theme }) => theme.typography.colors.header};
+    color: ${({ theme }) => theme.typography.colors.title};
     font-size: ${({ theme }) => theme.typography.fontSizes.text2Xl};
 
     a {

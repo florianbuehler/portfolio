@@ -13,7 +13,7 @@ type FontSize =
 export type Typography = {
   colors: {
     text: string;
-    header: string;
+    title: string;
     selected: string;
     highlight: string;
   };
@@ -29,7 +29,7 @@ export type Typography = {
 const typography: Typography = {
   colors: {
     text: colors.slate,
-    header: colors.lightestSlate,
+    title: colors.lightestSlate,
     selected: colors.lightestSlate,
     highlight: colors.lightSlate
   },

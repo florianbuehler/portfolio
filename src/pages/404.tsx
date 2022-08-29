@@ -8,7 +8,6 @@ import { usePrefersReducedMotion } from '@hooks';
 const StyledNotFound = styled.main`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
-  min-height: calc(100vh - 70px);
 `;
 
 const StyledTitle = styled.h1`
