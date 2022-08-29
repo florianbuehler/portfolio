@@ -316,7 +316,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       margin: 0;
       list-style: none;
-      font-size: ${({ theme }) => theme.typography.fontSizes.textLg};;
+      font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
       li {
         position: relative;
         padding-left: 30px;

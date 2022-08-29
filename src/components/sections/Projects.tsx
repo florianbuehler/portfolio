@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
@@ -19,6 +19,7 @@ const StyledProjectsSection = styled.section`
   .archive-link {
     font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
+
     &:after {
       bottom: 0.1em;
     }
@@ -192,6 +193,7 @@ const ProjectsSection: React.FC = () => {
 
   const [showMore, setShowMore] = useState(false);
   const revealTitleRef = useRef(null);
+  const revealArchiveLinkRef = useRef(null);
   const revealProjectsRef = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -201,6 +203,9 @@ const ProjectsSection: React.FC = () => {
     }
 
     revealTitleRef.current && scrollReveal?.reveal(revealTitleRef.current, getScrollRevealConfig());
+    revealArchiveLinkRef.current &&
+      scrollReveal?.reveal(revealArchiveLinkRef.current, getScrollRevealConfig());
+
     revealProjectsRef.current.forEach((ref, i) =>
       scrollReveal?.reveal(ref, getScrollRevealConfig(i * 100))
     );
@@ -268,6 +273,10 @@ const ProjectsSection: React.FC = () => {
   return (
     <StyledProjectsSection>
       <h2 ref={revealTitleRef}>Other Noteworthy Projects</h2>
+
+      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLinkRef}>
+        view the archive
+      </Link>
 
       <ul className="projects-grid">
         {prefersReducedMotion ? (
