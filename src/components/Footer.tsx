@@ -28,7 +28,6 @@ const StyledFooter = styled.footer`
 const StyledSocialLinks = styled.div`
   display: block;
   width: 100%;
-  max-width: 270px;
   margin: 0 auto 10px;
   color: ${({ theme }) => theme.typography.colors.highlight};
 
@@ -37,13 +36,17 @@ const StyledSocialLinks = styled.div`
   }
 
   ul {
-    ${({ theme }) => theme.mixins.flexBetween};
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     padding: 0;
     margin: 0;
     list-style: none;
 
     a {
       padding: 10px;
+      margin: 0 5px;
 
       svg {
         width: 20px;
