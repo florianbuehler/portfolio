@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { useOnClickOutside } from '@hooks';
-import { devices } from '@styles';
+import { devices, deviceSizes } from '@styles';
 import { KEY_CODES } from '@utils';
 import { NavLink } from './types';
 
@@ -63,6 +63,7 @@ const StyledHamburgerButton = styled.button<StyledProps>`
     transition-timing-function: cubic-bezier(
       ${(props) => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)}
     );
+
     &:before,
     &:after {
       content: '';
@@ -78,6 +79,7 @@ const StyledHamburgerButton = styled.button<StyledProps>`
       transition-duration: 0.15s;
       transition-property: transform;
     }
+
     &:before {
       width: ${({ menuOpen }) => (menuOpen ? `100%` : `120%`)};
       top: ${({ menuOpen }) => (menuOpen ? `0` : `-10px`)};
@@ -87,6 +89,7 @@ const StyledHamburgerButton = styled.button<StyledProps>`
           ? 'top 0.1s ease-out, opacity 0.1s ease-out 0.12s'
           : 'top 0.1s ease-in 0.25s, opacity 0.1s ease-in'};
     }
+
     &:after {
       width: ${({ menuOpen }) => (menuOpen ? `100%` : `80%`)};
       bottom: ${({ menuOpen }) => (menuOpen ? `0` : `-10px`)};
@@ -175,34 +178,36 @@ const HamburgerMenu: React.FC<Props> = ({ navLinks }) => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const buttonRef = useRef(null);
-  const navRef = useRef(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
-  let menuFocusables;
-  let firstFocusableEl;
-  let lastFocusableEl;
+  const menuFocusables: HTMLElement[] = [];
+  let firstFocusableEl: HTMLElement;
+  let lastFocusableEl: HTMLElement;
 
   const setFocusables = () => {
-    menuFocusables = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))];
+    buttonRef.current && menuFocusables.push(buttonRef.current);
+    navRef.current && menuFocusables.push(...Array.from(navRef.current.querySelectorAll('a')));
+
     firstFocusableEl = menuFocusables[0];
     lastFocusableEl = menuFocusables[menuFocusables.length - 1];
   };
 
-  const handleBackwardTab = (e) => {
+  const handleBackwardTab = (e: KeyboardEvent) => {
     if (document.activeElement === firstFocusableEl) {
       e.preventDefault();
       lastFocusableEl.focus();
     }
   };
 
-  const handleForwardTab = (e) => {
+  const handleForwardTab = (e: KeyboardEvent) => {
     if (document.activeElement === lastFocusableEl) {
       e.preventDefault();
       firstFocusableEl.focus();
     }
   };
 
-  const onKeyDown = (e) => {
+  const onKeyDown = (e: KeyboardEvent) => {
     switch (e.key) {
       case KEY_CODES.ESCAPE:
       case KEY_CODES.ESCAPE_IE11: {
@@ -229,8 +234,8 @@ const HamburgerMenu: React.FC<Props> = ({ navLinks }) => {
     }
   };
 
-  const onResize = (e) => {
-    if (e.currentTarget.innerWidth > 768) {
+  const onResize = (e: UIEvent) => {
+    if ((e.currentTarget as Window)?.innerWidth > deviceSizes.tablet) {
       setMenuOpen(false);
     }
   };

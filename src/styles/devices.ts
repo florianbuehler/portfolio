@@ -10,24 +10,24 @@ type Devices = {
   laptopL: string;
 };
 
-export const sizes = {
-  mobileS: '330px',
-  mobile: '400px',
-  mobileL: '480px',
-  tabletS: '768px',
-  tablet: '820px',
-  laptop: '1024px',
-  laptopL: '1440px'
+export const deviceSizes = {
+  mobileS: 330,
+  mobile: 400,
+  mobileL: 480,
+  tabletS: 768,
+  tablet: 820,
+  laptop: 1024,
+  laptopL: 1440
 };
 
 const devices: Devices = {
-  mobileS: mediaQuery(sizes.mobileS),
-  mobile: mediaQuery(sizes.mobile),
-  mobileL: mediaQuery(sizes.mobileL),
-  tabletS: mediaQuery(sizes.tabletS),
-  tablet: mediaQuery(sizes.tablet),
-  laptop: mediaQuery(sizes.laptop),
-  laptopL: mediaQuery(sizes.laptopL)
+  mobileS: mediaQuery(`${deviceSizes.mobileS}px`),
+  mobile: mediaQuery(`${deviceSizes.mobile}px`),
+  mobileL: mediaQuery(`${deviceSizes.mobileL}px`),
+  tabletS: mediaQuery(`${deviceSizes.tabletS}px`),
+  tablet: mediaQuery(`${deviceSizes.tablet}px`),
+  laptop: mediaQuery(`${deviceSizes.laptop}px`),
+  laptopL: mediaQuery(`${deviceSizes.laptopL}px`)
 };
 
 export default devices;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { usePrefersReducedMotion } from '@hooks';
-import { devices, sizes } from '@styles';
+import { devices, deviceSizes } from '@styles';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -11,7 +11,7 @@ const StyledHeroSection = styled.section`
   min-height: 100vh;
   padding: 0 0 10vh 0;
 
-  @media (min-width: ${sizes.tablet}) and (min-height: 700px) {
+  @media (min-width: ${deviceSizes.tablet}) and (min-height: 700px) {
     padding-bottom: 0;
   }
 
