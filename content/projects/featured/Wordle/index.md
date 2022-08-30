@@ -3,7 +3,7 @@ date: '2022-02-28'
 title: 'Wordle'
 cover: './demo.png'
 github: 'https://github.com/florianbuehler/wordle'
-external: 'https://florianbuehler.github.io/wordle'
+external: 'https://florianbuehler.github.io/wordle/'
 tech:
 - React
 - TS

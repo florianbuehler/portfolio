@@ -127,7 +127,14 @@ const AboutSection: React.FC = () => {
     sectionRef.current && scrollReveal?.reveal(sectionRef.current, getScrollRevealConfig());
   }, [prefersReducedMotion]);
 
-  const skills = ['TypeScript', 'JavaScript (ES6+)', 'React', 'C#', 'Node.js', 'Kubernetes'];
+  const skills = [
+    'React',
+    'TypeScript',
+    'JavaScript (ES6+)',
+    'Styled Components',
+    'C#',
+    'Kubernetes'
+  ];
 
   return (
     <StyledAboutSection id="about" ref={sectionRef}>
@@ -138,20 +145,53 @@ const AboutSection: React.FC = () => {
           <div>
             <p>
               Hello! My name is Florian and I enjoy creating things that live on the internet. My
-              interest in web development started back in Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Dolorum earum eos maiores nesciunt numquam velit.
+              interest in web development started back in 2016 when I decided to write a small tool
+              for my stock analysis — turns out hacking together some code to collect data from
+              different webpages taught me a lot about HTML &amp; how the web works in general!
             </p>
 
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab ad consectetur,
-              doloribus, enim ipsam laborum laudantium libero nemo nihil perspiciatis quisquam
-              reiciendis, sed voluptatem voluptatum. A adipisci eveniet exercitationem harum
-              inventore iusto nesciunt omnis, quod rerum, sapiente soluta, vitae?
-            </p>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, est nam nostrum quam
-              rerum soluta!
+              Fast-forward to today, and I've had the privilege of working at{' '}
+              <a target="_blank" rel="noopener noreferrer" href="https://zeb-consulting.com/en-DE/">
+                a medium-sized enterprise
+              </a>
+              , and{' '}
+              <a target="_blank" rel="noopener noreferrer" href="https://www.d-fine.com/en/">
+                a consulting firm
+              </a>{' '}
+              with projects with different clients - including{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.deutsche-bank.de/pk.html"
+              >
+                a huge corporation
+              </a>
+              ,{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.boerse-stuttgart.de/en/"
+              >
+                a stock exchange
+              </a>{' '}
+              and{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/blocknox-gmbh/"
+              >
+                a start-up
+              </a>
+              . These days my main focus is building reliable and highly secure solutions at{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/blocknox-gmbh/"
+              >
+                blocknox
+              </a>{' '}
+              for a variety of different challenges.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

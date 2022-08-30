@@ -2,7 +2,7 @@
 date: '2021-03-25'
 title: 'Hacker News Clone'
 github: 'https://github.com/florianbuehler/hacker-news'
-external: 'https://florianbuehler.github.io/hacker-news'
+external: 'https://florianbuehler.github.io/hacker-news/'
 tech:
   - React
   - TS
