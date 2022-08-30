@@ -146,7 +146,7 @@ const AboutSection: React.FC = () => {
             <p>
               Hello! My name is Florian and I enjoy creating things that live on the internet. My
               interest in web development started back in 2016 when I decided to write a small tool
-              for my stock analysis — turns out hacking together some code to collect data from
+              for some stock analysis — turns out hacking together some code to collect data from
               different webpages taught me a lot about HTML &amp; how the web works in general!
             </p>
 
