@@ -1,6 +1,8 @@
 {
   "name": "portfolio",
   "description": "Personal portfolio",
+  "homepage": "https://portfolio-eta-eight-97.vercel.app/",
+  "private": true,
   "version": "1.0.0",
   "author": "Florian Bühler <florian-buehler@outlook.com>",
   "keywords": [
