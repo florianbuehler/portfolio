@@ -10,4 +10,6 @@ tech:
 - Styled Components
 ---
 
-An interpretation of the popular word guessing game Wordle. Try to guess the **WORDLE** in 6 tries using only valid 5-letter words. After each guess, the color of the tiles will change to show how close you have been to the quested word. 
+An interpretation of the popular word guessing game Wordle. 
+
+**Gameplay:** Try to guess the **_WORDLE_** in 6 tries using only valid 5-letter words. After each guess, the color of the tiles will change to show how close you have been to the quested word. 
