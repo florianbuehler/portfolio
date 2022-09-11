@@ -1,3 +1,26 @@
+<h1 align="center">
+  Portfolio
+</h1>
+
+<p align="center">
+    <a style="text-decoration: none" href="https://www.gatsbyjs.com/" alt="Gatsby">
+        <img src="https://img.shields.io/badge/framework-Gatsby-7026b9" />
+    </a>
+    <a style="text-decoration: none" href="https://www.typescriptlang.org/" alt="TypeScript">
+        <img src="https://img.shields.io/badge/language-TypeScript-3178c6" />
+    </a>
+    <a style="text-decoration: none" href="https://styled-components.com/" alt="Styled Components">
+        <img src="https://img.shields.io/badge/styling-Styled_Components-dd6f93" />
+    </a>
+    <a style="text-decoration: none" href="https://eslint.org/" alt="Eslint">
+        <img src="https://img.shields.io/badge/linter-ESLint-4a31c3" />
+    </a>
+    <a style="text-decoration: none" href="https://prettier.io/" alt="Prettier">
+        <img src="https://img.shields.io/badge/code_style-Prettier-ff69b4" />
+    </a>
+</p>
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
