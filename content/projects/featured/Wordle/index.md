@@ -1,4 +1,5 @@
 ---
+position: 1
 date: '2022-02-28'
 title: 'Wordle'
 cover: './demo.png'

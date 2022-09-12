@@ -311,7 +311,7 @@ const FeaturedSection: React.FC = () => {
     {
       featured: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/projects/featured/" } }
-        sort: { fields: [frontmatter___date], order: ASC }
+        sort: { fields: [frontmatter___position], order: ASC }
       ) {
         edges {
           node {
@@ -369,7 +369,9 @@ const FeaturedSection: React.FC = () => {
                     <p className="project-overline">Featured Project</p>
 
                     <h3 className="project-title">
-                      <a href={external}>{title}</a>
+                      <a href={external} target="_blank" rel="noreferrer">
+                        {title}
+                      </a>
                     </h3>
 
                     <div
@@ -388,12 +390,18 @@ const FeaturedSection: React.FC = () => {
 
                     <div className="project-links">
                       {github && (
-                        <a href={github} aria-label="GitHub Link">
+                        <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
                           <Icon name="GitHub" />
                         </a>
                       )}
                       {external && (
-                        <a href={external} aria-label="External Link" className="external">
+                        <a
+                          href={external}
+                          aria-label="External Link"
+                          className="external"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <Icon name="External" />
                         </a>
                       )}
@@ -402,7 +410,11 @@ const FeaturedSection: React.FC = () => {
                 </div>
 
                 <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
+                  <a
+                    href={external ? external : github ? github : '#'}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <GatsbyImage image={image} alt={title} className="img" />
                   </a>
                 </div>
