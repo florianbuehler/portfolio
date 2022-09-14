@@ -7,6 +7,24 @@ import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
 import { getScrollRevealConfig, scrollReveal } from '@utils';
 
+type PageData = {
+  allMarkdownRemark: {
+    edges: {
+      node: {
+        frontmatter: {
+          title: string;
+          date: string;
+          github?: string;
+          external?: string;
+          tech: string[];
+          company: string;
+        };
+        html: string;
+      };
+    }[];
+  };
+};
+
 const StyledTableContainer = styled.div`
   margin: 50px -10px;
 
@@ -130,12 +148,12 @@ const StyledTableContainer = styled.div`
   }
 `;
 
-const ArchivePage: React.FC<PageProps> = ({ location, data }) => {
+const ArchivePage: React.FC<PageProps<PageData>> = ({ location, data }) => {
   const projects = data.allMarkdownRemark.edges;
 
   const revealTitleRef = useRef(null);
   const revealTableRef = useRef(null);
-  const revealProjectsRef = useRef([]);
+  const revealProjectsRef = useRef<HTMLTableRowElement[]>([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -176,7 +194,7 @@ const ArchivePage: React.FC<PageProps> = ({ location, data }) => {
                 projects.map(({ node }, i) => {
                   const { date, github, external, title, tech, company } = node.frontmatter;
                   return (
-                    <tr key={i} ref={(el) => (revealProjectsRef.current[i] = el)}>
+                    <tr key={i} ref={(el) => (revealProjectsRef.current[i] = el!)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
 
                       <td className="title">{title}</td>
