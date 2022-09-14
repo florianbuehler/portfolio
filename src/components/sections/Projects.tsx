@@ -7,6 +7,22 @@ import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
 import { getScrollRevealConfig, scrollReveal } from '@utils';
 
+type StaticQueryDataNode = {
+  frontmatter: {
+    title: string;
+    github?: string;
+    external?: string;
+    tech: string[];
+  };
+  html: string;
+};
+
+type StaticQueryData = {
+  projects: {
+    edges: { node: StaticQueryDataNode }[];
+  };
+};
+
 const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -167,7 +183,7 @@ const StyledProject = styled.li`
 `;
 
 const ProjectsSection: React.FC = () => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<StaticQueryData>(graphql`
     query {
       projects: allMarkdownRemark(
         filter: {
@@ -194,7 +210,7 @@ const ProjectsSection: React.FC = () => {
   const [showMore, setShowMore] = useState(false);
   const revealTitleRef = useRef(null);
   const revealArchiveLinkRef = useRef(null);
-  const revealProjectsRef = useRef([]);
+  const revealProjectsRef = useRef<HTMLElement[]>([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -216,7 +232,7 @@ const ProjectsSection: React.FC = () => {
   const firstGridLimitProjects = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstGridLimitProjects;
 
-  const projectInner = (node) => {
+  const projectInner = (node: StaticQueryDataNode) => {
     const { frontmatter, html } = node;
     const { github, external, title, tech } = frontmatter;
 
@@ -298,7 +314,7 @@ const ProjectsSection: React.FC = () => {
                 >
                   <StyledProject
                     key={i}
-                    ref={(el) => (revealProjectsRef.current[i] = el)}
+                    ref={(el) => (revealProjectsRef.current[i] = el!)}
                     style={{
                       transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`
                     }}

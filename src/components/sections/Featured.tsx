@@ -1,11 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { ImageDataLike } from 'gatsby-plugin-image/dist/src/components/hooks';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
 import { getScrollRevealConfig, scrollReveal } from '@utils';
+
+type StaticQueryData = {
+  featured: {
+    edges: {
+      node: {
+        frontmatter: {
+          position: number;
+          date: string;
+          title: string;
+          cover: ImageDataLike;
+          github?: string;
+          external?: string;
+          tech: string[];
+        };
+        html: string;
+      };
+    }[];
+  };
+};
 
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
@@ -307,7 +327,7 @@ const StyledProject = styled.li`
 `;
 
 const FeaturedSection: React.FC = () => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<StaticQueryData>(graphql`
     {
       featured: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/projects/featured/" } }
@@ -335,7 +355,7 @@ const FeaturedSection: React.FC = () => {
 
   const featuredProjects = data.featured.edges.filter(({ node }) => node);
   const revealTitleRef = useRef<HTMLHeadingElement>(null);
-  const revealProjectsRef = useRef([]);
+  const revealProjectsRef = useRef<HTMLLIElement[]>([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -363,7 +383,7 @@ const FeaturedSection: React.FC = () => {
             const image = getImage(cover);
 
             return (
-              <StyledProject key={i} ref={(el) => (revealProjectsRef.current[i] = el)}>
+              <StyledProject key={i} ref={(el) => (revealProjectsRef.current[i] = el!)}>
                 <div className="project-content">
                   <div>
                     <p className="project-overline">Featured Project</p>
@@ -415,7 +435,7 @@ const FeaturedSection: React.FC = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <GatsbyImage image={image} alt={title} className="img" />
+                    {image && <GatsbyImage image={image} alt={title} className="img" />}
                   </a>
                 </div>
               </StyledProject>
