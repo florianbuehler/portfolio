@@ -59,7 +59,7 @@ const NotFoundPage: React.FC<PageProps> = ({ location }) => {
           <TransitionGroup component={null}>
             {isMounted &&
               items.map((item, i) => (
-                <CSSTransition timeout={1000} classNames="fadeup">
+                <CSSTransition key={i} timeout={1000} classNames="fadeup">
                   <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
                 </CSSTransition>
               ))}

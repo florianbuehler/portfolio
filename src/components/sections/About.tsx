@@ -151,7 +151,7 @@ const AboutSection: React.FC = () => {
             </p>
 
             <p>
-              Fast-forward to today, and I've had the privilege of working at{' '}
+              Fast-forward to today, and I&apos;ve had the privilege of working at{' '}
               <a target="_blank" rel="noopener noreferrer" href="https://zeb-consulting.com/en-DE/">
                 a medium-sized enterprise
               </a>

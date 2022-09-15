@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import anime from 'animejs';
 import styled from 'styled-components';
@@ -48,7 +48,8 @@ const StyledLoader = styled.div<StyledProps>`
 const Loader: React.FC<Props> = ({ onLoadingCompleted }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  const animate = () => {
+  const animate = useCallback(() => {
+    // eslint-disable-next-line import/no-named-as-default-member
     const loader = anime.timeline({
       complete: () => onLoadingCompleted()
     });
@@ -59,6 +60,7 @@ const Loader: React.FC<Props> = ({ onLoadingCompleted }) => {
         delay: 300,
         duration: 1500,
         easing: 'easeInOutQuart',
+        // eslint-disable-next-line import/no-named-as-default-member
         strokeDashoffset: [anime.setDashoffset, 0]
       })
       .add({
@@ -82,13 +84,13 @@ const Loader: React.FC<Props> = ({ onLoadingCompleted }) => {
         opacity: 0,
         zIndex: -1
       });
-  };
+  }, [onLoadingCompleted]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 10);
     animate();
     return () => clearTimeout(timeout);
-  }, []);
+  }, [animate]);
 
   return (
     <StyledLoader className="loader" isMounted={isMounted}>
