@@ -146,7 +146,7 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec, ...themeProps }) => {
             {Logo}
 
             <ReducedMotionMenu navLinks={navLinks} {...themeProps} />
-            <HamburgerMenu navLinks={navLinks} />
+            <HamburgerMenu navLinks={navLinks} {...themeProps} />
           </>
         ) : (
           <>
@@ -167,7 +167,7 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec, ...themeProps }) => {
             <TransitionGroup component={null}>
               {isMounted && (
                 <CSSTransition classNames={fadeClass} timeout={delayInSec || 0}>
-                  <HamburgerMenu navLinks={navLinks} />
+                  <HamburgerMenu navLinks={navLinks} {...themeProps} />
                 </CSSTransition>
               )}
             </TransitionGroup>

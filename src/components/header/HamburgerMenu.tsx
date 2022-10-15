@@ -2,13 +2,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import ThemeToggle from '@components/header/ThemeToggle';
 import { useOnClickOutside } from '@hooks';
-import { devices, deviceSizes } from '@styles';
+import { devices, deviceSizes, ThemeName } from '@styles';
 import { KEY_CODES } from '@utils';
 import { NavLink } from './types';
 
 type Props = {
   navLinks: NavLink[];
+  themeName: ThemeName;
+  onThemeToggle: (themeName: ThemeName) => void;
 };
 
 type StyledProps = {
@@ -23,11 +26,35 @@ const StyledMenu = styled.div`
   }
 `;
 
-const StyledHamburgerButton = styled.button<StyledProps>`
-  ${({ theme }) => theme.mixins.flexCenter};
+const StyledHamburgerMenu = styled.div`
+  display: flex;
   position: relative;
   z-index: 10;
+  align-items: center;
   margin-right: -15px;
+`;
+
+const StyledHamburgerThemeToggle = styled(ThemeToggle)<StyledProps>`
+  transform: translateX(${({ menuOpen }) => (menuOpen ? 0 : 100)}vw);
+  visibility: ${({ menuOpen }) => (menuOpen ? 'visible' : 'hidden')};
+  transition: ${({ theme }) => theme.transition};
+
+  margin-left: 0;
+  padding: 13px;
+  width: fit-content;
+
+  svg {
+    height: 28px;
+  }
+
+  &.dark {
+    margin-bottom: 0;
+  }
+`;
+
+const StyledHamburgerButton = styled.button<StyledProps>`
+  ${({ theme }) => theme.mixins.flexCenter};
+
   padding: 15px;
   border: 0;
   background-color: transparent;
@@ -173,7 +200,7 @@ const StyledSidebar = styled.aside<StyledProps>`
   }
 `;
 
-const HamburgerMenu: React.FC<Props> = ({ navLinks }) => {
+const HamburgerMenu: React.FC<Props> = ({ navLinks, ...themeProps }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -263,16 +290,19 @@ const HamburgerMenu: React.FC<Props> = ({ navLinks }) => {
       </Helmet>
 
       <div ref={wrapperRef}>
-        <StyledHamburgerButton
-          onClick={toggleMenu}
-          menuOpen={menuOpen}
-          ref={buttonRef}
-          aria-label="Menu"
-        >
-          <div className="ham-box">
-            <div className="ham-box-inner" />
-          </div>
-        </StyledHamburgerButton>
+        <StyledHamburgerMenu>
+          <StyledHamburgerThemeToggle {...themeProps} menuOpen={menuOpen} />
+          <StyledHamburgerButton
+            onClick={toggleMenu}
+            menuOpen={menuOpen}
+            ref={buttonRef}
+            aria-label="Menu"
+          >
+            <div className="ham-box">
+              <div className="ham-box-inner" />
+            </div>
+          </StyledHamburgerButton>
+        </StyledHamburgerMenu>
 
         <StyledSidebar menuOpen={menuOpen} aria-hidden={!menuOpen} tabIndex={menuOpen ? 1 : -1}>
           <nav ref={navRef}>
