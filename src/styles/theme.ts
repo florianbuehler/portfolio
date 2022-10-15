@@ -55,15 +55,16 @@ const lightTheme: Theme = {
     colors: {
       text: '#334155',
       title: '#64748b',
-      selected: colors.lightestSlate,
-      highlight: '#94a3b8'
+      highlight: '#94a3b8',
+      strongHighlight: '#0f172a',
+      selected: colors.lightestSlate
     }
   },
 
   bg: {
     base: '#f8fafc',
     header: 'rgba(248, 250, 252, 0.85)',
-    darker: 'red',
+    darker: '#e2e8f0',
     highlight: '#f8fafc',
     selected: colors.lightestNavy
   },

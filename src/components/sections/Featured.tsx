@@ -145,7 +145,7 @@ const StyledProject = styled.li`
     }
 
     strong {
-      color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.typography.colors.strongHighlight};
       font-weight: normal;
     }
   }
@@ -249,7 +249,7 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: ${({ theme }) => theme.transition};
-        background-color: ${({ theme }) => '#0f172a'};
+        background-color: #0f172a;
         mix-blend-mode: screen;
       }
     }

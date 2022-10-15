@@ -25,6 +25,14 @@ const Layout: React.FC<Props> = ({ children, location }) => {
   const [themeName, setThemeName] = useState<ThemeName>('dark');
 
   useEffect(() => {
+    if (localStorage.theme === 'light') {
+      setThemeName('light');
+    } else {
+      setThemeName('dark');
+    }
+  }, []);
+
+  useEffect(() => {
     if (isLoading) {
       return;
     }
@@ -41,6 +49,11 @@ const Layout: React.FC<Props> = ({ children, location }) => {
     }
   }, [isLoading, location]);
 
+  const handleThemeToggle = (newThemeName: ThemeName): void => {
+    setThemeName(newThemeName);
+    localStorage.setItem('theme', newThemeName);
+  };
+
   return (
     <div id="root">
       <ThemeProvider theme={getTheme(themeName)}>
@@ -54,7 +67,7 @@ const Layout: React.FC<Props> = ({ children, location }) => {
               navLinks={config.navLinks}
               delayInSec={isHome ? 2000 : 1000}
               themeName={themeName}
-              onThemeToggle={setThemeName}
+              onThemeToggle={handleThemeToggle}
             />
             <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 1000} />
             <Email email={config.email} delayInSec={isHome ? 2000 : 1000} />
