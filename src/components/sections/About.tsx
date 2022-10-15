@@ -102,7 +102,7 @@ const StyledPic = styled.div`
     &:before {
       top: 0;
       left: 0;
-      background-color: ${({ theme }) => theme.bg.color};
+      background-color: ${({ theme }) => theme.bg.base};
       mix-blend-mode: screen;
     }
 

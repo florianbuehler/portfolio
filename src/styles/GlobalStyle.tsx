@@ -58,11 +58,11 @@ const GlobalStyle = createGlobalStyle`
     width: 12px;
   }
   ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.bg.color};
+    background: ${({ theme }) => theme.bg.base};
   }
   ::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.colors.darkSlate};
-    border: ${({ theme }) => `3px solid ${theme.bg.color}`};
+    border: ${({ theme }) => `3px solid ${theme.bg.base}`};
     border-radius: 10px;
   }
 
@@ -73,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${({ theme }) => theme.bg.color};
+    background-color: ${({ theme }) => theme.bg.base};
     color: ${({ theme }) => theme.typography.colors.text};
     font-family: ${({ theme }) => theme.typography.fontSans};
     font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
@@ -373,7 +373,7 @@ const GlobalStyle = createGlobalStyle`
     &:focus,
     &:active {
       background-color: ${({ theme }) => theme.colors.primary};
-      color: ${({ theme }) => theme.bg.color};
+      color: ${({ theme }) => theme.bg.base};
       top: 0;
       left: 0;
       width: auto;

@@ -9,7 +9,8 @@ export type Theme = {
   typography: Typography;
 
   bg: {
-    color: string;
+    header: string;
+    base: string;
     darker: string;
     highlight: string;
     selected: string;
@@ -23,12 +24,13 @@ export type Theme = {
   mixins: Mixins;
 };
 
-const theme: Theme = {
+const darkTheme: Theme = {
   colors,
   typography,
 
   bg: {
-    color: colors.navy,
+    base: '#0f172a',
+    header: 'rgba(15, 23, 42, 0.85)',
     darker: colors.darkNavy,
     highlight: colors.lightNavy,
     selected: colors.lightestNavy
@@ -42,8 +44,46 @@ const theme: Theme = {
   mixins
 };
 
-export const getTheme = (themeName: ThemeName) => {
-  return theme;
+const lightTheme: Theme = {
+  colors: {
+    ...colors,
+    primary: '#0DBA92FF'
+  },
+
+  typography: {
+    ...typography,
+    colors: {
+      text: '#334155',
+      title: '#64748b',
+      selected: colors.lightestSlate,
+      highlight: '#94a3b8'
+    }
+  },
+
+  bg: {
+    base: '#f8fafc',
+    header: 'rgba(248, 250, 252, 0.85)',
+    darker: 'red',
+    highlight: '#f8fafc',
+    selected: colors.lightestNavy
+  },
+
+  shadow: colors.darkNavyTint,
+  borderRadius: '4px',
+  transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
+  transitionEasing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+
+  mixins
 };
 
-export default theme;
+const getTheme = (themeName: ThemeName) => {
+  switch (themeName) {
+    case 'light':
+      return lightTheme;
+    case 'dark':
+    default:
+      return darkTheme;
+  }
+};
+
+export default getTheme;

@@ -29,7 +29,7 @@ const StyledHeader = styled.header<StyledHeaderProps>`
   width: 100%;
   height: 100px;
   padding: 0 25px;
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: ${({ theme }) => theme.bg.header};
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -50,7 +50,7 @@ const StyledHeader = styled.header<StyledHeaderProps>`
       css`
         height: 70px;
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
+        background-color: ${({ theme }) => theme.bg.header};
         box-shadow: ${({ theme }) => `0 10px 30px -10px ${theme.shadow}`};
       `};
 
@@ -93,7 +93,7 @@ const StyledNav = styled.nav`
 
   position: relative;
   width: 100%;
-  color: ${({ theme }) => theme.colors.lightestSlate};
+  color: ${({ theme }) => theme.typography.colors.title};
   font-family: ${({ theme }) => theme.typography.fontMono};
   counter-reset: item 0;
   z-index: 12;

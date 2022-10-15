@@ -19,7 +19,7 @@ const StyledLinkWrapper = styled.div`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: ${({ theme }) => theme.colors.lightSlate};
+    background-color: ${({ theme }) => theme.typography.colors.highlight};
   }
 
   a {

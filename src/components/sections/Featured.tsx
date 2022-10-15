@@ -161,7 +161,7 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 10px 5px 0;
-      color: ${({ theme }) => theme.typography.colors.selected};
+      color: ${({ theme }) => theme.typography.colors.text};
       font-family: ${({ theme }) => theme.typography.fontMono};
       font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
       white-space: nowrap;
@@ -183,7 +183,7 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: ${({ theme }) => theme.typography.colors.selected};
+    color: ${({ theme }) => theme.typography.colors.highlight};
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -249,7 +249,7 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: ${({ theme }) => theme.transition};
-        background-color: ${({ theme }) => theme.bg.color};
+        background-color: ${({ theme }) => '#0f172a'};
         mix-blend-mode: screen;
       }
     }

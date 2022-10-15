@@ -17,7 +17,7 @@ const StyledSide = styled.div<StyledProps>`
   position: fixed;
   bottom: 0;
   z-index: 10;
-  color: ${({ theme }) => theme.colors.lightSlate};
+  color: ${({ theme }) => theme.typography.colors.highlight};
   display: none;
 
   ${devices.tablet} {
