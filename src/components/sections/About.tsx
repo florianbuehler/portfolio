@@ -145,9 +145,11 @@ const AboutSection: React.FC = () => {
           <div>
             <p>
               Hello! My name is Florian and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2016 when I decided to write a small tool
-              for some stock analysis — turns out hacking together some code to collect data from
-              different webpages taught me a lot about HTML &amp; how the web works in general!
+              interest in web development started back in 2016, when I got so annoyed by manually
+              collecting financial data for some stock analysis, that I decided to write a small
+              tool to do it for me — turns out hacking together some code to collect data from
+              different webpages taught me quite a bit about HTML, JavaScript &amp; how the web
+              works in general!
             </p>
 
             <p>
@@ -155,11 +157,11 @@ const AboutSection: React.FC = () => {
               <a target="_blank" rel="noopener noreferrer" href="https://zeb-consulting.com/en-DE/">
                 a medium-sized enterprise
               </a>
-              , and{' '}
+              , and at{' '}
               <a target="_blank" rel="noopener noreferrer" href="https://www.d-fine.com/en/">
                 a consulting firm
               </a>{' '}
-              with projects with different clients - including{' '}
+              for different clients - including{' '}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -191,7 +193,7 @@ const AboutSection: React.FC = () => {
               >
                 blocknox
               </a>{' '}
-              for a variety of different challenges.
+              for a variety of blockchain related challenges.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
