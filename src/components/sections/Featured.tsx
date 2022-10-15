@@ -411,7 +411,7 @@ const FeaturedSection: React.FC = () => {
                     <div className="project-links">
                       {github && (
                         <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                          <Icon name="GitHub" />
+                          <Icon name="github" />
                         </a>
                       )}
                       {external && (
@@ -422,7 +422,7 @@ const FeaturedSection: React.FC = () => {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <Icon name="External" />
+                          <Icon name="external" />
                         </a>
                       )}
                     </div>

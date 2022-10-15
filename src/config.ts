@@ -31,12 +31,12 @@ const config: Config = {
     {
       name: 'GitHub',
       url: 'https://github.com/florianbuehler',
-      icon: 'GitHub'
+      icon: 'github'
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/florian-b%C3%BChler/',
-      icon: 'LinkedIn'
+      icon: 'linkedin'
     }
   ],
 

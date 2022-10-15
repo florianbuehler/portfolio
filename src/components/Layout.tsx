@@ -3,7 +3,7 @@ import { PageProps } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
 import { Email, Footer, Header, Loader, Social } from '@components';
 import config from '@config';
-import { GlobalStyle, theme } from '@styles';
+import { getTheme, GlobalStyle, ThemeName } from '@styles';
 
 type Props = {
   children?: React.ReactNode;
@@ -22,6 +22,7 @@ const StyledContent = styled.div`
 const Layout: React.FC<Props> = ({ children, location }) => {
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
+  const [themeName, setThemeName] = useState<ThemeName>('dark');
 
   useEffect(() => {
     if (isLoading) {
@@ -42,14 +43,19 @@ const Layout: React.FC<Props> = ({ children, location }) => {
 
   return (
     <div id="root">
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={getTheme(themeName)}>
         <GlobalStyle />
 
         {isLoading && isHome ? (
           <Loader onLoadingCompleted={() => setIsLoading(false)} />
         ) : (
           <StyledContent>
-            <Header navLinks={config.navLinks} delayInSec={isHome ? 2000 : 1000} />
+            <Header
+              navLinks={config.navLinks}
+              delayInSec={isHome ? 2000 : 1000}
+              themeName={themeName}
+              onThemeToggle={setThemeName}
+            />
             <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 1000} />
             <Email email={config.email} delayInSec={isHome ? 2000 : 1000} />
             <div id="content">{children}</div>

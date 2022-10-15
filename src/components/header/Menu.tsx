@@ -2,17 +2,19 @@ import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { devices } from '@styles';
+import ThemeToggle from '@components/header/ThemeToggle';
+import { devices, ThemeName } from '@styles';
 import { NavLink } from './types';
 
 type MenuProps = {
-  navLinks: NavLink[];
   isMounted: boolean;
   delayInSec?: number;
-};
+} & ReducedMotionMenuProps;
 
 type ReducedMotionMenuProps = {
   navLinks: NavLink[];
+  themeName: ThemeName;
+  onThemeToggle: (themeName: ThemeName) => void;
 };
 
 const StyledLinks = styled.div`
@@ -56,18 +58,18 @@ const StyledLinks = styled.div`
   }
 `;
 
-const ResumeLink = (
-  <a
-    className="resume-button"
-    href="/resume.pdf"
-    target="_blank"
-    rel="nofollow noopener noreferrer"
-  >
-    Resume
-  </a>
-);
+// const ResumeLink = (
+//   <a
+//     className="resume-button"
+//     href="/resume.pdf"
+//     target="_blank"
+//     rel="nofollow noopener noreferrer"
+//   >
+//     Resume
+//   </a>
+// );
 
-export const Menu: React.FC<MenuProps> = ({ navLinks, isMounted, delayInSec }) => {
+export const Menu: React.FC<MenuProps> = ({ navLinks, isMounted, delayInSec, ...themeProps }) => {
   const delay = !!delayInSec;
   const fadeDownClass = delay ? 'fadedown' : '';
 
@@ -91,7 +93,7 @@ export const Menu: React.FC<MenuProps> = ({ navLinks, isMounted, delayInSec }) =
         {isMounted && (
           <CSSTransition classNames={fadeDownClass} timeout={delayInSec || 0}>
             <div style={{ transitionDelay: `${delay ? navLinks.length * 100 : 0}ms` }}>
-              {ResumeLink}
+              <ThemeToggle {...themeProps} />
             </div>
           </CSSTransition>
         )}
@@ -100,7 +102,10 @@ export const Menu: React.FC<MenuProps> = ({ navLinks, isMounted, delayInSec }) =
   );
 };
 
-export const ReducedMotionMenu: React.FC<ReducedMotionMenuProps> = ({ navLinks }) => {
+export const ReducedMotionMenu: React.FC<ReducedMotionMenuProps> = ({
+  navLinks,
+  ...themeProps
+}) => {
   return (
     <StyledLinks>
       <ol>
@@ -111,7 +116,9 @@ export const ReducedMotionMenu: React.FC<ReducedMotionMenuProps> = ({ navLinks }
             </li>
           ))}
       </ol>
-      <div>{ResumeLink}</div>
+      <div>
+        <ThemeToggle {...themeProps} />
+      </div>
     </StyledLinks>
   );
 };

@@ -241,12 +241,12 @@ const ProjectsSection: React.FC = () => {
         <header>
           <div className="project-top">
             <div className="folder">
-              <Icon name="Folder" />
+              <Icon name="folder" />
             </div>
             <div className="project-links">
               {github && (
                 <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                  <Icon name="GitHub" />
+                  <Icon name="github" />
                 </a>
               )}
               {external && (
@@ -257,7 +257,7 @@ const ProjectsSection: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Icon name="External" />
+                  <Icon name="external" />
                 </a>
               )}
             </div>

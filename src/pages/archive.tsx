@@ -218,12 +218,12 @@ const ArchivePage: React.FC<PageProps<PageData>> = ({ location, data }) => {
                         <div>
                           {external && (
                             <a href={external} aria-label="External Link">
-                              <Icon name="External" />
+                              <Icon name="external" />
                             </a>
                           )}
                           {github && (
                             <a href={github} aria-label="GitHub Link">
-                              <Icon name="GitHub" />
+                              <Icon name="github" />
                             </a>
                           )}
                         </div>

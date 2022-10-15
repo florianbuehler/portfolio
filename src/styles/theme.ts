@@ -2,6 +2,8 @@ import colors, { Colors } from './colors';
 import mixins, { Mixins } from './mixins';
 import typography, { Typography } from './typography';
 
+export type ThemeName = 'dark' | 'light';
+
 export type Theme = {
   colors: Colors;
   typography: Typography;
@@ -38,6 +40,10 @@ const theme: Theme = {
   transitionEasing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
 
   mixins
+};
+
+export const getTheme = (themeName: ThemeName) => {
+  return theme;
 };
 
 export default theme;

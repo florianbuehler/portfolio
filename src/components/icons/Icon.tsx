@@ -1,7 +1,14 @@
 import React from 'react';
-import { ExternalIcon, FolderIcon, GitHubIcon, LinkedInIcon } from '@components/icons';
+import {
+  ExternalIcon,
+  FolderIcon,
+  GitHubIcon,
+  LinkedInIcon,
+  MoonWithStarsIcon,
+  SunIcon
+} from '@components/icons';
 
-export type IconName = 'External' | 'Folder' | 'GitHub' | 'LinkedIn';
+export type IconName = 'external' | 'folder' | 'github' | 'linkedin' | 'moon-with-stars' | 'sun';
 
 type Props = {
   name: IconName;
@@ -9,14 +16,20 @@ type Props = {
 
 const Icon: React.FC<Props> = ({ name }) => {
   switch (name) {
-    case 'External':
+    case 'external':
       return <ExternalIcon />;
-    case 'Folder':
+    case 'folder':
       return <FolderIcon />;
-    case 'GitHub':
+    case 'github':
       return <GitHubIcon />;
-    case 'LinkedIn':
+    case 'linkedin':
       return <LinkedInIcon />;
+    case 'moon-with-stars':
+      return <MoonWithStarsIcon />;
+    case 'sun':
+      return <SunIcon />;
+    default:
+      throw new Error(`No icon with name ${name}.`);
   }
 };
 

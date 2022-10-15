@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { LogoIcon } from '@components/icons';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
+import { devices, ThemeName } from '@styles';
 import HamburgerMenu from './HamburgerMenu';
 import { Menu, ReducedMotionMenu } from './Menu';
 import { NavLink } from './types';
@@ -12,6 +12,8 @@ import { NavLink } from './types';
 type Props = {
   navLinks: NavLink[];
   delayInSec?: number;
+  themeName: ThemeName;
+  onThemeToggle: (themeName: ThemeName) => void;
 };
 
 type StyledHeaderProps = {
@@ -105,7 +107,7 @@ const Logo = (
   </StyledLogo>
 );
 
-const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
+const Header: React.FC<Props> = ({ navLinks, delayInSec, ...themeProps }) => {
   const delay = !!delayInSec;
 
   const [isMounted, setIsMounted] = useState(!delay);
@@ -143,7 +145,7 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
           <>
             {Logo}
 
-            <ReducedMotionMenu navLinks={navLinks} />
+            <ReducedMotionMenu navLinks={navLinks} {...themeProps} />
             <HamburgerMenu navLinks={navLinks} />
           </>
         ) : (
@@ -156,7 +158,12 @@ const Header: React.FC<Props> = ({ navLinks, delayInSec }) => {
               )}
             </TransitionGroup>
 
-            <Menu navLinks={navLinks} isMounted={isMounted} delayInSec={delayInSec} />
+            <Menu
+              navLinks={navLinks}
+              isMounted={isMounted}
+              delayInSec={delayInSec}
+              {...themeProps}
+            />
             <TransitionGroup component={null}>
               {isMounted && (
                 <CSSTransition classNames={fadeClass} timeout={delayInSec || 0}>
