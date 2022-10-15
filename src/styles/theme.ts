@@ -53,7 +53,8 @@ const lightTheme: Theme = {
   typography: {
     ...typography,
     colors: {
-      text: '#334155',
+      text: '#475569',
+      emphasizedText: '#334155',
       title: '#64748b',
       highlight: '#94a3b8',
       strongHighlight: '#0f172a',
@@ -69,7 +70,7 @@ const lightTheme: Theme = {
     selected: colors.lightestNavy
   },
 
-  shadow: colors.darkNavyTint,
+  shadow: 'rgba(203, 213, 225)',
   borderRadius: '4px',
   transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
   transitionEasing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',

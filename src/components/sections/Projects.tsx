@@ -153,7 +153,7 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    color: ${({ theme }) => theme.typography.colors.highlight};
+    color: ${({ theme }) => theme.typography.colors.emphasizedText};
     font-size: 17px;
 
     a {

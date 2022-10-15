@@ -126,7 +126,7 @@ const StyledProject = styled.li`
     padding: 20px 0;
     border-radius: ${({ theme }) => theme.borderRadius};
     background-color: transparent;
-    color: ${({ theme }) => theme.typography.colors.highlight};
+    color: ${({ theme }) => theme.typography.colors.emphasizedText};
     font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
     box-shadow: none;
 
