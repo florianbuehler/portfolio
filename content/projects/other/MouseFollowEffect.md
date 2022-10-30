@@ -4,9 +4,9 @@ title: 'Mouse Follow Effect'
 github: 'https://github.com/florianbuehler/mouse-follow-effect'
 external: 'https://mouse-follow-effect.vercel.app/'
 tech:
-- JS
 - HTML
 - CSS
+- JS
 showInProjects: true
 ---
 
