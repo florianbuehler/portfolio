@@ -35,7 +35,7 @@ const StyledText = styled.div`
       font-family: ${({ theme }) => theme.typography.fontMono};
       font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
 
-      &:before {
+      &::before {
         content: '▹';
         position: absolute;
         left: 0;
@@ -69,7 +69,7 @@ const StyledPic = styled.div`
     &:focus {
       outline: 0;
 
-      &:after {
+      &::after {
         top: 15px;
         left: 15px;
       }
@@ -88,8 +88,8 @@ const StyledPic = styled.div`
       transition: ${({ theme }) => theme.transition};
     }
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       display: block;
       position: absolute;
@@ -99,14 +99,14 @@ const StyledPic = styled.div`
       transition: ${({ theme }) => theme.transition};
     }
 
-    &:before {
+    &::before {
       top: 0;
       left: 0;
       background-color: ${({ theme }) => theme.bg.base};
       mix-blend-mode: screen;
     }
 
-    &:after {
+    &::after {
       border: ${({ theme }) => `2px solid ${theme.colors.primary}`};
       top: 20px;
       left: 20px;

@@ -13,7 +13,7 @@ const StyledLinkWrapper = styled.div`
   align-items: center;
   position: relative;
 
-  &:after {
+  &::after {
     content: '';
     display: block;
     width: 1px;

@@ -22,12 +22,12 @@ const StyledContactSection = styled.section`
     font-size: ${({ theme }) => theme.typography.fontSizes.textMd};
     font-weight: 400;
 
-    &:before {
+    &::before {
       bottom: 0;
       font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
     }
 
-    &:after {
+    &::after {
       display: none;
     }
   }

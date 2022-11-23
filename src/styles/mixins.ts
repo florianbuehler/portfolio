@@ -38,7 +38,7 @@ const button = css`
     background-color: ${({ theme }) => theme.colors.primaryTint};
     outline: none;
   }
-  &:after {
+  &::after {
     display: none !important;
   }
 `;
@@ -83,7 +83,7 @@ const mixins: Mixins = {
     &:active {
       color: ${({ theme }) => theme.colors.primary};
       outline: 0;
-      &:after {
+      &::after {
         width: 100%;
       }
       & > * {
@@ -91,7 +91,7 @@ const mixins: Mixins = {
         transition: ${({ theme }) => theme.transition};
       }
     }
-    &:after {
+    &::after {
       content: '';
       display: block;
       width: 0;
@@ -124,7 +124,7 @@ const mixins: Mixins = {
       background-color: ${({ theme }) => theme.colors.primaryTint};
       outline: none;
     }
-    &:after {
+    &::after {
       display: none !important;
     }
   `,
@@ -147,7 +147,7 @@ const mixins: Mixins = {
       background-color: ${({ theme }) => theme.colors.primaryTint};
       outline: none;
     }
-    &:after {
+    &::after {
       display: none !important;
     }
   `,
@@ -167,11 +167,12 @@ const mixins: Mixins = {
     margin: 0;
     list-style: none;
     font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
+
     li {
       position: relative;
       padding-left: 30px;
       margin-bottom: 10px;
-      &:before {
+      &::before {
         content: '▹';
         position: absolute;
         left: 0;

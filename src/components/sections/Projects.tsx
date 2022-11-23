@@ -36,7 +36,7 @@ const StyledProjectsSection = styled.section`
     font-family: ${({ theme }) => theme.typography.fontMono};
     font-size: ${({ theme }) => theme.typography.fontSizes.textSm};
 
-    &:after {
+    &::after {
       bottom: 0.1em;
     }
   }
@@ -139,7 +139,7 @@ const StyledProject = styled.li`
     a {
       position: static;
 
-      &:before {
+      &::before {
         content: '';
         display: block;
         position: absolute;

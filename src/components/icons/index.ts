@@ -1,3 +1,5 @@
+export { default as ChevronLeft } from './ChevronLeft';
+export { default as ChevronRight } from './ChevronRight';
 export { default as ExternalIcon } from './External';
 export { default as FolderIcon } from './Folder';
 export { default as GitHubIcon } from './GitHub';

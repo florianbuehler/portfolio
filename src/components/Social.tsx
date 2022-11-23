@@ -22,7 +22,7 @@ const StyledSocial = styled.ul`
   padding: 0;
   list-style: none;
 
-  &:after {
+  &::after {
     content: '';
     display: block;
     width: 1px;

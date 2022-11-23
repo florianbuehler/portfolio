@@ -91,8 +91,8 @@ const StyledHamburgerButton = styled.button<StyledProps>`
       ${(props) => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)}
     );
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       display: block;
       position: absolute;
@@ -107,7 +107,7 @@ const StyledHamburgerButton = styled.button<StyledProps>`
       transition-property: transform;
     }
 
-    &:before {
+    &::before {
       width: ${({ menuOpen }) => (menuOpen ? `100%` : `120%`)};
       top: ${({ menuOpen }) => (menuOpen ? `0` : `-10px`)};
       opacity: ${({ menuOpen }) => (menuOpen ? 0 : 1)};
@@ -117,7 +117,7 @@ const StyledHamburgerButton = styled.button<StyledProps>`
           : 'top 0.1s ease-in 0.25s, opacity 0.1s ease-in'};
     }
 
-    &:after {
+    &::after {
       width: ${({ menuOpen }) => (menuOpen ? `100%` : `80%`)};
       bottom: ${({ menuOpen }) => (menuOpen ? `0` : `-10px`)};
       transform: rotate(${({ menuOpen }) => (menuOpen ? `-90deg` : `0`)});
@@ -176,7 +176,7 @@ const StyledSidebar = styled.aside<StyledProps>`
         margin: 0 auto 20px;
       }
 
-      &:before {
+      &::before {
         content: '0' counter(item) '.';
         display: block;
         margin-bottom: 5px;

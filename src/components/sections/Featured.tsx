@@ -102,7 +102,7 @@ const StyledProject = styled.li`
     a {
       position: static;
 
-      &:before {
+      &::before {
         content: '';
         display: block;
         position: absolute;
@@ -231,14 +231,14 @@ const StyledProject = styled.li`
         background: transparent;
         outline: 0;
 
-        &:before,
+        &::before,
         .img {
           background: transparent;
           filter: none;
         }
       }
 
-      &:before {
+      &::before {
         content: '';
         position: absolute;
         width: 100%;

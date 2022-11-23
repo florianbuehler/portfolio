@@ -40,7 +40,7 @@ const StyledLinks = styled.div`
       a {
         padding: 10px;
 
-        &:before {
+        &::before {
           content: '0' counter(item) '.';
           margin-right: 5px;
           color: ${({ theme }) => theme.colors.primary};

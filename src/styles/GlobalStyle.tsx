@@ -4,6 +4,9 @@ import fonts from './fonts';
 import PrismStyles from './PrismStyles';
 import TransitionStyles from './TransitionStyles';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const GlobalStyle = createGlobalStyle`
   ${fonts};
 
@@ -186,7 +189,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${({ theme }) => `clamp(26px, 5vw, ${theme.typography.fontSizes.heading})`};
     white-space: nowrap;
 
-    &:before {
+    &::before {
       position: relative;
       bottom: 4px;
       margin-right: 5px;
@@ -205,7 +208,7 @@ const GlobalStyle = createGlobalStyle`
       }
     }
 
-    &:after {
+    &::after {
       content: '';
       display: block;
       position: relative;
@@ -321,7 +324,7 @@ const GlobalStyle = createGlobalStyle`
         position: relative;
         padding-left: 30px;
         margin-bottom: 10px;
-        &:before {
+        &::before {
           content: '▹';
           position: absolute;
           left: 0;
