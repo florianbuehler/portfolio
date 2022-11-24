@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
+import { devices } from '@styles';
 import { getMonthAndYearDisplayDate, getScrollRevealConfig, scrollReveal } from '@utils';
 
 type StaticQueryDataNode = {
@@ -43,39 +44,49 @@ const StyledSlider = styled(Slider)`
       color: ${({ theme }) => theme.colors.primary};
     }
   }
-
-  @media (max-width: 600px) {
-    //display: block;
-    min-height: 140px;
-  }
-
-  // Prevent container from jumping
-  @media (min-width: 700px) {
-    min-height: 140px;
-  }
 `;
 
 const StyledArrow = styled.button`
-  height: 22px;
+  display: none !important;
 
-  &&::before {
-    content: none;
-  }
+  ${devices.tablet} {
+    display: block !important;
+    height: 22px;
 
-  svg {
-    height: 100%;
-    fill: ${({ theme }) => theme.typography.colors.text};
-
-    &:hover {
-      fill: ${({ theme }) => theme.colors.primary};
+    &&::before {
+      content: none;
     }
+
+    svg {
+      height: 100%;
+      fill: ${({ theme }) => theme.typography.colors.text};
+
+      &:hover {
+        fill: ${({ theme }) => theme.colors.primary};
+      }
+    }
+
+    &.slick-disabled {
+      display: none !important;
+    }
+  }
+`;
+
+const StyledPrevArrow = styled(StyledArrow)`
+  &.slick-prev {
+    left: -45px;
+  }
+`;
+
+const StyledNextArrow = styled(StyledArrow)`
+  &.slick-next {
+    right: -45px;
   }
 `;
 
 const StyledJob = styled.article`
   width: 100%;
   height: auto;
-  padding: 10px 5px;
 
   ul {
     ${({ theme }) => theme.mixins.fancyList};
@@ -143,17 +154,17 @@ const JobsSection: React.FC = () => {
 
       <StyledSlider
         dots
-        infinite
+        infinite={false}
         speed={500}
         prevArrow={
-          <StyledArrow>
+          <StyledPrevArrow>
             <Icon name="chevron-left" />
-          </StyledArrow>
+          </StyledPrevArrow>
         }
         nextArrow={
-          <StyledArrow>
+          <StyledNextArrow>
             <Icon name="chevron-right" />
-          </StyledArrow>
+          </StyledNextArrow>
         }
       >
         {jobsData.map(({ node }, i) => {

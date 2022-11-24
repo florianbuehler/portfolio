@@ -9,5 +9,3 @@ url: 'https://zeb-consulting.com/en-DE/'
 
 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias nemo voluptas.
 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias nemo voluptas.
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias nemo voluptas.
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias nemo voluptas.
