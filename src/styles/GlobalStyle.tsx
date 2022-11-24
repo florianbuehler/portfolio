@@ -184,11 +184,15 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     position: relative;
-    margin: 10px 0 40px;
+    margin: 10px 0 20px;
     width: 100%;
     font-size: ${({ theme }) => `clamp(26px, 5vw, ${theme.typography.fontSizes.heading})`};
     white-space: nowrap;
 
+    ${devices.tablet} {
+      margin-bottom: 40px;
+    }
+    
     &::before {
       position: relative;
       bottom: 4px;
