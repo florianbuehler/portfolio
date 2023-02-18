@@ -1,13 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
-import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
-import { getMonthAndYearDisplayDate, getScrollRevealConfig, scrollReveal } from '@utils';
+import { getMonthAndYearDisplayDate, getScrollRevealConfig } from '@utils';
 
-type StaticQueryDataNode = {
+export type Job = {
   frontmatter: {
     title: string;
     company: string;
@@ -16,13 +15,11 @@ type StaticQueryDataNode = {
     location: string;
     url: string;
   };
-  html: string;
+  content: string;
 };
 
-type StaticQueryData = {
-  jobs: {
-    edges: { node: StaticQueryDataNode }[];
-  };
+type Props = {
+  jobs: Job[];
 };
 
 const StyledJobsSection = styled.section`
@@ -111,30 +108,7 @@ const StyledJob = styled.article`
   }
 `;
 
-const JobsSection: React.FC = () => {
-  const data = useStaticQuery<StaticQueryData>(graphql`
-    query {
-      jobs: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
-        sort: { fields: [frontmatter___startDate], order: DESC }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              company
-              startDate
-              endDate
-              location
-              url
-            }
-            html
-          }
-        }
-      }
-    }
-  `);
-
+const JobsSection: React.FC<Props> = ({ jobs }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -143,10 +117,14 @@ const JobsSection: React.FC = () => {
       return;
     }
 
-    sectionRef.current && scrollReveal?.reveal(sectionRef.current, getScrollRevealConfig());
-  }, [prefersReducedMotion]);
+    const reveal = async () => {
+      const scrollReveal = (await import('scrollreveal')).default;
 
-  const jobsData = data.jobs.edges;
+      sectionRef.current && scrollReveal().reveal(sectionRef.current, getScrollRevealConfig());
+    };
+
+    void reveal();
+  }, [prefersReducedMotion]);
 
   return (
     <StyledJobsSection id="jobs" ref={sectionRef}>
@@ -167,8 +145,8 @@ const JobsSection: React.FC = () => {
           </StyledNextArrow>
         }
       >
-        {jobsData.map(({ node }, i) => {
-          const { frontmatter, html } = node;
+        {jobs.map((job, i) => {
+          const { frontmatter, content } = job;
           const { title, company, startDate, endDate, url } = frontmatter;
 
           return (
@@ -188,7 +166,7 @@ const JobsSection: React.FC = () => {
                   ? 'Present'
                   : getMonthAndYearDisplayDate(new Date(endDate))}
               </p>
-              <div dangerouslySetInnerHTML={{ __html: html }} />
+              <div dangerouslySetInnerHTML={{ __html: content }} />
             </StyledJob>
           );
         })}

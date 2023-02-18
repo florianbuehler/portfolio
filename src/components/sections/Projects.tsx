@@ -1,26 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
-import { getScrollRevealConfig, scrollReveal } from '@utils';
+import { getScrollRevealConfig } from '@utils';
 
-type StaticQueryDataNode = {
+export type Project = {
   frontmatter: {
     title: string;
     github?: string;
     external?: string;
     tech: string[];
+    showInProjects: boolean;
   };
-  html: string;
+  content: string;
 };
 
-type StaticQueryData = {
-  projects: {
-    edges: { node: StaticQueryDataNode }[];
-  };
+type Props = {
+  projects: Project[];
 };
 
 const StyledProjectsSection = styled.section`
@@ -182,31 +181,7 @@ const StyledProject = styled.li`
   }
 `;
 
-const ProjectsSection: React.FC = () => {
-  const data = useStaticQuery<StaticQueryData>(graphql`
-    query {
-      projects: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/content/projects/other/" }
-          frontmatter: { showInProjects: { ne: false } }
-        }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              tech
-              github
-              external
-            }
-            html
-          }
-        }
-      }
-    }
-  `);
-
+const ProjectsSection: React.FC<Props> = ({ projects }) => {
   const [showMore, setShowMore] = useState(false);
   const revealTitleRef = useRef(null);
   const revealArchiveLinkRef = useRef(null);
@@ -218,22 +193,28 @@ const ProjectsSection: React.FC = () => {
       return;
     }
 
-    revealTitleRef.current && scrollReveal?.reveal(revealTitleRef.current, getScrollRevealConfig());
-    revealArchiveLinkRef.current &&
-      scrollReveal?.reveal(revealArchiveLinkRef.current, getScrollRevealConfig());
+    const reveal = async () => {
+      const scrollReveal = (await import('scrollreveal')).default;
 
-    revealProjectsRef.current.forEach((ref, i) =>
-      scrollReveal?.reveal(ref, getScrollRevealConfig(i * 100))
-    );
+      revealTitleRef.current &&
+        scrollReveal().reveal(revealTitleRef.current, getScrollRevealConfig());
+      revealArchiveLinkRef.current &&
+        scrollReveal().reveal(revealArchiveLinkRef.current, getScrollRevealConfig());
+      revealProjectsRef.current.forEach((ref, i) =>
+        scrollReveal().reveal(ref, getScrollRevealConfig(i * 100))
+      );
+    };
+
+    void reveal();
   }, [prefersReducedMotion]);
 
   const GRID_LIMIT = 6;
-  const projects = data.projects.edges.filter(({ node }) => node);
-  const firstGridLimitProjects = projects.slice(0, GRID_LIMIT);
-  const projectsToShow = showMore ? projects : firstGridLimitProjects;
+  const projectsToInclude = projects.filter((project) => project.frontmatter.showInProjects);
+  const firstGridLimitProjects = projectsToInclude.slice(0, GRID_LIMIT);
+  const projectsToShow = showMore ? projectsToInclude : firstGridLimitProjects;
 
-  const projectInner = (node: StaticQueryDataNode) => {
-    const { frontmatter, html } = node;
+  const projectInner = (project: Project) => {
+    const { frontmatter, content } = project;
     const { github, external, title, tech } = frontmatter;
 
     return (
@@ -270,7 +251,7 @@ const ProjectsSection: React.FC = () => {
           </h3>
 
           {/* eslint-disable-next-line react/no-danger */}
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="project-description" dangerouslySetInnerHTML={{ __html: content }} />
         </header>
 
         <footer>
@@ -290,7 +271,7 @@ const ProjectsSection: React.FC = () => {
     <StyledProjectsSection>
       <h2 ref={revealTitleRef}>Other Noteworthy Projects</h2>
 
-      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLinkRef}>
+      <Link className="inline-link archive-link" href="/archive" ref={revealArchiveLinkRef}>
         view the archive
       </Link>
 
@@ -298,14 +279,14 @@ const ProjectsSection: React.FC = () => {
         {prefersReducedMotion ? (
           <>
             {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
-                <StyledProject key={i}>{projectInner(node)}</StyledProject>
+              projectsToShow.map((project, i) => (
+                <StyledProject key={i}>{projectInner(project)}</StyledProject>
               ))}
           </>
         ) : (
           <TransitionGroup component={null}>
             {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
+              projectsToShow.map((project, i) => (
                 <CSSTransition
                   key={i}
                   classNames="fadeup"
@@ -319,7 +300,7 @@ const ProjectsSection: React.FC = () => {
                       transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`
                     }}
                   >
-                    {projectInner(node)}
+                    {projectInner(project)}
                   </StyledProject>
                 </CSSTransition>
               ))}
@@ -327,7 +308,7 @@ const ProjectsSection: React.FC = () => {
         )}
       </ul>
 
-      {projects.length > GRID_LIMIT && (
+      {projectsToInclude.length > GRID_LIMIT && (
         <button className="more-button" onClick={() => setShowMore(!showMore)}>
           Show {showMore ? 'Less' : 'More'}
         </button>

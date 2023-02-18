@@ -1,35 +1,58 @@
 import React from 'react';
-import { PageProps } from 'gatsby';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import styled from 'styled-components';
-import { Layout, SEO } from '@components';
 import {
   AboutSection,
   ContactSection,
   FeaturedSection,
   HeroSection,
+  Job,
   JobsSection,
+  Project,
   ProjectsSection
 } from '@components/sections';
+import { getJobs, getProjects } from '@utils';
+
+type Props = {
+  jobs: Job[];
+  projects: Project[];
+};
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
 `;
 
-const IndexPage: React.FunctionComponent<PageProps> = ({ location }) => {
+const Home: React.FC<Props> = ({ jobs, projects }) => {
   return (
-    <Layout location={location}>
+    <>
+      <Head>
+        <title>Florian Bühler</title>
+      </Head>
       <StyledMainContainer className="fillHeight">
         <HeroSection />
         <AboutSection />
-        <JobsSection />
+        <JobsSection jobs={jobs} />
         <FeaturedSection />
-        <ProjectsSection />
+        <ProjectsSection projects={projects} />
         <ContactSection />
       </StyledMainContainer>
-    </Layout>
+    </>
   );
 };
 
-export const Head: React.FC = () => <SEO />;
+// export const Head: React.FC = () => <SEO />;
 
-export default IndexPage;
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const jobs = getJobs();
+  const projects = getProjects();
+
+  return {
+    props: {
+      jobs,
+      projects
+    }
+  };
+};
+
+export default Home;

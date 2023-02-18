@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { usePrefersReducedMotion } from '@hooks';
 import { devices } from '@styles';
-import { getScrollRevealConfig, scrollReveal } from '@utils';
+import { getScrollRevealConfig } from '@utils';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -50,6 +50,7 @@ const StyledPic = styled.div`
   position: relative;
   margin: 50px auto 0;
   width: 70%;
+  aspect-ratio: 1;
 
   ${devices.tablet} {
     max-width: 300px;
@@ -62,6 +63,7 @@ const StyledPic = styled.div`
     display: block;
     position: relative;
     width: 100%;
+    height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius};
     background-color: ${({ theme }) => theme.colors.primary};
 
@@ -124,7 +126,13 @@ const AboutSection: React.FC = () => {
       return;
     }
 
-    sectionRef.current && scrollReveal?.reveal(sectionRef.current, getScrollRevealConfig());
+    const reveal = async () => {
+      const scrollReveal = (await import('scrollreveal')).default;
+
+      sectionRef.current && scrollReveal().reveal(sectionRef.current, getScrollRevealConfig());
+    };
+
+    void reveal();
   }, [prefersReducedMotion]);
 
   const skills = [
@@ -206,14 +214,7 @@ const AboutSection: React.FC = () => {
 
         <StyledPic>
           <div className="wrapper">
-            <StaticImage
-              className="img"
-              src="../../assets/images/me.jpg"
-              width={650}
-              quality={95}
-              formats={['auto', 'webp', 'avif']}
-              alt="Headshot"
-            />
+            <Image className="img" src="/images/me.jpg" fill quality={95} alt="Headshot" />
           </div>
         </StyledPic>
       </div>

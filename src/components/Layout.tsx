@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PageProps } from 'gatsby';
+import { useRouter } from 'next/router';
 import styled, { ThemeProvider } from 'styled-components';
 import { Email, Footer, Header, Loader, Social } from '@components';
 import config from '@config';
@@ -7,7 +7,7 @@ import { getTheme, GlobalStyle, ThemeName } from '@styles';
 
 type Props = {
   children?: React.ReactNode;
-} & Pick<PageProps, 'location'>;
+};
 
 const StyledContent = styled.div`
   display: flex;
@@ -19,8 +19,10 @@ const StyledContent = styled.div`
   }
 `;
 
-const Layout: React.FC<Props> = ({ children, location }) => {
-  const isHome = location.pathname === '/';
+const Layout: React.FC<Props> = ({ children }) => {
+  const { pathname, asPath } = useRouter();
+
+  const isHome = pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
   const [themeName, setThemeName] = useState<ThemeName>('dark');
 
@@ -37,8 +39,10 @@ const Layout: React.FC<Props> = ({ children, location }) => {
       return;
     }
 
-    if (location.hash) {
-      const id = location.hash.substring(1); // location.hash without the '#'
+    const hash = asPath.split('#')[1];
+
+    if (hash) {
+      const id = hash.substring(1); // location.hash without the '#'
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
@@ -47,7 +51,7 @@ const Layout: React.FC<Props> = ({ children, location }) => {
         }
       }, 0);
     }
-  }, [isLoading, location]);
+  }, [isLoading, asPath]);
 
   const handleThemeToggle = (newThemeName: ThemeName): void => {
     setThemeName(newThemeName);

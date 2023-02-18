@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import styled from 'styled-components';
 import ThemeToggle from '@components/header/ThemeToggle';
 import { useOnClickOutside } from '@hooks';
@@ -310,7 +310,7 @@ const HamburgerMenu: React.FC<Props> = ({ navLinks, ...themeProps }) => {
               <ol>
                 {navLinks.map(({ url, name }, i) => (
                   <li key={i}>
-                    <Link to={url} onClick={() => setMenuOpen(false)}>
+                    <Link href={url} onClick={() => setMenuOpen(false)}>
                       {name}
                     </Link>
                   </li>

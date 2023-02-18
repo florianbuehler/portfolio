@@ -1,4 +1,4 @@
-module.exports = {
+const eslintConfig = {
   env: {
     browser: true,
     node: true,
@@ -7,7 +7,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
+    'next',
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
     'plugin:import/recommended'
   ],
@@ -27,11 +27,6 @@ module.exports = {
   ],
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-    // see: https://stackoverflow.com/questions/63818415/react-was-used-before-it-was-defined
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
-    'react/prop-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'warn',
@@ -68,3 +63,5 @@ module.exports = {
     }
   }
 };
+
+module.exports = eslintConfig;
