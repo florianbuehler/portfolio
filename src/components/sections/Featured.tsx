@@ -392,13 +392,13 @@ const FeaturedSection: React.FC<Props> = ({ projects }) => {
               </div>
 
               <div className="project-image">
-                <a
-                  href={external ? external : github ? github : '#'}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {coverUrl && <Image src={coverUrl} alt={title} className="img" fill />}
-                </a>
+                {/*<a*/}
+                {/*  href={external ? external : github ? github : '#'}*/}
+                {/*  target="_blank"*/}
+                {/*  rel="noreferrer"*/}
+                {/*>*/}
+                {coverUrl && <Image src={coverUrl} alt={title} className="img" fill quality={95} />}
+                {/*</a>*/}
               </div>
             </StyledProject>
           );

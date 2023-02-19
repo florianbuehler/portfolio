@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 
 type FileContent = {
   frontmatter: {
-    [key in string]: string | string[] | boolean;
+    [key in string]: string | string[] | boolean | number;
   };
   content: string;
 };
