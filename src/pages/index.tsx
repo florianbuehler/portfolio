@@ -9,9 +9,9 @@ import {
   HeroSection,
   Job,
   JobsSection,
-  Project,
   ProjectsSection
 } from 'components/sections';
+import { Project } from 'types';
 import { getJobs, getProjects } from 'utils';
 
 type Props = {

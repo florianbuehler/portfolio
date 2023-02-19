@@ -5,18 +5,8 @@ import styled from 'styled-components';
 import { Icon } from 'components/icons';
 import { usePrefersReducedMotion } from 'hooks';
 import { devices } from 'styles';
-import { getScrollRevealConfig } from 'utils';
-
-export type Project = {
-  frontmatter: {
-    title: string;
-    github?: string;
-    external?: string;
-    tech: string[];
-    showInProjects: boolean;
-  };
-  content: string;
-};
+import { Project } from 'types';
+import { getScrollRevealConfig, sortProjects } from 'utils';
 
 type Props = {
   projects: Project[];
@@ -209,7 +199,9 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
   }, [prefersReducedMotion]);
 
   const GRID_LIMIT = 6;
-  const projectsToInclude = projects.filter((project) => project.frontmatter.showInProjects);
+  const projectsToInclude = projects
+    .filter((project) => project.frontmatter.showInProjects)
+    .sort(sortProjects);
   const firstGridLimitProjects = projectsToInclude.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projectsToInclude : firstGridLimitProjects;
 

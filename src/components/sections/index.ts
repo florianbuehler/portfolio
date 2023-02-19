@@ -6,4 +6,3 @@ export { default as JobsSection } from './Jobs';
 export { default as ProjectsSection } from './Projects';
 
 export type { Job } from './Jobs';
-export type { Project } from './Projects';
