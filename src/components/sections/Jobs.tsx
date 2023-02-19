@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import { Icon } from '@components/icons';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
-import { getMonthAndYearDisplayDate, getScrollRevealConfig } from '@utils';
+import { Icon } from 'components/icons';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
+import { getMonthAndYearDisplayDate, getScrollRevealConfig } from 'utils';
 
 export type Job = {
   frontmatter: {

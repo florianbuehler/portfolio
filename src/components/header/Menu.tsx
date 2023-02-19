@@ -2,8 +2,8 @@ import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Link from 'next/link';
 import styled from 'styled-components';
-import ThemeToggle from '@components/header/ThemeToggle';
-import { devices, ThemeName } from '@styles';
+import ThemeToggle from 'components/header/ThemeToggle';
+import { devices, ThemeName } from 'styles';
 import { NavLink } from './types';
 
 type MenuProps = {

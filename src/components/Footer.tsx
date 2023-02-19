@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
-import { SocialMedia } from '@components';
-import { Icon } from '@components/icons';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
+import { SocialMedia } from 'components';
+import { Icon } from 'components/icons';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
 
 type Props = {
   socialMedia: SocialMedia[];

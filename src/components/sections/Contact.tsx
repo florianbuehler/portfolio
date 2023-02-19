@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import config from '@config';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
-import { getScrollRevealConfig } from '@utils';
+import config from 'config';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
+import { getScrollRevealConfig } from 'utils';
 
 const StyledContactSection = styled.section`
   max-width: 600px;

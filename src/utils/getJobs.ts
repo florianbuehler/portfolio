@@ -1,7 +1,7 @@
 import { opendirSync } from 'fs';
 import { join } from 'path';
 import process from 'process';
-import { Job } from '@components/sections';
+import { Job } from 'components/sections';
 import { getParsedFileContent } from './index';
 
 const getJobs = () => {

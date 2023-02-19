@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Icon } from '@components/icons';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
-import { getScrollRevealConfig } from '@utils';
+import { Icon } from 'components/icons';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
+import { getScrollRevealConfig } from 'utils';
 
 export type Project = {
   frontmatter: {

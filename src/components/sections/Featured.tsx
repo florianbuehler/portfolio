@@ -3,10 +3,10 @@
 // import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 // import { ImageDataLike } from 'gatsby-plugin-image/dist/src/components/hooks';
 // import styled from 'styled-components';
-// import { Icon } from '@components/icons';
-// import { usePrefersReducedMotion } from '@hooks';
-// import { devices } from '@styles';
-// import { getScrollRevealConfig, scrollReveal } from '@utils';
+// import { Icon } from 'components/icons';
+// import { usePrefersReducedMotion } from 'hooks';
+// import { devices } from 'styles';
+// import { getScrollRevealConfig, scrollReveal } from 'utils';
 //
 // type StaticQueryData = {
 //   featured: {

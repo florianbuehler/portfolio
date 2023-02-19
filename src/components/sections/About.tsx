@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
-import { getScrollRevealConfig } from '@utils';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
+import { getScrollRevealConfig } from 'utils';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;

@@ -1,4 +1,4 @@
-import { NavLink, SocialMedia } from '@components';
+import { NavLink, SocialMedia } from 'components';
 
 type Config = {
   navLinks: NavLink[];

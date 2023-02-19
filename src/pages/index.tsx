@@ -11,8 +11,8 @@ import {
   JobsSection,
   Project,
   ProjectsSection
-} from '@components/sections';
-import { getJobs, getProjects } from '@utils';
+} from 'components/sections';
+import { getJobs, getProjects } from 'utils';
 
 type Props = {
   jobs: Job[];

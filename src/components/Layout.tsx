@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled, { ThemeProvider } from 'styled-components';
-import { Email, Footer, Header, Loader, Social } from '@components';
-import config from '@config';
-import { getTheme, GlobalStyle, ThemeName } from '@styles';
+import { Email, Footer, Header, Loader, Social } from 'components';
+import config from 'config';
+import { getTheme, GlobalStyle, ThemeName } from 'styles';
 
 type Props = {
   children?: React.ReactNode;

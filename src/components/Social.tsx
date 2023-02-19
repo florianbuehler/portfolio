@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Side } from '@components';
-import { Icon, IconName } from '@components/icons';
+import { Side } from 'components';
+import { Icon, IconName } from 'components/icons';
 
 export type SocialMedia = {
   name: string;

@@ -20,35 +20,6 @@
     "jsx": "preserve",
     "sourceMap": true,
     "baseUrl": "src",
-    "paths": {
-      "@components": [
-        "components"
-      ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@config": [
-        "config"
-      ],
-      "@fonts/*": [
-        "assets/fonts/*"
-      ],
-      "@hooks": [
-        "hooks"
-      ],
-      "@images": [
-        "assets/images"
-      ],
-      "@pages": [
-        "pages"
-      ],
-      "@styles": [
-        "styles"
-      ],
-      "@utils": [
-        "utils"
-      ]
-    },
     "typeRoots": [
       "./types",
       "./node_modules/@types"

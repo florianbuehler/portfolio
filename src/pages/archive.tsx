@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 // import { graphql, PageProps } from 'gatsby';
 // import styled from 'styled-components';
-// import { Layout, SEO } from '@components';
-// import { Icon } from '@components/icons';
-// import { usePrefersReducedMotion } from '@hooks';
-// import { devices } from '@styles';
-// import { getScrollRevealConfig, scrollReveal } from '@utils';
+// import { Layout, SEO } from 'components';
+// import { Icon } from 'components/icons';
+// import { usePrefersReducedMotion } from 'hooks';
+// import { devices } from 'styles';
+// import { getScrollRevealConfig, scrollReveal } from 'utils';
 // import pages from './index';
 //
 // type PageData = {

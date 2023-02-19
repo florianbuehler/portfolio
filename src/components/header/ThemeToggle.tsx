@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from '@components/icons';
-import { ThemeName } from '@styles';
+import { Icon } from 'components/icons';
+import { ThemeName } from 'styles';
 
 type Props = {
   themeName: ThemeName;

@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Link from 'next/link';
 import styled from 'styled-components';
-import ThemeToggle from '@components/header/ThemeToggle';
-import { useOnClickOutside } from '@hooks';
-import { devices, deviceSizes, ThemeName } from '@styles';
-import { KEY_CODES } from '@utils';
+import ThemeToggle from 'components/header/ThemeToggle';
+import { useOnClickOutside } from 'hooks';
+import { devices, deviceSizes, ThemeName } from 'styles';
+import { KEY_CODES } from 'utils';
 import { NavLink } from './types';
 
 type Props = {
