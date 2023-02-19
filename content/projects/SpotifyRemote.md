@@ -1,5 +1,4 @@
 ---
-position: 2
 date: '2022-09-07'
 title: 'Spotify Remote'
 cover: './demo.png'
@@ -11,6 +10,9 @@ tech:
 - Tailwind CSS
 - Recoil
 - Spotify API
+showInProjects: false
+featured: true
+position: 2
 ---
 
 Wanting to learn Next.js for some time, I followed the official tutorial, watched one or two more, and then practiced by creating this **_Spotify Remote_**, which let's you authenticate via Spotify OAuth, and watch and control your Spotify playlists.

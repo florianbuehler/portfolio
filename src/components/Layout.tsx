@@ -42,9 +42,11 @@ const Layout: React.FC<Props> = ({ children }) => {
     const hash = asPath.split('#')[1];
 
     if (hash) {
-      const id = hash.substring(1); // location.hash without the '#'
+      // const id = hash.substring(1); // location.hash without the '#'
       setTimeout(() => {
-        const el = document.getElementById(id);
+        const el = document.getElementById(hash);
+        console.log({ el });
+
         if (el) {
           el.scrollIntoView();
           el.focus();

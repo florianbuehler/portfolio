@@ -1,5 +1,4 @@
 ---
-position: 3
 date: '2022-10-12'
 title: 'Dip Finder'
 cover: './demo.png'
@@ -11,6 +10,9 @@ tech:
 - Tailwind CSS
 - Firebase Auth
 - Firestore
+showInProjects: false
+featured: true
+position: 3
 ---
 
 A Next.js application helping you to track a watchlist and to find stocks which are cheap with respect to the 200 days moving average. 

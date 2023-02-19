@@ -1,5 +1,4 @@
 ---
-position: 1
 date: '2022-02-28'
 title: 'Wordle'
 cover: './demo.png'
@@ -9,6 +8,9 @@ tech:
 - React
 - TS
 - Styled Components
+showInProjects: false
+featured: true
+position: 1
 ---
 
 An interpretation of the popular word guessing game Wordle. 

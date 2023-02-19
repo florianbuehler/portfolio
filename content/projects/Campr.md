@@ -8,6 +8,7 @@ tech:
 - JS
 - Mongo
 showInProjects: true
+featured: false
 ---
 
 A small platform allowing authenticated users to create, share and review campgrounds - you can think of it as Yelp for campgrounds.

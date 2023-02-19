@@ -5,7 +5,7 @@ import { Project } from 'types';
 import { getParsedFileContent } from './index';
 
 const getProjects = () => {
-  const projectsPath = join(process.cwd(), 'content/projects/other');
+  const projectsPath = join(process.cwd(), 'content/projects');
 
   const directory = opendirSync(projectsPath);
   const projects: Project[] = [];
