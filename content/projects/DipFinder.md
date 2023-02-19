@@ -1,7 +1,7 @@
 ---
 date: '2022-10-12'
 title: 'Dip Finder'
-cover: './demo.png'
+coverUrl: '/images/projects/DipFinder.png'
 github: 'https://github.com/florianbuehler/dip-finder'
 external: 'https://dip-finder-n5ho.vercel.app/'
 tech:

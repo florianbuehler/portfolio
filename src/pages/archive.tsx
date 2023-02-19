@@ -6,7 +6,7 @@ import { Icon } from 'components/icons';
 import { usePrefersReducedMotion } from 'hooks';
 import { devices } from 'styles';
 import { Project } from 'types';
-import { getProjects, getScrollRevealConfig, sortProjects } from 'utils';
+import { getProjects, getScrollRevealConfig, sortProjectsByDate } from 'utils';
 
 type Props = {
   projects: Project[];
@@ -186,7 +186,7 @@ const Archive: React.FC<Props> = ({ projects }) => {
             </thead>
             <tbody>
               {projects.length > 0 &&
-                projects.sort(sortProjects).map((project, i) => {
+                projects.sort(sortProjectsByDate).map((project, i) => {
                   const { date, github, external, title, tech, company } = project.frontmatter;
 
                   return (

@@ -9,7 +9,6 @@ tech:
 - Tailwind CSS
 - Redux
 showInProjects: true
-featured: false
 ---
 
 A simple Hacker News clone using the open [API](https://github.com/HackerNews/API) provided by Hacker News / Y Combinator and hosted on GitHub pages.

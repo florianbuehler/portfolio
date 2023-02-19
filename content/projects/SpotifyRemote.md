@@ -1,7 +1,7 @@
 ---
 date: '2022-09-07'
 title: 'Spotify Remote'
-cover: './demo.png'
+coverUrl: '/images/projects/SpotifyRemote.png'
 github: 'https://github.com/florianbuehler/spotify-remote'
 external: 'https://spotify-remote-coral.vercel.app/'
 tech:

@@ -8,7 +8,6 @@ tech:
 - TS
 - Sass
 showInProjects: true
-featured: false
 ---
 
 The first iteration of my personal website built with Gatsby and hosted on Vercel. 

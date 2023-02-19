@@ -8,7 +8,6 @@ tech:
 - CSS
 - JS
 showInProjects: true
-featured: false
 ---
 
 An interpretation of the popular Doodle Jump game. The game is completely written in vanilla JavaScript (plus some HTML and CSS) and supports both browser and mobile devices.

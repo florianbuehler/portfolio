@@ -33,7 +33,7 @@ const Home: React.FC<Props> = ({ jobs, projects }) => {
         <HeroSection />
         <AboutSection />
         <JobsSection jobs={jobs} />
-        <FeaturedSection />
+        <FeaturedSection projects={projects.filter((project) => project.frontmatter.featured)} />
         <ProjectsSection projects={projects} />
         <ContactSection />
       </StyledMainContainer>

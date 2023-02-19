@@ -6,7 +6,7 @@ import { Icon } from 'components/icons';
 import { usePrefersReducedMotion } from 'hooks';
 import { devices } from 'styles';
 import { Project } from 'types';
-import { getScrollRevealConfig, sortProjects } from 'utils';
+import { getScrollRevealConfig, sortProjectsByDate } from 'utils';
 
 type Props = {
   projects: Project[];
@@ -201,7 +201,7 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
   const GRID_LIMIT = 6;
   const projectsToInclude = projects
     .filter((project) => project.frontmatter.showInProjects)
-    .sort(sortProjects);
+    .sort(sortProjectsByDate);
   const firstGridLimitProjects = projectsToInclude.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projectsToInclude : firstGridLimitProjects;
 

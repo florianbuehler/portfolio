@@ -7,5 +7,4 @@ tech:
 - Sass
 company: d-fine
 showInProjects: false
-featured: false
 ---

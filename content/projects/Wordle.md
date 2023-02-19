@@ -1,7 +1,7 @@
 ---
 date: '2022-02-28'
 title: 'Wordle'
-cover: './demo.png'
+coverUrl: '/images/projects/Wordle.png'
 github: 'https://github.com/florianbuehler/wordle'
 external: 'https://wordle-sandy.vercel.app/'
 tech:

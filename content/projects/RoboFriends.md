@@ -7,7 +7,6 @@ tech:
 - React
 - Redux
 showInProjects: false
-featured: false
 ---
 
 A small application to search for different robo friends using Redux for state management.

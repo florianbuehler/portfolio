@@ -8,5 +8,4 @@ tech:
 - Rollup
 company: d-fine
 showInProjects: false
-featured: false
 ---
