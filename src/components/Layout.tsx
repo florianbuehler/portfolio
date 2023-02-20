@@ -45,7 +45,6 @@ const Layout: React.FC<Props> = ({ children }) => {
       // const id = hash.substring(1); // location.hash without the '#'
       setTimeout(() => {
         const el = document.getElementById(hash);
-        console.log({ el });
 
         if (el) {
           el.scrollIntoView();

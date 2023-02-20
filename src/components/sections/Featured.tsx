@@ -208,7 +208,7 @@ const StyledProject = styled.li`
       width: 100%;
       height: 100%;
       background-color: ${({ theme }) => theme.colors.primary};
-      border-radius: ${({ theme }) => theme.borderRadius};
+      border-radius: ${({ theme }) => `${Number.parseFloat(theme.borderRadius) + 1}px`};
       vertical-align: middle;
 
       &:hover,
@@ -249,8 +249,9 @@ const StyledProject = styled.li`
       filter: grayscale(100%) contrast(1) brightness(50%);
 
       ${devices.tablet} {
-        object-fit: none;
+        object-fit: contain;
         height: auto;
+        width: 100%;
         filter: grayscale(100%) contrast(1) brightness(90%);
       }
     }
@@ -391,13 +392,23 @@ const FeaturedSection: React.FC<Props> = ({ projects }) => {
               </div>
 
               <div className="project-image">
-                {/*<a*/}
-                {/*  href={external ? external : github ? github : '#'}*/}
-                {/*  target="_blank"*/}
-                {/*  rel="noreferrer"*/}
-                {/*>*/}
-                {coverUrl && <Image src={coverUrl} alt={title} className="img" fill quality={95} />}
-                {/*</a>*/}
+                <a
+                  href={external ? external : github ? github : '#'}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {coverUrl && (
+                    <Image
+                      src={coverUrl}
+                      alt={title}
+                      className="img"
+                      width="576"
+                      height="360"
+                      quality={95}
+                    />
+                  )}
+                  {/*</div>*/}
+                </a>
               </div>
             </StyledProject>
           );
