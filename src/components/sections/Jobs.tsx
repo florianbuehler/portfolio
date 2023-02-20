@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import styled from 'styled-components';
 import { Icon } from 'components/icons';
 import { usePrefersReducedMotion } from 'hooks';
@@ -15,7 +16,7 @@ export type Job = {
     location: string;
     url: string;
   };
-  content: string;
+  html: MDXRemoteSerializeResult;
 };
 
 type Props = {
@@ -146,7 +147,7 @@ const JobsSection: React.FC<Props> = ({ jobs }) => {
         }
       >
         {jobs.map((job, i) => {
-          const { frontmatter, content } = job;
+          const { frontmatter, html } = job;
           const { title, company, startDate, endDate, url } = frontmatter;
 
           return (
@@ -166,7 +167,9 @@ const JobsSection: React.FC<Props> = ({ jobs }) => {
                   ? 'Present'
                   : getMonthAndYearDisplayDate(new Date(endDate))}
               </p>
-              <div dangerouslySetInnerHTML={{ __html: content }} />
+              <div>
+                <MDXRemote {...html} />
+              </div>
             </StyledJob>
           );
         })}

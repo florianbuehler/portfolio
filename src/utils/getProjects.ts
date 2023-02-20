@@ -4,7 +4,7 @@ import process from 'process';
 import { Project } from 'types';
 import { getParsedFileContent } from './index';
 
-const getProjects = () => {
+const getProjects = async () => {
   const projectsPath = join(process.cwd(), 'content/projects');
 
   const directory = opendirSync(projectsPath);
@@ -13,7 +13,7 @@ const getProjects = () => {
   let file;
   while ((file = directory.readSync()) !== null) {
     const filePath = join(projectsPath, file.name);
-    const project = getParsedFileContent<Project>(filePath);
+    const project = await getParsedFileContent<Project>(filePath);
 
     projects.push(project);
   }

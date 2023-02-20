@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote';
 import styled from 'styled-components';
 import { Icon } from 'components/icons';
 import { usePrefersReducedMotion } from 'hooks';
@@ -341,7 +342,7 @@ const FeaturedSection: React.FC<Props> = ({ projects }) => {
 
       <StyledProjectsGrid>
         {projects.sort(sortProjectsByPosition).map((project, i) => {
-          const { frontmatter, content } = project;
+          const { frontmatter, html } = project;
           const { external, title, tech, github, coverUrl } = frontmatter;
 
           return (
@@ -356,11 +357,9 @@ const FeaturedSection: React.FC<Props> = ({ projects }) => {
                     </a>
                   </h3>
 
-                  <div
-                    className="project-description"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{ __html: content }}
-                  />
+                  <div className="project-description">
+                    <MDXRemote {...html} />
+                  </div>
 
                   {tech.length && (
                     <ul className="project-tech-list">

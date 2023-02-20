@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Link from 'next/link';
+import { MDXRemote } from 'next-mdx-remote';
 import styled from 'styled-components';
 import { Icon } from 'components/icons';
 import { usePrefersReducedMotion } from 'hooks';
@@ -206,7 +207,7 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
   const projectsToShow = showMore ? projectsToInclude : firstGridLimitProjects;
 
   const projectInner = (project: Project) => {
-    const { frontmatter, content } = project;
+    const { frontmatter, html } = project;
     const { github, external, title, tech } = frontmatter;
 
     return (
@@ -242,8 +243,9 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
             </a>
           </h3>
 
-          {/* eslint-disable-next-line react/no-danger */}
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="project-description">
+            <MDXRemote {...html} />
+          </div>
         </header>
 
         <footer>

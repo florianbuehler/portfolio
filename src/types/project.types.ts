@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
 export type Project = {
   frontmatter: {
     date: string;
@@ -11,5 +13,5 @@ export type Project = {
     position?: number;
     company?: string;
   };
-  content: string;
+  html: MDXRemoteSerializeResult;
 };
