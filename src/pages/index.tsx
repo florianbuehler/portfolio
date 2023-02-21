@@ -7,11 +7,10 @@ import {
   ContactSection,
   FeaturedSection,
   HeroSection,
-  Job,
   JobsSection,
   ProjectsSection
 } from 'components/sections';
-import { Project } from 'types';
+import { Job, Project } from 'types';
 import { getJobs, getProjects } from 'utils';
 
 type Props = {

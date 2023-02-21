@@ -1,23 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote } from 'next-mdx-remote';
 import styled from 'styled-components';
 import { Icon } from 'components/icons';
 import { usePrefersReducedMotion } from 'hooks';
 import { devices } from 'styles';
-import { getMonthAndYearDisplayDate, getScrollRevealConfig } from 'utils';
-
-export type Job = {
-  frontmatter: {
-    title: string;
-    company: string;
-    startDate: string;
-    endDate: string;
-    location: string;
-    url: string;
-  };
-  html: MDXRemoteSerializeResult;
-};
+import { Job } from 'types';
+import { getMonthAndYearDisplayDate, getScrollRevealConfig, sortJobsByDate } from 'utils';
 
 type Props = {
   jobs: Job[];
@@ -146,7 +135,7 @@ const JobsSection: React.FC<Props> = ({ jobs }) => {
           </StyledNextArrow>
         }
       >
-        {jobs.map((job, i) => {
+        {jobs.sort(sortJobsByDate).map((job, i) => {
           const { frontmatter, html } = job;
           const { title, company, startDate, endDate, url } = frontmatter;
 
