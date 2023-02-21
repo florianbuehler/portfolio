@@ -238,7 +238,7 @@ const Archive: React.FC<Props> = ({ projects }) => {
 // export const Head: React.FC = () => <SEO title="Archive" />;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projects = getProjects();
+  const projects = await getProjects();
 
   return {
     props: {
