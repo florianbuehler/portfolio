@@ -6,9 +6,9 @@ import {
   LinkedInIcon,
   MoonWithStarsIcon,
   SunIcon
-} from '@components/icons';
-import ChevronLeftIcon from '@components/icons/ChevronLeft';
-import ChevronRightIcon from '@components/icons/ChevronRight';
+} from 'components/icons';
+import ChevronLeftIcon from 'components/icons/ChevronLeft';
+import ChevronRightIcon from 'components/icons/ChevronRight';
 
 export type IconName =
   | 'chevron-left'

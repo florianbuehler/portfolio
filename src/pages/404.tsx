@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Link, PageProps } from 'gatsby';
+import Head from 'next/head';
+import Link from 'next/link';
 import styled from 'styled-components';
-import { SEO, Layout } from '@components';
-import { usePrefersReducedMotion } from '@hooks';
+import { usePrefersReducedMotion } from 'hooks';
 
 const StyledNotFound = styled.main`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -27,7 +27,7 @@ const StyledHomeButton = styled(Link)`
   margin-top: 40px;
 `;
 
-const NotFoundPage: React.FC<PageProps> = ({ location }) => {
+const NotFoundPage: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -44,10 +44,13 @@ const NotFoundPage: React.FC<PageProps> = ({ location }) => {
 
   items.push(<StyledTitle>404</StyledTitle>);
   items.push(<StyledSubtitle>Page Not Found</StyledSubtitle>);
-  items.push(<StyledHomeButton to="/">Go Home</StyledHomeButton>);
+  items.push(<StyledHomeButton href="/">Go Home</StyledHomeButton>);
 
   return (
-    <Layout location={location}>
+    <>
+      <Head>
+        <title>404 - Not Found</title>
+      </Head>
       <StyledNotFound>
         {prefersReducedMotion ? (
           <>
@@ -66,10 +69,10 @@ const NotFoundPage: React.FC<PageProps> = ({ location }) => {
           </TransitionGroup>
         )}
       </StyledNotFound>
-    </Layout>
+    </>
   );
 };
 
-export const Head: React.FC = () => <SEO title="404 - Not Found" />;
+// export const Head: React.FC = () => <SEO title="404 - Not Found" />;
 
 export default NotFoundPage;

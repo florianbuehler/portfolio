@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import styled, { css } from 'styled-components';
-import { LogoIcon } from '@components/icons';
-import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
-import { devices, ThemeName } from '@styles';
+import { LogoIcon } from 'components/icons';
+import { useScrollDirection, usePrefersReducedMotion } from 'hooks';
+import { devices, ThemeName } from 'styles';
 import HamburgerMenu from './HamburgerMenu';
 import { Menu, ReducedMotionMenu } from './Menu';
 import { NavLink } from './types';
@@ -101,7 +101,7 @@ const StyledNav = styled.nav`
 
 const Logo = (
   <StyledLogo tabIndex={-1}>
-    <Link to="/" aria-label="home">
+    <Link href="/" aria-label="home">
       <LogoIcon />
     </Link>
   </StyledLogo>

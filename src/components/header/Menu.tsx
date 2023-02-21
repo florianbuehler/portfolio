@@ -1,9 +1,9 @@
 import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import styled from 'styled-components';
-import ThemeToggle from '@components/header/ThemeToggle';
-import { devices, ThemeName } from '@styles';
+import ThemeToggle from 'components/header/ThemeToggle';
+import { devices, ThemeName } from 'styles';
 import { NavLink } from './types';
 
 type MenuProps = {
@@ -82,7 +82,7 @@ export const Menu: React.FC<MenuProps> = ({ navLinks, isMounted, delayInSec, ...
             navLinks.map(({ url, name }, i) => (
               <CSSTransition key={i} classNames={fadeDownClass} timeout={delayInSec || 0}>
                 <li key={i} style={{ transitionDelay: `${delay ? i * 100 : 0}ms` }}>
-                  <Link to={url}>{name}</Link>
+                  <Link href={url}>{name}</Link>
                 </li>
               </CSSTransition>
             ))}
@@ -112,7 +112,7 @@ export const ReducedMotionMenu: React.FC<ReducedMotionMenuProps> = ({
         {navLinks &&
           navLinks.map(({ url, name }, i) => (
             <li key={i}>
-              <Link to={url}>{name}</Link>
+              <Link href={url}>{name}</Link>
             </li>
           ))}
       </ol>

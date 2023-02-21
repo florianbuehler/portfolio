@@ -1,28 +1,15 @@
 import React, { useRef, useEffect } from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import styled from 'styled-components';
-import { Layout, SEO } from '@components';
-import { Icon } from '@components/icons';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
-import { getScrollRevealConfig, scrollReveal } from '@utils';
+import { Icon } from 'components/icons';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
+import { Project } from 'types';
+import { getProjects, getScrollRevealConfig, sortProjectsByDate } from 'utils';
 
-type PageData = {
-  allMarkdownRemark: {
-    edges: {
-      node: {
-        frontmatter: {
-          title: string;
-          date: string;
-          github?: string;
-          external?: string;
-          tech: string[];
-          company: string;
-        };
-        html: string;
-      };
-    }[];
-  };
+type Props = {
+  projects: Project[];
 };
 
 const StyledTableContainer = styled.div`
@@ -149,9 +136,7 @@ const StyledTableContainer = styled.div`
   }
 `;
 
-const ArchivePage: React.FC<PageProps<PageData>> = ({ location, data }) => {
-  const projects = data.allMarkdownRemark.edges;
-
+const Archive: React.FC<Props> = ({ projects }) => {
   const revealTitleRef = useRef(null);
   const revealTableRef = useRef(null);
   const revealProjectsRef = useRef<HTMLTableRowElement[]>([]);
@@ -162,17 +147,26 @@ const ArchivePage: React.FC<PageProps<PageData>> = ({ location, data }) => {
       return;
     }
 
-    revealTitleRef.current && scrollReveal?.reveal(revealTitleRef.current, getScrollRevealConfig());
-    revealTableRef.current &&
-      scrollReveal?.reveal(revealTableRef.current, getScrollRevealConfig(200, 0));
+    const reveal = async () => {
+      const scrollReveal = (await import('scrollreveal')).default;
 
-    revealProjectsRef.current.forEach((ref, i) =>
-      scrollReveal?.reveal(ref, getScrollRevealConfig(i * 10))
-    );
+      revealTitleRef.current &&
+        scrollReveal().reveal(revealTitleRef.current, getScrollRevealConfig());
+      revealTableRef.current &&
+        scrollReveal().reveal(revealTableRef.current, getScrollRevealConfig(200, 0));
+      revealProjectsRef.current.forEach((ref, i) =>
+        scrollReveal().reveal(ref, getScrollRevealConfig(i * 10))
+      );
+    };
+
+    void reveal();
   }, [prefersReducedMotion]);
 
   return (
-    <Layout location={location}>
+    <>
+      <Head>
+        <title>Archive</title>
+      </Head>
       <main>
         <header ref={revealTitleRef}>
           <h1 className="big-heading">Archive</h1>
@@ -192,8 +186,9 @@ const ArchivePage: React.FC<PageProps<PageData>> = ({ location, data }) => {
             </thead>
             <tbody>
               {projects.length > 0 &&
-                projects.map(({ node }, i) => {
-                  const { date, github, external, title, tech, company } = node.frontmatter;
+                projects.sort(sortProjectsByDate).map((project, i) => {
+                  const { date, github, external, title, tech, company } = project.frontmatter;
+
                   return (
                     <tr key={i} ref={(el) => (revealProjectsRef.current[i] = el!)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -236,33 +231,20 @@ const ArchivePage: React.FC<PageProps<PageData>> = ({ location, data }) => {
           </table>
         </StyledTableContainer>
       </main>
-    </Layout>
+    </>
   );
 };
 
-export const Head: React.FC = () => <SEO title="Archive" />;
+// export const Head: React.FC = () => <SEO title="Archive" />;
 
-export const pageQuery = graphql`
-  {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date
-            title
-            tech
-            github
-            external
-            company
-          }
-          html
-        }
-      }
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const projects = await getProjects();
+
+  return {
+    props: {
+      projects
     }
-  }
-`;
+  };
+};
 
-export default ArchivePage;
+export default Archive;

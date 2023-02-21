@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import config from '@config';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
-import { getScrollRevealConfig, scrollReveal } from '@utils';
+import config from 'config';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
+import { getScrollRevealConfig } from 'utils';
 
 const StyledContactSection = styled.section`
   max-width: 600px;
@@ -51,7 +51,13 @@ const ContactSection: React.FC = () => {
       return;
     }
 
-    sectionRef.current && scrollReveal?.reveal(sectionRef.current, getScrollRevealConfig());
+    const reveal = async () => {
+      const scrollReveal = (await import('scrollreveal')).default;
+
+      sectionRef.current && scrollReveal().reveal(sectionRef.current, getScrollRevealConfig());
+    };
+
+    void reveal();
   }, [prefersReducedMotion]);
 
   return (

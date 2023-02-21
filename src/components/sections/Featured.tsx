@@ -1,30 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { ImageDataLike } from 'gatsby-plugin-image/dist/src/components/hooks';
+import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote';
 import styled from 'styled-components';
-import { Icon } from '@components/icons';
-import { usePrefersReducedMotion } from '@hooks';
-import { devices } from '@styles';
-import { getScrollRevealConfig, scrollReveal } from '@utils';
+import { Icon } from 'components/icons';
+import { usePrefersReducedMotion } from 'hooks';
+import { devices } from 'styles';
+import { Project } from 'types';
+import { getScrollRevealConfig, sortProjectsByPosition } from 'utils';
 
-type StaticQueryData = {
-  featured: {
-    edges: {
-      node: {
-        frontmatter: {
-          position: number;
-          date: string;
-          title: string;
-          cover: ImageDataLike;
-          github?: string;
-          external?: string;
-          tech: string[];
-        };
-        html: string;
-      };
-    }[];
-  };
+type Props = {
+  projects: Project[];
 };
 
 const StyledProjectsGrid = styled.ul`
@@ -223,7 +208,7 @@ const StyledProject = styled.li`
       width: 100%;
       height: 100%;
       background-color: ${({ theme }) => theme.colors.primary};
-      border-radius: ${({ theme }) => theme.borderRadius};
+      border-radius: ${({ theme }) => `${Number.parseFloat(theme.borderRadius) + 1}px`};
       vertical-align: middle;
 
       &:hover,
@@ -264,8 +249,9 @@ const StyledProject = styled.li`
       filter: grayscale(100%) contrast(1) brightness(50%);
 
       ${devices.tablet} {
-        object-fit: none;
+        object-fit: contain;
         height: auto;
+        width: 100%;
         filter: grayscale(100%) contrast(1) brightness(90%);
       }
     }
@@ -326,34 +312,7 @@ const StyledProject = styled.li`
   }
 `;
 
-const FeaturedSection: React.FC = () => {
-  const data = useStaticQuery<StaticQueryData>(graphql`
-    {
-      featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/projects/featured/" } }
-        sort: { fields: [frontmatter___position], order: ASC }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              cover {
-                childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-                }
-              }
-              tech
-              github
-              external
-            }
-            html
-          }
-        }
-      }
-    }
-  `);
-
-  const featuredProjects = data.featured.edges.filter(({ node }) => node);
+const FeaturedSection: React.FC<Props> = ({ projects }) => {
   const revealTitleRef = useRef<HTMLHeadingElement>(null);
   const revealProjectsRef = useRef<HTMLLIElement[]>([]);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -363,10 +322,17 @@ const FeaturedSection: React.FC = () => {
       return;
     }
 
-    revealTitleRef.current && scrollReveal?.reveal(revealTitleRef.current, getScrollRevealConfig());
-    revealProjectsRef.current.forEach((ref, i) =>
-      scrollReveal?.reveal(ref, getScrollRevealConfig(i * 100))
-    );
+    const reveal = async () => {
+      const scrollReveal = (await import('scrollreveal')).default;
+
+      revealTitleRef.current &&
+        scrollReveal().reveal(revealTitleRef.current, getScrollRevealConfig());
+      revealProjectsRef.current.forEach((ref, i) =>
+        scrollReveal().reveal(ref, getScrollRevealConfig(i * 100))
+      );
+    };
+
+    void reveal();
   }, [prefersReducedMotion]);
 
   return (
@@ -376,71 +342,77 @@ const FeaturedSection: React.FC = () => {
       </h2>
 
       <StyledProjectsGrid>
-        {featuredProjects &&
-          featuredProjects.map(({ node }, i) => {
-            const { frontmatter, html } = node;
-            const { external, title, tech, github, cover } = frontmatter;
-            const image = getImage(cover);
+        {projects.sort(sortProjectsByPosition).map((project, i) => {
+          const { frontmatter, html } = project;
+          const { external, title, tech, github, coverUrl } = frontmatter;
 
-            return (
-              <StyledProject key={i} ref={(el) => (revealProjectsRef.current[i] = el!)}>
-                <div className="project-content">
-                  <div>
-                    <p className="project-overline">Featured Project</p>
+          return (
+            <StyledProject key={i} ref={(el) => (revealProjectsRef.current[i] = el!)}>
+              <div className="project-content">
+                <div>
+                  <p className="project-overline">Featured Project</p>
 
-                    <h3 className="project-title">
-                      <a href={external} target="_blank" rel="noreferrer">
-                        {title}
+                  <h3 className="project-title">
+                    <a href={external} target="_blank" rel="noreferrer">
+                      {title}
+                    </a>
+                  </h3>
+
+                  <div className="project-description">
+                    <MDXRemote {...html} />
+                  </div>
+
+                  {tech.length && (
+                    <ul className="project-tech-list">
+                      {tech.map((tech, i) => (
+                        <li key={i}>{tech}</li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="project-links">
+                    {github && (
+                      <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
+                        <Icon name="github" />
                       </a>
-                    </h3>
-
-                    <div
-                      className="project-description"
-                      // eslint-disable-next-line react/no-danger
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
-
-                    {tech.length && (
-                      <ul className="project-tech-list">
-                        {tech.map((tech, i) => (
-                          <li key={i}>{tech}</li>
-                        ))}
-                      </ul>
                     )}
-
-                    <div className="project-links">
-                      {github && (
-                        <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                          <Icon name="github" />
-                        </a>
-                      )}
-                      {external && (
-                        <a
-                          href={external}
-                          aria-label="External Link"
-                          className="external"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <Icon name="external" />
-                        </a>
-                      )}
-                    </div>
+                    {external && (
+                      <a
+                        href={external}
+                        aria-label="External Link"
+                        className="external"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Icon name="external" />
+                      </a>
+                    )}
                   </div>
                 </div>
+              </div>
 
-                <div className="project-image">
-                  <a
-                    href={external ? external : github ? github : '#'}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {image && <GatsbyImage image={image} alt={title} className="img" />}
-                  </a>
-                </div>
-              </StyledProject>
-            );
-          })}
+              <div className="project-image">
+                <a
+                  href={external ? external : github ? github : '#'}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {coverUrl && (
+                    <Image
+                      src={coverUrl}
+                      alt={title}
+                      className="img"
+                      width="576"
+                      height="360"
+                      quality={95}
+                    />
+                  )}
+                  {/*</div>*/}
+                </a>
+              </div>
+            </StyledProject>
+          );
+        })}
       </StyledProjectsGrid>
     </section>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Side } from '@components';
+import { Side } from 'components';
 
 type Props = {
   email: string;
