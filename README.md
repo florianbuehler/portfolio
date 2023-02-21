@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
-    <a style="text-decoration: none" href="https://www.gatsbyjs.com/" alt="Gatsby">
-        <img src="https://img.shields.io/badge/framework-Gatsby-7026b9" />
+    <a style="text-decoration: none" href="https://nextjs.org/" alt="Next.js">
+        <img src="https://img.shields.io/badge/framework-Next.js-61dbfb" />
     </a>
     <a style="text-decoration: none" href="https://www.typescriptlang.org/" alt="TypeScript">
         <img src="https://img.shields.io/badge/language-TypeScript-3178c6" />
@@ -38,17 +38,11 @@ to install the required packages into the `node_modules` folder.
 
 ## 🔧 Development
 
-Start the development server with hot reload configured with
+tart the development server with hot reload configured with
 ```shell script
-npm run start
+npm run dev
 ```
-or
-```shell script
-npm run develop
-```
-and then navigate to `http://localhost:8000` in your browser to view the latest changes.
-
-**Note**: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use, to experiment with querying your data. If you are interested, you can learn more about it in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
+and then navigate to `http://localhost:3000` in your browser to view the latest changes.
 
 To help ensuring some basic formatting and code quality standards, the project has prettier and eslint configured. That's why you can simply use
 ```shell script
@@ -63,11 +57,11 @@ to let eslint fix it automatically where possible.
 
 ## 💫 Deployment
 
-Build an optimized and production ready version of the website with
+Build an optimized and production ready version of the project with
 ```shell script
 npm run build
 ```
-The production build is located in the *./public* directory and can be served by running
+The production build is located in the *./.next* directory and can be served by running
 ```shell script
-npm run serve
+npm run start
 ```
