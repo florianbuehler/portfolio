@@ -64,7 +64,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: ${({ theme }) => theme.borderRadius};
+    border-radius: ${({ theme }) => `${Number.parseFloat(theme.borderRadius) + 1}px`};
     background-color: ${({ theme }) => theme.colors.primary};
 
     &:hover,
