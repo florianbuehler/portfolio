@@ -40,8 +40,6 @@ const Home: React.FC<Props> = ({ jobs, projects }) => {
   );
 };
 
-// export const Head: React.FC = () => <SEO />;
-
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const jobs = await getJobs();
   const projects = await getProjects();

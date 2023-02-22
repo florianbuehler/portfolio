@@ -165,7 +165,7 @@ const Archive: React.FC<Props> = ({ projects }) => {
   return (
     <>
       <Head>
-        <title>Archive</title>
+        <title>Archive | Florian Bühler</title>
       </Head>
       <main>
         <header ref={revealTitleRef}>
@@ -234,8 +234,6 @@ const Archive: React.FC<Props> = ({ projects }) => {
     </>
   );
 };
-
-// export const Head: React.FC = () => <SEO title="Archive" />;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = await getProjects();

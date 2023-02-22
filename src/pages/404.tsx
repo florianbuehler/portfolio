@@ -49,7 +49,7 @@ const NotFoundPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>404 - Not Found</title>
+        <title>Page Not Found | Florian Bühler</title>
       </Head>
       <StyledNotFound>
         {prefersReducedMotion ? (
@@ -72,7 +72,5 @@ const NotFoundPage: React.FC = () => {
     </>
   );
 };
-
-// export const Head: React.FC = () => <SEO title="404 - Not Found" />;
 
 export default NotFoundPage;
