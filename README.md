@@ -63,5 +63,5 @@ npm run build
 ```
 The production build is located in the *./.next* directory and can be served by running
 ```shell script
-npm run start
+npm run dev
 ```
