@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import devices from './devices';
 import fonts from './fonts';
-import PrismStyles from './PrismStyles';
 import TransitionStyles from './TransitionStyles';
 
 import 'slick-carousel/slick/slick.css';
@@ -237,8 +236,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   img,
-  svg,
-  .gatsby-image-wrapper {
+  svg {
     width: 100%;
     max-width: 100%;
     vertical-align: middle;
@@ -447,13 +445,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .gatsby-image-outer-wrapper {
-    height: 100%;
-  }
-
   ${TransitionStyles};
-
-  ${PrismStyles};
 `;
 
 export default GlobalStyle;
