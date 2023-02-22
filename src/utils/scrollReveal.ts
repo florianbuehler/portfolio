@@ -52,10 +52,3 @@ export const getScrollRevealConfig = (
   viewFactor,
   viewOffset: { top: 0, right: 0, bottom: 0, left: 0 }
 });
-
-// const isSSR = typeof window === 'undefined';
-// const scrollReveal = isSSR ? null : ScrollReveal();
-
-const scrollReveal = () => console.log('test');
-
-export default scrollReveal;

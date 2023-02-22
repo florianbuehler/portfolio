@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Helmet } from 'react-helmet';
 import anime from 'animejs';
 import styled from 'styled-components';
 import { LogoIcon } from 'components/icons';
@@ -94,8 +93,6 @@ const Loader: React.FC<Props> = ({ onLoadingCompleted }) => {
 
   return (
     <StyledLoader className="loader" isMounted={isMounted}>
-      <Helmet bodyAttributes={{ class: `hidden` }} />
-
       <div className="logo-wrapper">
         <LogoIcon />
       </div>
