@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styled, { ThemeProvider } from 'styled-components';
 import { Email, Footer, Header, Loader, Social } from 'components';
@@ -63,7 +64,12 @@ const Layout: React.FC<Props> = ({ children }) => {
       <GlobalStyle />
 
       {isLoading && isHome ? (
-        <Loader onLoadingCompleted={() => setIsLoading(false)} />
+        <>
+          <Head>
+            <title>Florian Bühler</title>
+          </Head>
+          <Loader onLoadingCompleted={() => setIsLoading(false)} />
+        </>
       ) : (
         <StyledContent>
           <Header
