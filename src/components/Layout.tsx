@@ -59,32 +59,30 @@ const Layout: React.FC<Props> = ({ children }) => {
   };
 
   return (
-    <div id="root">
-      <ThemeProvider theme={getTheme(themeName)}>
-        <GlobalStyle />
+    <ThemeProvider theme={getTheme(themeName)}>
+      <GlobalStyle />
 
-        {isLoading && isHome ? (
-          <Loader onLoadingCompleted={() => setIsLoading(false)} />
-        ) : (
-          <StyledContent>
-            <Header
-              navLinks={config.navLinks}
-              delayInSec={isHome ? 2000 : 1000}
-              themeName={themeName}
-              onThemeToggle={handleThemeToggle}
-            />
-            <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 1000} />
-            <Email email={config.email} delayInSec={isHome ? 2000 : 1000} />
-            <div id="content">{children}</div>
-            <Footer
-              socialMedia={config.socialMedia}
-              projectUrl={config.projectUrl}
-              delayInSec={isHome ? 0 : 1500}
-            />
-          </StyledContent>
-        )}
-      </ThemeProvider>
-    </div>
+      {isLoading && isHome ? (
+        <Loader onLoadingCompleted={() => setIsLoading(false)} />
+      ) : (
+        <StyledContent>
+          <Header
+            navLinks={config.navLinks}
+            delayInSec={isHome ? 2000 : 1000}
+            themeName={themeName}
+            onThemeToggle={handleThemeToggle}
+          />
+          <Social socialMedia={config.socialMedia} delayInSec={isHome ? 2000 : 1000} />
+          <Email email={config.email} delayInSec={isHome ? 2000 : 1000} />
+          <div id="content">{children}</div>
+          <Footer
+            socialMedia={config.socialMedia}
+            projectUrl={config.projectUrl}
+            delayInSec={isHome ? 0 : 1500}
+          />
+        </StyledContent>
+      )}
+    </ThemeProvider>
   );
 };
 
