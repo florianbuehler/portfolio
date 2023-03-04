@@ -177,6 +177,7 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
   const revealTitleRef = useRef(null);
   const revealArchiveLinkRef = useRef(null);
   const revealProjectsRef = useRef<HTMLElement[]>([]);
+  const revealShowMoreRef = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -194,6 +195,8 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
       revealProjectsRef.current.forEach((ref, i) =>
         scrollReveal().reveal(ref, getScrollRevealConfig(i * 100))
       );
+      revealShowMoreRef.current &&
+        scrollReveal().reveal(revealShowMoreRef.current, getScrollRevealConfig());
     };
 
     void reveal();
@@ -303,7 +306,11 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
       </ul>
 
       {projectsToInclude.length > GRID_LIMIT && (
-        <button className="more-button" onClick={() => setShowMore(!showMore)}>
+        <button
+          className="more-button"
+          onClick={() => setShowMore(!showMore)}
+          ref={revealShowMoreRef}
+        >
           Show {showMore ? 'Less' : 'More'}
         </button>
       )}
