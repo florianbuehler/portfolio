@@ -7,5 +7,5 @@ location: 'Münster, DE'
 url: 'https://zeb-consulting.com/en-DE/'
 ---
 
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias nemo voluptas.
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias nemo voluptas.
+- Restructured and migrated a VBA prototype for the estimation of financial data to F# to increase the usability and performance, and then made it available as an Excel add-in
+- Migrated calibration procedures of a market prediction model from MATLAB to the functional programming language F#
