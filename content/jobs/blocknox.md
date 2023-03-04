@@ -7,7 +7,7 @@ location: 'Suttgart, DE'
 url: 'https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/blocknox-gmbh/'
 ---
 
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias abc nemo voluptas.
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias abc nemo voluptas.
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias abc nemo voluptas.
+- Design and write modern, performant, maintainable and secure code in an international team for a diverse set of internal dashboards, tools and microservices
+- Work with a variety of different languages, platforms and frameworks such as JavaScript, TypeScript, React, C# and ASP.NET
+- Onboard and train new developers
 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias abc nemo voluptas.
