@@ -10,4 +10,3 @@ url: 'https://www.d-fine.com/en/'
 - Developed, maintained and documented code for different clients in a highly regulated environment
 - Worked closely with a designer and product owners to create a landing page and a coupon platform using TypeScript, React and Gatsby 
 - Created a React component library to ensure a consistent look and feel across different applications
-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo ipsa ipsam molestias nemo voluptas.
