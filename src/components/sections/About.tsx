@@ -153,10 +153,10 @@ const AboutSection: React.FC = () => {
           <div>
             <p>
               Hello! My name is Florian and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2016, when I got so annoyed by manually
+              interest in web development started back in 2016, when I got so annoyed with manually
               collecting financial data for some stock analysis, that I decided to write a small
-              tool to do it for me — turns out hacking together some code to collect data from
-              different webpages taught me quite a bit about HTML, JavaScript &amp; how the web
+              tool that would do it for me — turns out hacking together some code to collect data
+              from different webpages taught me quite a bit about HTML, JavaScript &amp; how the web
               works in general!
             </p>
 
@@ -193,7 +193,7 @@ const AboutSection: React.FC = () => {
               >
                 a start-up
               </a>
-              . These days my main focus is building reliable and highly secure solutions at{' '}
+              . These days my main focus is building reliable and secure solutions at{' '}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
