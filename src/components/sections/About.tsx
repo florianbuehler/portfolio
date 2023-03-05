@@ -197,9 +197,9 @@ const AboutSection: React.FC = () => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/blocknox-gmbh/"
+                href="https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/boerse-stuttgart-digital-ventures/"
               >
-                blocknox
+                Börse Stuttgart Digital Ventures
               </a>{' '}
               for a variety of blockchain related challenges.
             </p>

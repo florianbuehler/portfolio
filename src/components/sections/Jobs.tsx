@@ -86,6 +86,7 @@ const StyledJob = styled.article`
     line-height: 1.3;
 
     .company {
+      white-space: nowrap;
       color: ${({ theme }) => theme.colors.primary};
     }
   }
@@ -142,9 +143,9 @@ const JobsSection: React.FC<Props> = ({ jobs }) => {
           return (
             <StyledJob key={`jobs - ${i}`}>
               <h3>
-                <span>{title}</span>
+                <span>{title} </span>
                 <span className="company">
-                  &nbsp;@&nbsp;
+                  @&nbsp;
                   <a href={url} className="inline-link">
                     {company}
                   </a>

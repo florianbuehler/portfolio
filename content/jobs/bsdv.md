@@ -1,10 +1,10 @@
 ---
 title: 'Senior Full Stack Developer'
-company: 'blocknox'
+company: 'Börse Stuttgart Digital Ventures'
 startDate: '2022-01-01'
 endDate: '2099-12-31'
 location: 'Suttgart, DE'
-url: 'https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/blocknox-gmbh/'
+url: 'https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/boerse-stuttgart-digital-ventures/'
 ---
 
 - Design and write modern, performant, maintainable and secure code in an international team for a diverse set of dashboards, tools and microservices

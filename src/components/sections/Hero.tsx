@@ -69,11 +69,11 @@ const HeroSection: React.FC = () => {
       exceptional digital experiences. Currently, I’m focused on building reliable and highly secure
       applications at{' '}
       <a
-        href="https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/blocknox-gmbh/"
+        href="https://www.boerse-stuttgart.de/en/about-us/company-structure/our-companies/boerse-stuttgart-digital-ventures/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        blocknox
+        Börse Stuttgart Digital Ventures
       </a>
       .
     </p>
