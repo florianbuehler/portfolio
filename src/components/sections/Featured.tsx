@@ -168,7 +168,7 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: ${({ theme }) => theme.typography.colors.highlight};
+    color: ${({ theme }) => theme.typography.colors.icon};
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};

@@ -20,7 +20,7 @@ const StyledThemeToggle = styled.button`
   background: transparent;
   width: 30px;
 
-  color: ${({ theme }) => theme.typography.colors.highlight};
+  color: ${({ theme }) => theme.typography.colors.icon};
   transition: ${({ theme }) => theme.transition};
 
   svg {

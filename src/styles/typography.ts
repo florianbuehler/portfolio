@@ -15,9 +15,11 @@ export type Typography = {
     text: string;
     emphasizedText: string;
     title: string;
+    subTitle: string;
     highlight: string;
     strongHighlight: string;
     selected: string;
+    icon: string;
   };
 
   fontSans: string;
@@ -33,9 +35,11 @@ const typography: Typography = {
     text: colors.slate,
     emphasizedText: colors.lightestSlate,
     title: colors.lightestSlate,
+    subTitle: colors.slate,
     highlight: colors.lightSlate,
     strongHighlight: colors.white,
-    selected: colors.lightestSlate
+    selected: colors.lightestSlate,
+    icon: colors.lightSlate
   },
 
   fontSans:

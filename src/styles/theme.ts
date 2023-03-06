@@ -54,11 +54,13 @@ const lightTheme: Theme = {
     ...typography,
     colors: {
       text: '#475569',
-      emphasizedText: '#334155',
-      title: '#64748b',
-      highlight: '#94a3b8',
+      emphasizedText: '#475569',
+      title: '#334155',
+      subTitle: '#64748b',
+      highlight: '#64748b',
       strongHighlight: '#0f172a',
-      selected: colors.lightestSlate
+      selected: colors.lightestSlate,
+      icon: '#94a3b8'
     }
   },
 

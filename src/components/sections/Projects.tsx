@@ -99,7 +99,7 @@ const StyledProject = styled.li`
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: ${({ theme }) => theme.typography.colors.highlight};
+      color: ${({ theme }) => theme.typography.colors.icon};
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};

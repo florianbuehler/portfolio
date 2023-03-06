@@ -30,7 +30,7 @@ const StyledHeroSection = styled.section`
 
   h3 {
     margin-top: 10px;
-    color: ${({ theme }) => theme.typography.colors.text};
+    color: ${({ theme }) => theme.typography.colors.subTitle};
     line-height: 0.9;
   }
 
