@@ -136,6 +136,17 @@ const StyledTableContainer = styled.div`
   }
 `;
 
+const getBuiltWithDisplayName = (tech: string): string => {
+  switch (tech) {
+    case 'JS':
+      return 'JavaScript';
+    case 'TS':
+      return 'TypeScript';
+    default:
+      return tech;
+  }
+};
+
 const Archive: React.FC<Props> = ({ projects }) => {
   const revealTitleRef = useRef(null);
   const revealTableRef = useRef(null);
@@ -203,7 +214,7 @@ const Archive: React.FC<Props> = ({ projects }) => {
                         {tech?.length > 0 &&
                           tech.map((item, i) => (
                             <span key={i}>
-                              {item}
+                              {getBuiltWithDisplayName(item)}
                               {''}
                               {i !== tech.length - 1 && <span className="separator">&middot;</span>}
                             </span>
