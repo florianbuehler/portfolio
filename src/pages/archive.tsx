@@ -115,7 +115,7 @@ const StyledTableContainer = styled.div`
       }
 
       &.links {
-        min-width: 100px;
+        width: 80px;
         color: ${({ theme }) => theme.typography.colors.highlight};
 
         div {
