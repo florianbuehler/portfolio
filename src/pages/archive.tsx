@@ -225,12 +225,22 @@ const Archive: React.FC<Props> = ({ projects }) => {
                       <td className="links">
                         <div>
                           {external && (
-                            <a href={external} aria-label="External Link">
+                            <a
+                              href={external}
+                              aria-label="External Link"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               <Icon name="external" />
                             </a>
                           )}
                           {github && (
-                            <a href={github} aria-label="GitHub Link">
+                            <a
+                              href={github}
+                              aria-label="GitHub Link"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               <Icon name="github" />
                             </a>
                           )}
