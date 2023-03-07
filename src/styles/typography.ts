@@ -20,6 +20,7 @@ export type Typography = {
     strongHighlight: string;
     selected: string;
     icon: string;
+    iconLight: string;
   };
 
   fontSans: string;
@@ -39,7 +40,8 @@ const typography: Typography = {
     highlight: colors.lightSlate,
     strongHighlight: colors.white,
     selected: colors.lightestSlate,
-    icon: colors.lightSlate
+    icon: colors.lightSlate,
+    iconLight: colors.lightSlate
   },
 
   fontSans:

@@ -47,7 +47,7 @@ const darkTheme: Theme = {
 const lightTheme: Theme = {
   colors: {
     ...colors,
-    primary: '#0DBA92FF'
+    primary: '#0DBA92'
   },
 
   typography: {
@@ -59,8 +59,9 @@ const lightTheme: Theme = {
       subTitle: '#64748b',
       highlight: '#64748b',
       strongHighlight: '#0f172a',
-      selected: colors.lightestSlate,
-      icon: '#94a3b8'
+      selected: '#475569',
+      icon: '#64748b',
+      iconLight: '#94a3b8'
     }
   },
 
@@ -68,8 +69,8 @@ const lightTheme: Theme = {
     base: '#f8fafc',
     header: 'rgba(248, 250, 252, 0.85)',
     darker: '#e2e8f0',
-    highlight: '#f8fafc',
-    selected: colors.lightestNavy
+    highlight: '#f1f5f9',
+    selected: '#e2e8f0'
   },
 
   shadow: 'rgba(203, 213, 225)',

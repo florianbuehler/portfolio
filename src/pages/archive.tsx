@@ -98,6 +98,7 @@ const StyledTableContainer = styled.div`
       }
 
       &.company {
+        min-width: 90px;
         font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
         white-space: nowrap;
       }
@@ -116,7 +117,7 @@ const StyledTableContainer = styled.div`
 
       &.links {
         width: 80px;
-        color: ${({ theme }) => theme.typography.colors.highlight};
+        color: ${({ theme }) => theme.typography.colors.icon};
 
         div {
           display: flex;

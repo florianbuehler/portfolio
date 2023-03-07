@@ -32,7 +32,7 @@ const StyledSocial = styled.ul`
   }
 
   li {
-    color: ${({ theme }) => theme.typography.colors.icon};
+    color: ${({ theme }) => theme.typography.colors.iconLight};
 
     &:last-of-type {
       margin-bottom: 20px;
