@@ -27,10 +27,13 @@ const StyledProject = styled.li`
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
+  background: ${({ theme }) => theme.card.background};
+  border-radius: ${({ theme }) => theme.borderRadius};
   ${({ theme }) => theme.mixins.boxShadow};
 
   ${devices.laptop} {
     box-shadow: none;
+    background: transparent;
 
     &:hover {
       box-shadow: none;
@@ -111,7 +114,7 @@ const StyledProject = styled.li`
     padding: 20px 0;
     border-radius: ${({ theme }) => theme.borderRadius};
     background-color: transparent;
-    color: ${({ theme }) => theme.typography.colors.emphasizedText};
+    color: ${({ theme }) => theme.card.text};
     font-size: ${({ theme }) => theme.typography.fontSizes.textLg};
     box-shadow: none;
 
@@ -120,9 +123,9 @@ const StyledProject = styled.li`
     }
 
     ${devices.tablet} {
-      background-color: ${({ theme }) => theme.bg.highlight};
+      background-color: ${({ theme }) => theme.card.background};
       padding: 25px;
-      ${({ theme }) => theme.mixins.boxShadow};
+      ${({ theme }) => theme.mixins.boxShadowCard};
     }
 
     a {
@@ -130,7 +133,7 @@ const StyledProject = styled.li`
     }
 
     strong {
-      color: ${({ theme }) => theme.typography.colors.strongHighlight};
+      color: ${({ theme }) => theme.card.highlight};
       font-weight: normal;
     }
   }
@@ -146,7 +149,7 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 10px 5px 0;
-      color: ${({ theme }) => theme.typography.colors.text};
+      color: ${({ theme }) => theme.card.info};
       font-family: ${({ theme }) => theme.typography.fontMono};
       font-size: ${({ theme }) => theme.typography.fontSizes.textXs};
       white-space: nowrap;
@@ -168,7 +171,11 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: ${({ theme }) => theme.typography.colors.icon};
+    color: ${({ theme }) => theme.card.icon};
+
+    ${devices.tablet} {
+      color: ${({ theme }) => theme.typography.colors.icon};
+    }
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -236,6 +243,7 @@ const StyledProject = styled.li`
         transition: ${({ theme }) => theme.transition};
         background-color: #0f172a;
         mix-blend-mode: screen;
+        border-radius: ${({ theme }) => theme.borderRadius};
       }
     }
 

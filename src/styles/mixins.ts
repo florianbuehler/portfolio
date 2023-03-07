@@ -15,6 +15,7 @@ export type Mixins = {
   smallButton: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   bigButton: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   boxShadow: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  boxShadowCard: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   fancyList: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   resetList: FlattenSimpleInterpolation;
 };
@@ -159,6 +160,16 @@ const mixins: Mixins = {
     &:hover,
     &:focus {
       box-shadow: ${({ theme }) => `0 20px 30px -15px ${theme.shadow}`};
+    }
+  `,
+
+  boxShadowCard: css`
+    box-shadow: ${({ theme }) => `0 10px 30px -15px ${theme.card.shadow}`};
+    transition: ${({ theme }) => theme.transition};
+
+    &:hover,
+    &:focus {
+      box-shadow: ${({ theme }) => `0 20px 30px -15px ${theme.card.shadow}`};
     }
   `,
 

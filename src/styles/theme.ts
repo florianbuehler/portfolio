@@ -16,6 +16,16 @@ export type Theme = {
     selected: string;
   };
 
+  card: {
+    title: string;
+    text: string;
+    highlight: string;
+    info: string;
+    icon: string;
+    background: string;
+    shadow: string;
+  };
+
   shadow: string;
   borderRadius: string;
   transition: string;
@@ -36,6 +46,16 @@ const darkTheme: Theme = {
     selected: colors.lightestNavy
   },
 
+  card: {
+    title: colors.lightestSlate,
+    text: colors.lightestSlate,
+    highlight: colors.white,
+    info: colors.slate,
+    icon: colors.lightSlate,
+    background: colors.lightNavy,
+    shadow: colors.darkNavyTint
+  },
+
   shadow: colors.darkNavyTint,
   borderRadius: '4px',
   transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
@@ -47,7 +67,8 @@ const darkTheme: Theme = {
 const lightTheme: Theme = {
   colors: {
     ...colors,
-    primary: '#0DBA92'
+    primary: '#0DBA92',
+    primaryTint: 'rgba(13, 186, 146, 0.1)'
   },
 
   typography: {
@@ -71,6 +92,16 @@ const lightTheme: Theme = {
     darker: '#e2e8f0',
     highlight: '#f1f5f9',
     selected: '#e2e8f0'
+  },
+
+  card: {
+    title: colors.lightestSlate,
+    text: colors.lightestSlate,
+    highlight: colors.white,
+    info: colors.slate,
+    icon: '#94a3b8',
+    background: colors.lightNavy,
+    shadow: colors.darkNavyTint
   },
 
   shadow: 'rgba(203, 213, 225)',

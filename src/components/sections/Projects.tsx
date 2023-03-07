@@ -70,7 +70,7 @@ const StyledProject = styled.li`
   }
 
   .project-inner {
-    ${({ theme }) => theme.mixins.boxShadow};
+    ${({ theme }) => theme.mixins.boxShadowCard};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
     align-items: flex-start;
@@ -78,7 +78,7 @@ const StyledProject = styled.li`
     height: 100%;
     padding: 2rem 1.75rem;
     border-radius: ${({ theme }) => theme.borderRadius};
-    background-color: ${({ theme }) => theme.bg.highlight};
+    background-color: ${({ theme }) => theme.card.background};
     transition: ${({ theme }) => theme.transition};
     overflow: auto;
   }
@@ -99,7 +99,7 @@ const StyledProject = styled.li`
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: ${({ theme }) => theme.typography.colors.icon};
+      color: ${({ theme }) => theme.card.icon};
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};
@@ -123,7 +123,7 @@ const StyledProject = styled.li`
 
   .project-title {
     margin: 0 0 10px;
-    color: ${({ theme }) => theme.typography.colors.title};
+    color: ${({ theme }) => theme.card.title};
     font-size: ${({ theme }) => theme.typography.fontSizes.text2Xl};
 
     a {
@@ -143,7 +143,7 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    color: ${({ theme }) => theme.typography.colors.emphasizedText};
+    color: ${({ theme }) => theme.card.text};
     font-size: 17px;
 
     a {
@@ -161,6 +161,7 @@ const StyledProject = styled.li`
     list-style: none;
 
     li {
+      color: ${({ theme }) => theme.card.info};
       font-family: ${({ theme }) => theme.typography.fontMono};
       font-size: ${({ theme }) => theme.typography.fontSizes.text2Xs};
       line-height: 1.75;
