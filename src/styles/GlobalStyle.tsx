@@ -1,14 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import devices from './devices';
-import fonts from './fonts';
 import TransitionStyles from './TransitionStyles';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const GlobalStyle = createGlobalStyle`
-  ${fonts}
-  
   html {
     box-sizing: border-box;
     width: 100%;

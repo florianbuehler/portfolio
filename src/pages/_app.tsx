@@ -2,6 +2,8 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import { Layout } from '../components';
 
+import 'styles/index.css';
+
 const Portfolio: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <Layout>
