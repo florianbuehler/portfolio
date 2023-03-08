@@ -37,6 +37,7 @@ const StyledHeroSection = styled.section`
   p {
     margin: 20px 0 0;
     max-width: 700px;
+    color: ${({ theme }) => theme.typography.colors.text};
   }
 
   .action-link {
